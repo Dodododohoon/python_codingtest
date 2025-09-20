@@ -1,0 +1,46 @@
+📌 코딩테스트 입력 패턴 5종 세트
+1. 정수 1개 입력
+👉 그냥 int(input())
+n = int(input())
+2. 한 줄에 여러 개 정수 입력
+👉 map + split
+a, b = map(int, input().split())   # 2개
+nums = list(map(int, input().split()))  # 여러 개
+3. 여러 줄 입력 (n줄 반복)
+👉 리스트 컴프리헨션
+n = int(input())
+nums = [int(input()) for _ in range(n)]
+4. 문자열 입력
+👉 그대로 input() 받거나, 리스트로 쪼개기
+s = input()              # 문자열 그대로
+chars = list(input())    # 한 글자씩 리스트
+n = int(input())
+digits = list(map(int, input()))  # "12345" → [1,2,3,4,5]
+5. 빠른 입력 (sys.stdin.readline)
+👉 입력이 많을 때 필수 (특히 N ≤ 100,000 이상)
+import sys
+n = int(sys.stdin.readline())
+nums = list(map(int, sys.stdin.readline().split()))
+특징:input()보다 빠름
+줄 끝의 개행 문자(\n)가 따라오기 때문에 rstrip() 자주 같이 씀
+s = sys.stdin.readline().rstrip()
+
+📊 정리 표
+
+상황	패턴	예시 문제
+정수 1개	n = int(input())	10871
+한 줄 여러 개	list(map(int, input().split()))	10818
+여러 줄 입력	[int(input()) for _ in range(n)]	2562
+문자열 입력	list(input()) / map(int, input())	11720
+빠른 입력	sys.stdin.readline().split()	15552 (빠른 A+B)
+
+✅ 팁:
+
+N이 10만 이상이면 무조건 sys.stdin.readline 고려
+여러 줄 입력은 [int(input()) for _ in range(n)] 패턴이 정석
+한 줄 다수 입력은 list(map(int, input().split())) 패턴이 정석
+
+====================
+output
+
+print(*li) - * : 언패킹 연산자 - 리스트를 풀어서 각 원소를 개별 인수로 전달.
