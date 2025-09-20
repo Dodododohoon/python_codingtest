@@ -90,9 +90,41 @@
 #print(*li)
 
 #5597
+#li=list(range(1,31))  # li = set(range(1,31))을 쓰면 O(n) ->O(1)로 줄어듬
+
+#for i in range(28):
+#    n = int(input())        #li.remove(int(input())) 가능
+#    li.remove(n)
+#                                       #set 쓸꺼면 여기서 sort한번 해줘야함. set은 뒤죽박죽
+#print(li[0])
+#print(li[1])
 
 #3052
+#s1 = set()
+#for i in range(10):
+#    s1.add(int(input())%42)
+#print(len(s1))
+#print(len({int(input()) % 42 for _ in range(10)})) 한줄 풀이도 있네,,, 여윽시 파이썬
 
-#10811
+#10811                #list[i:j]는 i부터 j-1까지.
+#n, m = map(int, input().split())
+#li = list(range(1,n+1))
+
+#for _ in range (m):
+#    i, j = map(int, input().split())
+#    if (i ==1):                                    #li [i-1:j] = li[i-1:j][::-1] <- 이렇게 하면 훠얼씬 수월
+#        li[i-1:j] = li[j-1::-1]
+#    else:
+#        li[i-1:j] = li[j-1:i-2:-1]
+#print(*li)
 
 #1546
+#import sys
+#n = int(sys.stdin.readline())
+#score = list(map(int, sys.stdin.readline().split()))
+#n_score = [0] * len(score)
+
+#for i in range (len(score)):                   #n_score=[s/max*100 for s in score] 이렇게 한줄로 가능.
+#    n_score[i] = score[i]/max(score)*100
+
+#print(sum(n_score)/len(n_score))
