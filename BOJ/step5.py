@@ -20,3 +20,7 @@ print(len(li))
 #2908
 #5622
 #11718
+import sys
+
+for line in sys.stdin:
+    print(line, end='')
