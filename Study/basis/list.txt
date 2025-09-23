@@ -3,7 +3,7 @@
 a = [1, 2, 3, 4]
 a = [0] *5 # [0,0,0,0,0]
 a = list(range(1, n+1))        #range(1, n+1) : 정수를 차례로 만들어내는 이터러블.
-                                                #list(range(1,n+1)) 리스트 만들면서 차례로 정수 입력
+                                #list(range(1,n+1)) 리스트 만들면서 차례로 정수 입력
 2. 빈 리스트
 a = []
 3. 리스트에 원소 추가
@@ -40,6 +40,7 @@ for x in a:
 추가/삭제 : append, pop, remove
 탐색/카운트 : index, count
 정렬/뒤집기 : sort, sorted, reverse
+대소문자 : lower, upper
 기타 : len, sum, max, min, in
 
 1. 원소 추가 / 삭제
