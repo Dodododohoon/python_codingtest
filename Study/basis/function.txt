@@ -1,0 +1,83 @@
+📌 파이썬 함수 정리
+1. 함수 기본
+정의: def 함수이름(매개변수):
+호출: 함수이름(인자)
+반환: return 값
+def add(a, b):
+    return a + b
+print(add(3, 5))  # 8
+
+2. 매개변수와 인자
+- 위치 인자(positional arguments)
+순서대로 값 전달
+def greet(name, age):
+    print(f"{name}은 {age}살")
+greet("철수", 20)
+- 기본값(default arguments)
+인자가 없을 때 기본값 사용
+def greet(name, age=18):
+    print(f"{name}은 {age}살")
+greet("영희")  # age=18
+- 키워드 인자(keyword arguments)
+순서 상관없이 이름으로 전달
+greet(age=25, name="민수")
+- 가변 인자
+*args: 여러 개의 값(튜플)
+**kwargs: 여러 개의 키워드 인자(딕트)
+def func(*args, **kwargs):
+    print(args)    # (1, 2, 3)
+    print(kwargs)  # {'a': 10, 'b': 20}
+func(1, 2, 3, a=10, b=20)
+
+3. 반환(Return)
+함수는 기본적으로 None 반환
+여러 값을 return하면 튜플로 반환
+def calc(a, b):
+    return a+b, a-b
+s, d = calc(5, 3)  # (8, 2)
+
+4. 변수 범위(Scope)
+지역 변수(local): 함수 안에서만 사용
+전역 변수(global): 함수 밖에서 선언된 변수
+global 키워드로 함수 안에서 전역 변수 수정 가능 (하지만 지양하는 게 좋음)
+x = 10
+def f():
+    global x
+    x += 1
+
+5. 람다(lambda) 함수
+간단한 함수를 한 줄로 표현
+add = lambda a, b: a + b
+print(add(2, 3))  # 5
+자주 쓰이는 곳: map, filter, sorted의 key 인자
+
+6. 내장 함수 활용
+map(func, iterable) : 각 요소에 함수 적용
+filter(func, iterable) : 조건 통과한 요소만
+zip(*iterables) : 여러 시퀀스를 묶음
+sorted(iterable, key=..., reverse=...) : 정렬 시 함수 지정
+nums = [1, 2, 3, 4, 5]
+print(list(map(lambda x: x**2, nums)))        # [1,4,9,16,25]
+print(list(filter(lambda x: x%2==0, nums)))   # [2,4]
+
+7. 함수는 객체
+변수에 담을 수 있고, 다른 함수 인자로 전달 가능
+def square(x): return x*x
+def apply(func, value): return func(value)
+print(apply(square, 5))  # 25
+
+8. 유용한 패턴
+재귀 함수 (자기 자신 호출)
+def factorial(n):
+    return 1 if n==0 else n*factorial(n-1)
+일급 객체로 활용
+funcs = [abs, int, float]
+for f in funcs:
+    print(f("3"))
+내부 함수 & 클로저
+def outer(x):
+    def inner(y):
+        return x + y
+    return inner
+adder5 = outer(5)
+print(adder5(3))  # 8
