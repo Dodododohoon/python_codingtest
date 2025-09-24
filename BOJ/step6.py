@@ -107,9 +107,39 @@
 #         ans+=1
 # print(ans)
 
-# 25206
-import sys
+# 25206         딕셔너리알면 편한 문제.
+# import sys
+# def invert(s) -> float:
+#     if s == "A+":
+#         return 4.5
+#     if s == "A0":
+#         return 4.0
+#     if s == "B+":
+#         return 3.5
+#     if s == "B0":
+#         return 3.0
+#     if s == "C+":
+#         return 2.5
+#     if s == "C0":
+#         return 2.0
+#     if s == "D+":
+#         return 1.5
+#     if s == "D0":
+#         return 1.0
+#     if s == "F":
+#         return 0
+#     if s == "P":
+#         return -1
 
+# score = []
+# num = 0
 
-def lecture(s: str):
-    li = s.split()
+# for _ in range(20):
+#     li = sys.stdin.readline().split()
+#     inv = invert(li[2])
+#     if inv == -1:
+#         continue
+#     num += float(li[1])
+#     score.append(float(li[1]) * float(inv))
+
+# print(sum(score) / num)
