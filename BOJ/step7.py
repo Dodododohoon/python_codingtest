@@ -29,22 +29,23 @@
 #    print()
 
 # 2566
-import sys
+#import sys
 
-li = [list(map(int, sys.stdin.readline().split())) for _ in range(2)]
-li_max = []
-#num_max=0
-idx_1=0
-idx_2=0
-for i in range(2):
-    li_max.append(max(li[i]))
+#li = [list(map(int, sys.stdin.readline().split())) for _ in range(9)]
+#li_max = []
+#idx_1=0
+#idx_2=0
 
-num_max = max(li_max)
-idx_1=li_max.index(max(li_max))
-idx_2=li[idx_1].index(max(li_max))
+#for i in range(9):
+#    li_max.append(max(li[i]))
+
+#idx_1=li_max.index(max(li_max))
+#idx_2=li[idx_1].index(max(li_max))
+
+#print(max(li_max))
+#print(idx_1 + 1, idx_2 + 1)    
 
 
-    
 
 # 10798
 
