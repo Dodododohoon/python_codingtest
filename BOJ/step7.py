@@ -18,17 +18,33 @@
 #     for j in range(m):
 #         print(li_sum[i][j], end=" ")
 #     print()
-n, m = map(int, input().split())
+#n, m = map(int, input().split())
 
-A = [list(map(int, input().split())) for _ in range(n)]
-B = [list(map(int, input().split())) for _ in range(n)]
+#A = [list(map(int, input().split())) for _ in range(n)]
+#B = [list(map(int, input().split())) for _ in range(n)]
 
-for i in range(n):
-    for j in range(m):
-        print(A[i][j] + B[i][j], end=" ")
-    print()
+#for i in range(n):
+#    for j in range(m):
+#        print(A[i][j] + B[i][j], end=" ")
+#    print()
 
 # 2566
+import sys
+
+li = [list(map(int, sys.stdin.readline().split())) for _ in range(2)]
+li_max = []
+#num_max=0
+idx_1=0
+idx_2=0
+for i in range(2):
+    li_max.append(max(li[i]))
+
+num_max = max(li_max)
+idx_1=li_max.index(max(li_max))
+idx_2=li[idx_1].index(max(li_max))
+
+
+    
 
 # 10798
 
