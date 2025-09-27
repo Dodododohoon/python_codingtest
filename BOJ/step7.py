@@ -45,8 +45,47 @@
 #print(max(li_max))
 #print(idx_1 + 1, idx_2 + 1)    
 
-
-
 # 10798
+#import sys
 
+#li=[sys.stdin.readline().strip() for _ in range (5)]
+
+#for i in range(15):
+#    for j in range(5):
+#        try:
+#            print(li[j][i], end='')        out.append(li[j][i]) -> print('', join(out))
+#        except IndexError:
+#            continue
+
+# max_len = max(len(s) for s in li) -> li행의 최대길이를 구할 수 있음.
+
+                                    
 # 2563
+#n = int(input())                    브루트포스
+
+#li=[[0]*100 for _ in range(100)]
+
+#for i in range(n):
+#    x, y = map(int, input().split())
+#    for k in range(x, x+10):
+#        for m in range(y, y+10):
+#            li[k][m] = 1
+
+#count=0
+#for i in range(100):
+#    for j in range(100):
+#        if li[i][j]==1:
+#            count+=1
+
+#print(count)
+
+#n= int(input())                set
+#covered  =set()
+
+#for i in range(n):
+#    x, y = map(int, input().split())
+#    for k in range(x, x+10):
+#        for m in range(y, y+10):
+#            covered.add((k, m))
+#            
+#print(len(covered))
