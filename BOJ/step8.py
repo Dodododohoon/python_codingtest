@@ -90,4 +90,23 @@
 #    print(f"{k-num+1}/{num}")
 
 #2869
+import sys
 
+a, b, v = map(int, sys.stdin.readline().split())
+#day=0
+#total =0
+day = (v-a)/(a-b)
+num = (v-a)%(a-b)
+
+if day ==0:
+    print('1')
+elif(num==0):
+    print(int(day) +1)
+else:    
+    day = int(day) +1
+    print(day+1)
+
+#while(v>total):
+#    day +=1
+#    total = a*day - b*day + a
+#print(day+1)
