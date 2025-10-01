@@ -8,3 +8,16 @@ A35BC -> 3,5는 숫자로 인식함. c in li, '0' < c <'9' 가능
 - 소수 판별
 x = a x b일때 최소 하나는 √x이하. (x = √x x √x 가 최대니깐)
 So. 2 ~ √x까지만 돌려보면 됨. (O(√x))
+
+def is_prime(n: int) -> bool:
+    if n < 2:
+        return False
+    if n in (2, 3):
+        return True
+    if n % 2 == 0:
+        return False
+    for i in range(3, int(n**0.5) + 1, 2):
+        if n % i == 0:
+            return False
+    return True
+소수 판별 함수.

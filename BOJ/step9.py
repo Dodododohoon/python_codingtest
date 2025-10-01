@@ -67,33 +67,57 @@
 # print(cnt)
 
 # 2581
-import sys
+# import sys
+
+# def is_prime(n: int) -> bool:
+#     if n < 2:
+#         return False
+#     if n in (2, 3):
+#         return True
+#     if n % 2 == 0:
+#         return False
+#     for i in range(3, int(n**0.5) + 1, 2):
+#         if n % i == 0:
+#             return False
+#     return True
+
+# m = int(sys.stdin.readline())
+# k = int(sys.stdin.readline())
+# li = []
+
+# for i in range(m, k + 1):
+#     if is_prime(i):
+#         li.append(i)
+# if len(li) >= 1:
+#     print(sum(li))
+#     print(li[0])
+# else:
+#     print("-1")
+
+# 11653
+n = int(input())
 
 
-def is_prime(n: int) -> bool:
-    if n < 2:
+def is_prime(k: int) -> bool:
+    if k < 2:
         return False
-    if n in (2, 3):
+    if k in (2, 3):
         return True
-    if n % 2 == 0:
+    if k % 2 == 0:
         return False
-    for i in range(3, int(n**0.5) + 1, 2):
-        if n % i == 0:
+    for i in range(3, int(k**0.5) + 1, 2):
+        if k % i == 0:
             return False
     return True
 
 
-m = int(sys.stdin.readline())
-k = int(sys.stdin.readline())
-li = []
+if n == 1:
+    exit()
 
-for i in range(m, k + 1):
-    if is_prime(i):
-        li.append(i)
-if len(li) > 1:
-    print(sum(li))
-    print(li[0])
-else:
-    print("-1")
-
-# 11653
+while is_prime(n) == False:
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            print(i)
+            n = n // i
+            break
+print(n)
