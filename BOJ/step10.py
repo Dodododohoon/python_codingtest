@@ -81,6 +81,30 @@
 
 
 # 5073
+#import sys
 
+#while True:
+#    li = list(map(int, sys.stdin.readline().split()))
+#    
+#    li.sort()
+#    if li[0] ==0:
+#        break
+#    
+#    if li[2] >= li[0] + li[1]:
+#        print('Invalid')
+#    elif li[2] == li[0]:
+#        print('Equilateral')
+#    elif li[2] == li[1] or li[1] == li[0]:
+#        print('Isosceles')
+#    else:
+#        print('Scalene')
 
 # 14215
+#li = list(map(int, input().split()))
+#li.sort()
+
+#while( li[2]>= li[0] + li[1]):
+#    li[2] -=1
+
+#print(sum(li))
+
