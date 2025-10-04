@@ -21,3 +21,11 @@ def is_prime(n: int) -> bool:
             return False
     return True
 소수 판별 함수.
+
+- 자리수 뽑아내기 (list)
+한두개는 %10 해서 뽑아내면 되는데 자리 수 커지면 골아픔.
+digit = list(map(int, number)) --> 자리수 하나하나 리스트로 바뀜.
+
+- for문 최소값 (max)
+for _ range (a,b) 여기에 a에 max(m,n)가능.
+for _ range (max(m,n), b) 이렇게 가능.
