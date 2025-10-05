@@ -80,7 +80,7 @@ a.count(1)       # 2
 a = [3, 1, 2]
 a.sort()         # [1, 2, 3]
 정렬된 상태로 리스트 유지됨.
-a.sort(reverse=True)  # [3, 2, 1]
+a.sort(reverse=True)  # [3, 2, 1] (역순 정렬)
 - sorted(list) : 정렬된 새로운 리스트 반환 (원본 유지)
 a = [3, 1, 2]
 b = sorted(a)    # b = [1, 2, 3], a는 그대로 [3, 1, 2]
