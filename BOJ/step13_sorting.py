@@ -92,7 +92,21 @@
 # for i in range(n):
 #     print(li[i][1], li[i][0])
 
-# 1181
+# 1181 - 중복처리 해야함.
+import sys
+
+n = int(sys.stdin.readline())
+li = []
+
+for i in range(n):
+    a = sys.stdin.readline().strip()
+    len_a = len(a)
+    li.append([len_a, a])
+
+li.sort()
+
+for i in range(n):
+    print(li[i][1])
 
 
 # 10814
