@@ -103,9 +103,10 @@ for i in range(n):
     len_a = len(a)
     li.append([len_a, a])
 
+li = list(set(li))
 li.sort()
 
-for i in range(n):
+for i in range(len(li)):
     print(li[i][1])
 
 
