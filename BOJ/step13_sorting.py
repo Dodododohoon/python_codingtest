@@ -93,23 +93,56 @@
 #     print(li[i][1], li[i][0])
 
 # 1181 - 중복처리 해야함.
-import sys
+#import sys
 
-n = int(sys.stdin.readline())
-li = []
+#n = int(sys.stdin.readline())
+#s = set()
+#li = []
 
-for i in range(n):
-    a = sys.stdin.readline().strip()
-    len_a = len(a)
-    li.append([len_a, a])
+#for i in range(n):
+#    a = sys.stdin.readline().strip()
+#    len_a = len(a)
+#    s.add((len_a,a))
 
-li = list(set(li))
-li.sort()
+#li = list(s)
+#li.sort()
 
-for i in range(len(li)):
-    print(li[i][1])
+#for i in range(len(li)):
+#    print(li[i][1])
 
+#막 그렇게 어렵진 않았는데, set, list, tuple, dictionary 이것들 좀 여러가지 써봐야겠다.
 
 # 10814
+#import sys
+
+#n = int(sys.stdin.readline())
+#li=[]
+
+#for i in range(n):
+#    a = sys.stdin.readline().split()
+#    li.append([int(a[0]),i,a[1]])
+
+#li.sort()
+
+#for i in range(n):
+#    print(li[i][0], li[i][2])
+
+# lambda쓰면 따로 인덱스 안 먹여도 된대 다음엔 람다도 한번 써보자.
 
 # 18870
+#import sys
+
+#n = int(sys.stdin.readline())
+#li = list(map(int, sys.stdin.readline().split()))
+
+#li_s=list(set(li))
+#li_s.sort()
+
+#dic=dict()
+#for i in range(len(li_s)):
+#    dic[li_s[i]] = i
+
+#for x in li:
+#    print(dic[x], end=' ')
+
+#딕셔너리 거의 처음 써본 듯. 적응할 필요 있을 거 같은데.
