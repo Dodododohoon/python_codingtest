@@ -146,3 +146,6 @@
 #    print(dic[x], end=' ')
 
 #딕셔너리 거의 처음 써본 듯. 적응할 필요 있을 거 같은데.
+
+#sorting : list, set, tuple, dict 잘 가지고 놀줄 알아야 할 거 같다.
+#enumerate, join, lambda, 컴프리핸션 등등 빠삭하게 이해 필요하다.
