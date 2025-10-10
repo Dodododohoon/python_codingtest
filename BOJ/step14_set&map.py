@@ -55,34 +55,94 @@
 # join문에서 map() 생략가능. 문자열이니께
 
 # 1620
-import sys
+#import sys
 
-n, m = map(int, sys.stdin.readline().split())
-dic_n = dict()
-dic_k = dict()
+#n, m = map(int, sys.stdin.readline().split())
+#dic_n = dict()
+#dic_k = dict()
 
-for i in range(1, n + 1):
-    a = sys.stdin.readline().strip()
-    dic_k[i] = a
-    dic_n[a] = i
+#for i in range(1, n + 1):
+#    a = sys.stdin.readline().strip()
+#    dic_k[i] = a
+#    dic_n[a] = i
 
-for i in range(m):
-    check = sys.stdin.readline().strip()
+#for i in range(m):
+#    check = sys.stdin.readline().strip()
 
-    try:
-        if int(check):
-            print(dic_k.get(int(check)))
-    except ValueError:
-        print(dic_n.get(check))
-
+#    try:
+#        if int(check):
+#            print(dic_k.get(int(check)))
+#    except ValueError:
+#        print(dic_n.get(check))
 
 # 10816
+#import sys
+#input = sys.stdin.readline
 
+#n= int(input())
+#li = map(int, input().split())
+#dic = dict()
+
+#for x in li:
+#    if x in dic:
+#        dic[x]+=1
+#    else:
+#        dic[x]=1
+
+#m=int(input())
+#li=map(int, input().split())
+
+#for x in li:
+#    if x in dic:
+#        print(dic.get(x),end=' ')
+#    else:
+#        print('0', end=' ')
+    
+#딕셔너리 입력할때 dic[x] = dic.get(x,0) +1 하면 없으면 디폴트 0 입력후 +1 있으면 값에서 +1 가능. 훨씬 간편
+#마찬가지로 출력도. print(' '.join(str(dic.get(x,0))) for x in li)
 
 # 1764
+#import sys
+#input  = sys.stdin.readline
 
+#n,m = map(int, input().split())
+#dic = {}
+
+#for i in range(n+m):
+#    a = input().strip()
+#    dic[a]=dic.get(a, 0) +1
+
+#cnt=0
+#li=[]
+#for x in dic:
+#    if dic[x]==2:
+#        cnt+=1
+#        li.append(x)
+
+#li.sort()
+#print(cnt)
+#print('\n'.join(li))
+
+#set 교집합(&)으로도 풀린다.
 
 # 1269
+#import sys
+#input  = sys.stdin.readline
 
+#n, m = map(int, input().split())
+#a = set(map(int,input().split()))
+#b = set(map(int, input().split()))
+#c = a^b
+
+#print(len(c))
 
 # 11478
+#word = input()
+#n = len(word)
+#s=set()
+
+#for i in range(0, n):
+#    for j in range(n-i):
+#        s.add(word[j:j+i+1])
+
+#print(len(s))
