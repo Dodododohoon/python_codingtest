@@ -29,3 +29,8 @@ digit = list(map(int, str(number))) --> 자리수 하나하나 리스트로 바�
 - for문 최소값 (max)
 for _ range (a,b) 여기에 a에 max(m,n)가능.
 for _ range (max(m,n), b) 이렇게 가능.
+
+- 최대 공약수, 최소 공배수
+GCD(Greatest Common Divisor) : a, b = b, a%b (while b) => return a
+LCM(Least Common Multiple) : a*b // gcd(a,b)
+GCD * LCM =a * b
