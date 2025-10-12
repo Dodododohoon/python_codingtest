@@ -9,6 +9,7 @@ chr('65') # 'A' : 아스키 코드 -> 문자
 try:
 except Error:
 
+  error 종류
 IndexError - 리스트, 튜플 등에서 잘못된 인덱스를 참조했을 때 발생   ex) li = [1, 2, 3] print(li[5])
 ValueError - 자료형 변환 등에 잘못된 값이 들어왔을 때 발생    ex)int("abc")
 TypeError - 자료형이 맞지 않거나 연산 불가능할 때 발생   ex) "3" + 3   # TypeError (str + int 불가능)
