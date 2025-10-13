@@ -42,40 +42,55 @@
 # print(c1//k, c2//k)
 
 # 2485
+# import sys
+
+# input = sys.stdin.readline
+
+
+# def gcd(a, b):
+#     while b:
+#         a, b = b, a % b
+#     return a
+
+
+# n = int(input())
+# trees = [int(input()) for _ in range(n)]
+
+# g = 0
+# for i in range(1, n):
+#     g = gcd(g, trees[i] - trees[i - 1])
+
+# total = (trees[-1] - trees[0]) // g + 1  # 등차수열 항 개수
+# print(total - n)
+
+# 원리는 이해했는데, 계속 꼬여서 안풀리더라 그래서 걍 gpt로 품.. 담에 풀면 무조건 맞을 듯.
+
+# 4134
 import sys
-
-
-def gcd(a, b):
-    while b:
-        a, b = b, a % b
-    return a
-
 
 input = sys.stdin.readline
 
+
+def is_prime(x):
+    if x < 2:
+        return False
+    elif x in (2, 3):
+        return True
+    elif x % 2 == 0:
+        return False
+    else:
+        for i in range(3, int(x ** (0.5)), 2):
+            if x % i == 0:
+                return False
+        return True
+
+
 n = int(input())
-a = int(input())
-s1 = set()
-s1.add(a)
-gap = 1000000000
-
-for _ in range(n - 1):
-    b = int(input())
-    s1.add(b)
-    k = b - a
-    g = gcd(k, gap)
-    if gap > k:
-        gap = g
-
-total_tree = (b - a) // gap + 1
-add_tree = total_tree - len(s1)
-
-print(gap)
-print(total_tree)
-print(add_tree)
-
-
-# 4134
+for _ in range(n):
+    num = int(input())
+    while is_prime(num) == False:
+        num += 1
+    print(num)
 
 
 # 1929
