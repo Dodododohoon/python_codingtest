@@ -66,32 +66,32 @@
 # 원리는 이해했는데, 계속 꼬여서 안풀리더라 그래서 걍 gpt로 품.. 담에 풀면 무조건 맞을 듯.
 
 # 4134
-import sys
+# import sys
+# input = sys.stdin.readline
 
-input = sys.stdin.readline
-
-
-def is_prime(x):
-    if x < 2:
-        return False
-    elif x in (2, 3):
-        return True
-    elif x % 2 == 0:
-        return False
-    else:
-        for i in range(3, int(x ** (0.5)), 2):
-            if x % i == 0:
-                return False
-        return True
+# def is_prime(x):
+#     if x < 2:
+#         return False
+#     elif x in (2, 3):
+#         return True
+#     elif x % 2 == 0:
+#         return False
+#     else:
+#         for i in range(3, int(x ** (0.5))+1, 2):
+#             if x % i == 0:
+#                 return False
+#         return True
 
 
-n = int(input())
-for _ in range(n):
-    num = int(input())
-    while is_prime(num) == False:
-        num += 1
-    print(num)
+# n = int(input())
+# for _ in range(n):
+#     num = int(input())
+#     while is_prime(num) == False:
+#         num += 1
+#     print(num)
 
+# while not xxx 쓸 수 있네
+# 처음에 is_prime 함수에서 x**0.5하고 +1을 안 넣어줘서 틀렸었음.
 
 # 1929
 
