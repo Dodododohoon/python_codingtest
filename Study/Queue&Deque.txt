@@ -24,6 +24,8 @@ q.pop()            # 오른쪽(뒤)에서 꺼냄
 q.popleft()        # 왼쪽(앞)에서 꺼냄 → dequeue
 q.clear()          # 큐 비우기
 q.reverse()        # 순서 뒤집기
+q.rotate(k)    #k만큼 오른쪽으로 밀기  
+q.rotate(-k)    #k만큼 왼쪽으로 밀기
 
 ───────────────────────────────
 4️⃣ 기타 유용한 기능
@@ -48,18 +50,3 @@ print(q.popleft())   # 1 (맨 앞 제거)
 print(q[0])          # 2 (현재 맨 앞)
 print(len(q))        # 2
 print(not q)         # False
-
-───────────────────────────────
-6️⃣ 대표 문제 예시 (백준 2164 카드2)
-───────────────────────────────
-from collections import deque
-
-n = int(input())
-q = deque(range(1, n+1))
-
-while len(q) > 1:
-    q.popleft()          # 맨 앞 버림
-    q.append(q.popleft()) # 다음 카드 뒤로 이동
-
-print(q[0])  # 마지막 남은 카드 번호 출력
-───────────────────────────────

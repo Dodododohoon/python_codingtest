@@ -161,43 +161,46 @@
 # if len(s) >0 이렇게 말고 그냥 if s 해도 됨.
     
 # 18258
-import sys
-from collections import deque
+#import sys
+#from collections import deque
 
-n = int(sys.stdin.readline())
-q=deque()
-sign =[]
+#n = int(sys.stdin.readline())
+#q=deque()
+#sign =[]
 
-for _ in range(n):
-    order=sys.stdin.readline().split()
-    if len(order)==2:
-        q.append(order[1])
-    if order =='pop':
-        if q:
-            sign.append(q[0])
-            q.popleft()
-        else:
-            sign.append('-1')
-    if order =='size':
-        sign.append(len(q))
-    if order =='empty':
-        if q:
-            sign.append('1')
-        else:
-            sign.append('0')
-    if order =='front':
-        if q:
-            sign.append(q[0])
-        else:
-            sign.append('-1')
-    if order =='back':
-        if q:
-            sign.append(q[-1])
-        else:
-            sign.append('-1')
+#for _ in range(n):
+#    order=sys.stdin.readline().split()
+#    cmd = order[0]
+#    if cmd== "push":
+#        q.append(order[1])
+#    if cmd =='pop':
+#        if q:
+#            sign.append(q[0])
+#            q.popleft()
+#        else:
+#            sign.append('-1')
+#    if cmd =='size':
+#        sign.append(len(q))
+#    if cmd =='empty':
+#        if q:
+#            sign.append('0')
+#        else:
+#            sign.append('1')
+#    if cmd =='front':
+#        if q:
+#            sign.append(q[0])
+#        else:
+#            sign.append('-1')
+#    if cmd =='back':
+#        if q:
+#            sign.append(q[-1])
+#        else:
+#            sign.append('-1')
 
-sys.stdout.write('\n'.join(map(str, sign)))
-    
+#print('\n'.join(map(str, sign)))
+
+# 아무리 요소값이 하나여도 order[0]이랑 order은 다르다. str, list
+# 따라서 order[0] == 'pop'이 참이어도 order == 'pop'은 무조건 False다 (자료형 달라서)
 
 #q.append(x)        # 오른쪽(뒤)에 삽입 → enqueue
 #q.appendleft(x)    # 왼쪽(앞)에 삽입
@@ -207,10 +210,44 @@ sys.stdout.write('\n'.join(map(str, sign)))
 #q.reverse()        # 순서 뒤집기
 
 # 2164
+#from collections import deque
+#n=int(input())
 
+#q=deque([i for i in range(1,n+1)])
+
+#while len(q)>1:
+#    q.popleft()
+#    if len(q) ==1:
+#        break
+#    tmp = q[0]
+#    q.popleft()
+#    q.append(tmp)
+#print(q[0])
+
+#굳이 if 없어도 됨. 두번째꺼는 개수가 줄어드는 건 아니니깐
+# q.append(q.popleft())가능 q.popleft()자체가 반환값이 있어서.
 
 # 11866
+from collections import deque
 
+n, k = map(int, input().split())
+
+#q=[i for i in range(1,n+1)]        인덱스 풀이
+#li=[]
+#idx=0
+#print('<',end='')
+#while len(q)>0:
+#    idx = (idx +k -1) % len(q)
+#    li.append(q.pop(idx))
+#print(', '.join(map(str,li)), end='>')
+
+#q=deque([i for i in range(1,n+1)])    rotate 풀이
+#li=[]
+
+#while len(q)>0:
+#    q.rotate(-(k-1))
+#    li.append(q.popleft())
+#print(f"<{', '.join(map(str, li))}>")
 
 # 28279
 
