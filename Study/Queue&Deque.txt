@@ -1,0 +1,65 @@
+📘 Python Queue 기본 문법 정리 (collections.deque)
+
+───────────────────────────────
+1️⃣ 기본 개념
+───────────────────────────────
+- Queue(큐): 선입선출(FIFO, First In First Out)
+- 맨 뒤에 넣고(append), 맨 앞에서 뺀다(popleft)
+- 스택(stack)과 반대되는 개념 (스택은 LIFO)
+
+───────────────────────────────
+2️⃣ import 및 선언
+───────────────────────────────
+from collections import deque
+
+q = deque()         # 큐 생성
+q = deque([1, 2, 3]) # 초기값 지정 가능
+
+───────────────────────────────
+3️⃣ 주요 메서드
+───────────────────────────────
+q.append(x)        # 오른쪽(뒤)에 삽입 → enqueue
+q.appendleft(x)    # 왼쪽(앞)에 삽입
+q.pop()            # 오른쪽(뒤)에서 꺼냄
+q.popleft()        # 왼쪽(앞)에서 꺼냄 → dequeue
+q.clear()          # 큐 비우기
+q.reverse()        # 순서 뒤집기
+
+───────────────────────────────
+4️⃣ 기타 유용한 기능
+───────────────────────────────
+len(q)             # 큐의 크기
+q[0]               # 맨 앞 원소 확인
+q[-1]              # 맨 뒤 원소 확인
+not q              # 큐가 비어있는지 (True/False)
+
+───────────────────────────────
+5️⃣ 사용 예시
+───────────────────────────────
+from collections import deque
+
+q = deque()
+
+q.append(1)
+q.append(2)
+q.append(3)
+
+print(q.popleft())   # 1 (맨 앞 제거)
+print(q[0])          # 2 (현재 맨 앞)
+print(len(q))        # 2
+print(not q)         # False
+
+───────────────────────────────
+6️⃣ 대표 문제 예시 (백준 2164 카드2)
+───────────────────────────────
+from collections import deque
+
+n = int(input())
+q = deque(range(1, n+1))
+
+while len(q) > 1:
+    q.popleft()          # 맨 앞 버림
+    q.append(q.popleft()) # 다음 카드 뒤로 이동
+
+print(q[0])  # 마지막 남은 카드 번호 출력
+───────────────────────────────

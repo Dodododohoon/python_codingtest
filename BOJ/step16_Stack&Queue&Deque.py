@@ -131,11 +131,80 @@
 # 마지막 출력때 and not stack 틀렸었음. 
 
 # 12789
+#import sys
+#input = sys.stdin.readline
 
+#n=int(input())
+#li=map(int, input().split())
+#stack=[]
+#cnt=1
+#ok ='Nice'
 
+#def check(s,k):
+#    if len(s)>0 and s[-1] ==k:
+#        s.pop()
+#        return True
+#    return False
 
+#for x in li:
+#    if len(stack) >0 and stack[-1] < x:
+#        ok = 'Sad'
+#        break
+#    stack.append(x)
+#    while check(stack, cnt):
+#        cnt+=1
+#        True
+
+#print(ok)
+    
+#꽤 오래 풀음. 스트레쓰 때문일 수도 있고 뭔가 이런 해석 문제는 또 처음이라 그런거 같기도하고.
+# if len(s) >0 이렇게 말고 그냥 if s 해도 됨.
+    
 # 18258
+import sys
+from collections import deque
 
+n = int(sys.stdin.readline())
+q=deque()
+sign =[]
+
+for _ in range(n):
+    order=sys.stdin.readline().split()
+    if len(order)==2:
+        q.append(order[1])
+    if order =='pop':
+        if q:
+            sign.append(q[0])
+            q.popleft()
+        else:
+            sign.append('-1')
+    if order =='size':
+        sign.append(len(q))
+    if order =='empty':
+        if q:
+            sign.append('1')
+        else:
+            sign.append('0')
+    if order =='front':
+        if q:
+            sign.append(q[0])
+        else:
+            sign.append('-1')
+    if order =='back':
+        if q:
+            sign.append(q[-1])
+        else:
+            sign.append('-1')
+
+sys.stdout.write('\n'.join(map(str, sign)))
+    
+
+#q.append(x)        # 오른쪽(뒤)에 삽입 → enqueue
+#q.appendleft(x)    # 왼쪽(앞)에 삽입
+#q.pop()            # 오른쪽(뒤)에서 꺼냄
+#q.popleft()        # 왼쪽(앞)에서 꺼냄 → dequeue
+#q.clear()          # 큐 비우기
+#q.reverse()        # 순서 뒤집기
 
 # 2164
 
