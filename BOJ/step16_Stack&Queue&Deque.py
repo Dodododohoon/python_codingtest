@@ -296,31 +296,57 @@
 # sys.stdout.write("\n".join(map(str, out)))
 
 # 2346
-from collections import deque
-import sys
+#from collections import deque
+#import sys
 
-input = sys.stdin.readline
+#input = sys.stdin.readline
 
 
-n = int(input())
-li = input().split()
-q = deque(i for i in range(1, n + 1))
-out = []
+#n = int(input())
+#li = input().split()
+#q = deque(i for i in range(1, n + 1))
+#out = []
 
-dic = {i: int(li[i - 1]) for i in range(1, n + 1)}
+#dic = {i: int(li[i - 1]) for i in range(1, n + 1)}
 
-while q:
-    num = q.popleft()  # 제일 왼쪽에 있는거 pop 저장
-    out.append(num)  # 뺀 거 기억
-    k = dic[num]  # 뺀 수 종이 확인
-    if k > 0:  # 종이 수 만큼 이동
-        q.rotate(-(k - 1))
-    else:
-        q.rotate(-k)
+#while q:
+#    num = q.popleft()  # 제일 왼쪽에 있는거 pop 저장
+#    out.append(num)  # 뺀 거 기억
+#    k = dic[num]  # 뺀 수 종이 확인
+#    if k > 0:  # 종이 수 만큼 이동
+#        q.rotate(-(k - 1))
+#    else:
+#        q.rotate(-k)
 
-sys.stdout.write(" ".join(map(str, out)))
-print(li)
-print(dic)
+#sys.stdout.write(" ".join(map(str, out)))
+#print(li)
+#print(dic)
 
 
 # 24511
+#import sys
+#from collections import deque
+
+#input = sys.stdin.readline
+
+#n = int(input())
+#a = list(map(int, input().split()))
+#b = list(map(int, input().split()))
+#m = int(input())
+#c = list(map(int, input().split()))
+
+#q = deque()
+#out = []
+
+#for i in range(n):
+#    if a[i] ==0:
+#        q.append(b[i])
+
+#for x in c:
+#    q.appendleft(x)
+#    out.append(q.pop())
+
+#sys.stdout.write(' '.join(map(str, out)))
+
+#처음에 문제 이해 안돼서 조금 걸림.
+
