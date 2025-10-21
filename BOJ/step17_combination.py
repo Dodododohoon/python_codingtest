@@ -26,3 +26,19 @@
 
 #ncr = fact(n) /(fact(k)*fact(n-k))
 #print(int(ncr))
+
+#1010
+#t = int(input())
+
+#def fact(n):
+#    num=1
+#    for i in range(1,n+1):
+#        num*=i
+#    return num
+
+#for _ in range(t):
+#    k, n = map(int, input().split())
+#    ncr = fact(n)//(fact(k)*fact(n-k))
+#    print(ncr)
+#    
+
