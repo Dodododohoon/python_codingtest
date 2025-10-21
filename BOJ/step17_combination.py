@@ -13,3 +13,16 @@
 # for i in range(1,n+1):
 #   num *=i
 # print(num)
+
+#11050
+#def fact(n):
+#    num=1
+#    for i in range(1,n+1):
+#        num*=i
+#    return num
+
+#n, k = map(int, input().split())
+
+
+#ncr = fact(n) /(fact(k)*fact(n-k))
+#print(int(ncr))

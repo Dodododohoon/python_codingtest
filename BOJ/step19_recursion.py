@@ -98,13 +98,33 @@
 #merge_sort(0, N - 1)
 #print(ans)
             
-
 #merge sort 이해한다고 한참 걸리고 내부는 크게 안어려움.
 #global <- 전역변수 쓰기하려면 선언해야함. 전역변수 읽기만하려면 필요없음.
 
-
 # 4779
+#import sys
 
+#def kanto(s,p,q):
+#    if q-p >1:
+#        a=p+(q-p)//3
+#        b=p+(q-p)//3*2
+#        
+#        kanto(s,p,a)
+#        for i in range(a,b):
+#            s[i]=' '
+#        kanto(s,b,q)
+
+#for line in sys.stdin:
+#    n = int(line)
+
+#    s = ['-' for _ in range(3**n)]
+#    kanto(s,0,len(s))
+
+#    print(''.join(s))
+
+#처음에 일단 함수 짜는데도 꽤 걸렸고, 조건문 잡아주는데도 시간 좀 걸림.(len(s)>1 이대로 무한으로 돌았음)
+# for line in sys.stdin <- 파일의 끝까지 불러오기
+# for i in range(a,b) s[i]= '' => s[a:b] = '' * (b-a) 슬라이싱으로 간결하게
 
 # 2447
 
