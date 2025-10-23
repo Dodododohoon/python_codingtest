@@ -41,6 +41,32 @@
 #동적계획법 거의 첫 문제. 
 
 #1904
+#import sys
+#input = sys.stdin.readline
+
+#n = int(input())
+
+#memo = {}
+#memo[1] = 1
+#memo[2] = 2
+#    
+#for i in range (3,n+1):
+#    memo[i] = (memo[i-1]+memo[i-2])%15746
+#    
+#print(memo[n])
+#-------============밑에 recusionError    
+#def dp(n):
+#    global memo
+#    if n in memo:
+#        return memo[n]
+#    else:
+#        memo[n] = dp(n-1) +dp(n-2)
+#        return memo[n]
+#        
+#print(dp(n)%15746)
+
+#딕셔너리 그냥 리스트 써도 상관없음
+#처음에 재귀 형태로 썼다가 for 문으로 바텀업 DP하니깐 클리어
 
 #9461
 

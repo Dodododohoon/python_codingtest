@@ -65,10 +65,53 @@
 #변수명 num -> depth로 바꾸자.
 
 #15652
+#import sys
+#input = sys.stdin.readline
+
+#n, m = map(int, input().split())
+#arr=[]
+
+#def bt(depth,k):
+#    if depth  == m :
+#        print(' '.join(map(str, arr)))
+#        return
+#    for i in range(k, n+1):
+#        arr.append(i)
+#        bt(depth+1,i)
+#        arr.pop()
+
+#bt(0,1)    
 
 #9663
+#import sys
+#input = sys.stdin.readline
+
+#n = int(input())
+#col = [False] *n
+#diag1 = [False] * (2*n-1)
+#diag2 = [False] * (2*n-1)
+#cnt =0
+
+#def dfs(r):
+#    global cnt
+#    if r==n:
+#        cnt+=1
+#        return
+#    for c in range(n):
+#        d1 = r +c
+#        d2 = r - c + (n-1)
+#        if not col[c] and not diag1[d1] and not diag2[d2]:
+#            col[c] = diag1[d1] = diag2[d2] =True
+#            dfs(r+1)
+#            col[c] = diag1[d1] = diag2[d2] = False
+#dfs(0)
+#print(cnt)
+
+# 한번 더 풀어보자.
+# 대각선 확인 아이디어 신박하네
 
 #2580
+
 
 #14888
 

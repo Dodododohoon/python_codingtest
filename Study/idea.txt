@@ -1,4 +1,4 @@
-- 진법 변환      거듭제곱 때릴 필요없이. 첫자리부터 * B 해주면 알아서 거듭제곱 형식으로 됨.
+3- 진법 변환      거듭제곱 때릴 필요없이. 첫자리부터 * B 해주면 알아서 거듭제곱 형식으로 됨.
 for ch in N:                
     result = result * B(진법) + num
     
@@ -34,3 +34,8 @@ for _ range (max(m,n), b) 이렇게 가능.
 GCD(Greatest Common Divisor) : a, b = b, a%b (while b) => return a
 LCM(Least Common Multiple) : a*b // gcd(a,b)
 GCD * LCM =a * b
+
+- 이차원 배열 형식. 대각선
+대각선은 row(행), col(열) 합, 차로 확인가능
+오른쪽 아래 대각선 : r - c 가 일정 (r+1, c+1)
+왼쪽 아래 대각선 : r + c가 일정 (r+1, c-1)
