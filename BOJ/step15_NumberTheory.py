@@ -94,6 +94,26 @@
 # 처음에 is_prime 함수에서 x**0.5하고 +1을 안 넣어줘서 틀렸었음.
 
 # 1929
+n, m = map(int, input().split())
+arr = [i for i in range(n, m + 1)]
+
+if 1 in arr:
+    arr.remove(1)
+
+for x in arr:
+    if x == 2:
+        continue
+    elif x % 2 == 0:
+        arr.remove(x)
+
+for i in range(3, int(m ** (0.5)) + 1, 2):
+    k = 2
+    while i * k <= m:
+        if i * k in arr:
+            arr.remove(i * k)
+        k += 1
+
+print("\n".join(map(str, arr)))
 
 
 # 4948
