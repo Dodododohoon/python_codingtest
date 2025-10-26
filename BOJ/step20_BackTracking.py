@@ -111,29 +111,6 @@
 # 대각선 확인 아이디어 신박하네
 
 # 2580
-import sys
-
-input = sys.stdin.readline
-
-arr = list(map(int, input().split()))
-
-
-def sdoku_line(s):
-    check = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-    for x in s:
-        if x in check:
-            check.remove(x)
-
-    if len(check) == 1:
-        temp = s.index(0)
-        s.remove(0)
-        s.insert(temp, check[0])
-
-
-sdoku_line(arr)
-print(*arr)
-
 
 # 14888
 

@@ -93,27 +93,28 @@
 # while not xxx 쓸 수 있네
 # 처음에 is_prime 함수에서 x**0.5하고 +1을 안 넣어줘서 틀렸었음.
 
-# 1929
-m, n = map(int, input().split())
+# # 1929
+# m, n = map(int, input().split())
 
-li = [False] * (n + 1)
-li[2] = True
+# li = [False] * (n + 1)
+# li[2] = True
 
-for x in range(3, n + 1, 2):
-    li[x] = True
+# for x in range(3, n + 1, 2):
+#     li[x] = True
 
-for i in range(3, int(n ** (0.5)) + 1, 2):
-    if li[i] == True:
-        start = i * i
-        step = 2 * i
-        for x in range(start, n + 1, step):
-            li[x] = False
+# for i in range(3, int(n ** (0.5)) + 1, 2):
+#     if li[i] == True:
+#         start = i * i
+#         step = 2 * i
+#         for x in range(start, n + 1, step):
+#             li[x] = False
 
 
-for x in range(m, n):
-    if li[x]:
-        print(x)
+# for x in range(m, n+1):
+#     if li[x]:
+#         print(x)
 
+# 다시 한번풀어보자. 솔찍히 내 힘으로 푼게 아니다.
 
 # 4948
 

@@ -84,20 +84,22 @@
 #     print(pn[num - 1])
 
 # 1912
-import sys
+# import sys
 
-input = sys.stdin.readline
+# input = sys.stdin.readline
 
-n = int(input())
-arr = list(map(int, input().split()))
-dp = [0 for _ in range(n)]
-dp[0] = arr[0]
+# n = int(input())
+# arr = list(map(int, input().split()))
+# dp = [0 for _ in range(n)]
+# dp[0] = arr[0]
 
-for i in range(1, n):
-    dp[i] = max(arr[i], dp[i - 1] + arr[i])
+# for i in range(1, n):
+#     dp[i] = max(arr[i], dp[i - 1] + arr[i])
 
-print(max(dp))
+# print(max(dp))
 
+# 아.. 풀만했는데 아 .. 종이 있었으면 나앗을라나?
+# 점화식만 뽑아내면 어렵지 않음.
 
 # 1149
 
