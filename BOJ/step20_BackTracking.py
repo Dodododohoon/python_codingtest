@@ -116,11 +116,10 @@ import sys
 input = sys.stdin.readline
 
 arr = list(map(int, input().split()))
-check = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 
 def sdoku_line(s):
-    global check
+    check = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
     for x in s:
         if x in check:

@@ -1,95 +1,122 @@
-#동적 계획법 핵심은 중복되는 계산은 기억해두고 푼다.
+# 동적 계획법 핵심은 중복되는 계산은 기억해두고 푼다.
 # 메모리를 사용해서 연산을 줄인다.
 
-#24416    
-#n = int(input())
+# 24416
+# n = int(input())
 
-#if n==1 or n==2:
+# if n==1 or n==2:
 #    print(1,0)
-#else:
+# else:
 #    f1, f2 =1, 1
 #    for _ in range(3, n+1):
 #        f1 ,f2 = f2, f2+ f1
 #    print(f2, n-2)
 
-#9184
-#import sys
-#input = sys.stdin.readline
+# 9184
+# import sys
+# input = sys.stdin.readline
 
-#cache ={}
+# cache ={}
 
-#def w(a,b,c):
+# def w(a,b,c):
 #    if a<= 0 or b <= 0 or c <= 0:
 #        return 1
 #    elif a> 20 or b>20 or c>20:
 #        return w(20,20,20)
 #    elif (a,b,c) in cache:
 #        return cache[(a,b,c)]
-#    
+#
 #    if a < b< c :
 #        cache[(a,b,c)] = w(a,b,c-1) + w(a,b-1,c-1) - w(a,b-1,c)
 #    else:
 #        cache[(a,b,c)] = w(a-1,b,c) + w(a-1,b-1,c) +w(a-1,b,c-1) - w(a-1,b-1,c-1)
 #    return cache[(a,b,c)]
 
-#for line in sys.stdin:
+# for line in sys.stdin:
 #    a,b,c = map(int, line.split())
 #    if a==-1 and b==-1 and c==-1:
 #        break
 #    print(f"w({a}, {b}, {c}) = {w(a,b,c)}")
-    
-#동적계획법 거의 첫 문제. 
 
-#1904
-#import sys
-#input = sys.stdin.readline
+# 동적계획법 거의 첫 문제.
 
-#n = int(input())
+# 1904
+# import sys
+# input = sys.stdin.readline
 
-#memo = {}
-#memo[1] = 1
-#memo[2] = 2
-#    
-#for i in range (3,n+1):
+# n = int(input())
+
+# memo = {}
+# memo[1] = 1
+# memo[2] = 2
+#
+# for i in range (3,n+1):
 #    memo[i] = (memo[i-1]+memo[i-2])%15746
-#    
-#print(memo[n])
-#-------============밑에 recusionError    
-#def dp(n):
+#
+# print(memo[n])
+# -------============밑에 recusionError
+# def dp(n):
 #    global memo
 #    if n in memo:
 #        return memo[n]
 #    else:
 #        memo[n] = dp(n-1) +dp(n-2)
 #        return memo[n]
-#        
-#print(dp(n)%15746)
+#
+# print(dp(n)%15746)
 
-#딕셔너리 그냥 리스트 써도 상관없음
-#처음에 재귀 형태로 썼다가 for 문으로 바텀업 DP하니깐 클리어
+# 딕셔너리 그냥 리스트 써도 상관없음
+# 처음에 재귀 형태로 썼다가 for 문으로 바텀업 DP하니깐 클리어
 
-#9461
+# 9461
+# import sys
 
-#1912
+# input = sys.stdin.readline
 
-#1149
+# pn = [1, 1, 1, 2, 2]
 
-#1932
+# n = int(input())
+# for _ in range(n):
+#     num = int(input())
+#     if num > len(pn):
+#         for i in range(len(pn), num):
+#             pn.append(pn[i - 1] + pn[i - 5])
+#     print(pn[num - 1])
 
-#2579
+# 1912
+import sys
 
-#1463
+input = sys.stdin.readline
 
-#10844
+n = int(input())
+arr = list(map(int, input().split()))
+dp = [0 for _ in range(n)]
+dp[0] = arr[0]
 
-#2156
+for i in range(1, n):
+    dp[i] = max(arr[i], dp[i - 1] + arr[i])
 
-#11053
+print(max(dp))
 
-#11054
 
-#2565
+# 1149
 
-#9251
+# 1932
 
-#12865
+# 2579
+
+# 1463
+
+# 10844
+
+# 2156
+
+# 11053
+
+# 11054
+
+# 2565
+
+# 9251
+
+# 12865
