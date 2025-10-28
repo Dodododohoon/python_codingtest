@@ -35,8 +35,26 @@
 # 처음에 list썼다가 시간초과떠서 set으로 변경하고 clear
 
 # 26069
+#import sys
+#input = sys.stdin.readline
 
+#n = int(input())
 
+#li=['ChongChong']
+
+#for _ in range(n):
+#    a, b = map(str, input().split())
+#    if a in li and b in li:
+#        continue
+#    if a in li:
+#        li.append(b)
+#        continue
+#    if b in li:
+#        li.append(a)
+
+#print(len(li))
+
+#set쓰면 훨씬 시간 save하면서 풀 수 있네.. in li 이거도 안해줘도 되고.
 # 2108
 
 
