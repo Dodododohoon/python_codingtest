@@ -70,5 +70,23 @@ input = sys.stdin.readline
 
 li = input().strip()
 
+num = ""
+number = []
+ops = []
+
+for x in li:
+    if x.isdigit():
+        num += x
+    else:
+        number.append(num)
+        ops.append(x)
+        num = ""
+number.append(num)
+
+for i in range(len(num)):
+    
+
+
+
 
 # 13305
