@@ -109,22 +109,22 @@
 # split() 이 특정 기준 문자로 나눠서 리스트로 만들어 주는 거임.
 
 # 13305
-import sys
+#import sys
 
-input = sys.stdin.readline
+#input = sys.stdin.readline
 
-n = int(input())
-dis = list(map(int, input().split()))
-pay = list(map(int, input().split()))
+#n = int(input())
+#dis = list(map(int, input().split()))
+#pay = list(map(int, input().split()))
 
-total = 0
-min_price = pay[0]
+#total = 0
+#min_price = pay[0]
 
-for i in range(n - 1):
-    if pay[i] < min_price:
-        min_price = pay[i]
-    total += dis[i] * min_price
+#for i in range(n - 1):
+#    if pay[i] < min_price:
+#        min_price = pay[i]
+#    total += dis[i] * min_price
 
-print(total)
+#print(total)
 
 # 아이디어 부분에서 조큼 개선 더하니 best 코드.
