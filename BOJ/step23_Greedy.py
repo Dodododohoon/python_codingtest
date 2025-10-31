@@ -64,29 +64,67 @@
 # 아 k +=x, s+=k 하면 s리스트 만들 필요도 없는데 뭘 이렇게 풀었대
 
 # 1541
+# import sys
+
+# input = sys.stdin.readline
+
+# li = input().strip()
+
+# num = ""
+# number = []
+# ops = []
+
+# m = False
+
+
+# for x in li:
+#     if x.isdigit():
+#         num += x
+#     else:
+#         number.append(num)
+#         ops.append(x)
+#         num = ""
+# number.append(num)
+
+# sum = int(number[0])
+# for i in range(len(ops)):
+#     if ops[i] == "-":
+#         m = True
+#     if m == True:
+#         sum -= int(number[i + 1])
+#     else:
+#         sum += int(number[i + 1])
+
+# print(sum)
+
+# 일단 풀긴 했음. 근데 gpt 코드 개 간단함.
+# expression = input().split('-')
+
+# result = sum(map(int, expression[0].split('+')))
+# for part in expression[1:]:
+#     result -= sum(map(int, part.split('+')))
+
+# print(result)
+
+# split() 이 특정 기준 문자로 나눠서 리스트로 만들어 주는 거임.
+
+# 13305
 import sys
 
 input = sys.stdin.readline
 
-li = input().strip()
+n = int(input())
+dis = list(map(int, input().split()))
+pay = list(map(int, input().split()))
 
-num = ""
-number = []
-ops = []
+total = 0
+min_price = pay[0]
 
-for x in li:
-    if x.isdigit():
-        num += x
-    else:
-        number.append(num)
-        ops.append(x)
-        num = ""
-number.append(num)
+for i in range(n - 1):
+    if pay[i] < min_price:
+        min_price = pay[i]
+    total += dis[i] * min_price
 
-for i in range(len(num)):
-    
+print(total)
 
-
-
-
-# 13305
+# 아이디어 부분에서 조큼 개선 더하니 best 코드.
