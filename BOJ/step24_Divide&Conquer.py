@@ -1,9 +1,17 @@
 # Divide & Conquer & Combine
-# 패턴
-# def solve(problem)
-#2630
+# # 패턴
+# def solve(problem):
+#     if base_case(problem):          #더이상 나눌 수 없으면
+#         return
+#     sub1, sub2 = divide(problem)    #문제를 나누고
+#     res1 = solve(sub1)              #각각 해결
+#     res2 = solve(sub2)
+#     return combine(res1, res2)      #결과 합치기
+
+# 2630
 import sys
-input=sys.stdin.readline
+
+input = sys.stdin.readline
 
 n = int(input())
 paper = [list(map(int, input().split())) for _ in range(n)]
@@ -11,45 +19,51 @@ paper = [list(map(int, input().split())) for _ in range(n)]
 white = 0
 blue = 0
 
-def solve(r,c,size):
+
+def solve(r, c, size):
     global white, blue
-    
+
     first = paper[r][c]
     same = True
-    
-    for i in range(r, r+size):
-        if not same: break
-        for j in range(c, c+size):
-            if paper[i][j] !=first:
+
+    for i in range(r, r + size):
+        if not same:
+            break
+        for j in range(c, c + size):
+            if paper[i][j] != first:
                 same = False
                 break
     if same:
         if first == 0:
             white += 1
-        else: blue += 1
+        else:
+            blue += 1
         return
-    
-    half = size //2
-    solve(r,c, half)
-    solve(r,c+half,half)
-    solve(r+half,c,half)
-    solve(r+half,c+half,half)
+
+    half = size // 2
+    solve(r, c, half)
+    solve(r, c + half, half)
+    solve(r + half, c, half)
+    solve(r + half, c + half, half)
 
 
+solve(0, 0, n)
+print(white)
+print(blue)
 
-#1992
+# 1992
 
-#1780
+# 1780
 
-#1629
+# 1629
 
-#11401
+# 11401
 
-#2740
+# 2740
 
-#10830
+# 10830
 
-#11444
+# 11444
 
 
-#6549
+# 6549
