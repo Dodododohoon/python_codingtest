@@ -155,36 +155,41 @@
 # 깊은 복사 하려면. dp = [x[:] for x in li] 이렇게 해야함.
 
 # 2579
-import sys
+#import sys
 
-input = sys.stdin.readline
+#input = sys.stdin.readline
 
-n = int(input())
+#n = int(input())
 
-arr = [int(input()) for _ in range(n)]
-arr.insert(0, 0)
+#arr = [int(input()) for _ in range(n)]
+#arr.insert(0, 0)
 
-dp = [0 for _ in range(n + 1)]
+#dp = [0 for _ in range(n + 1)]
 
 
-if n >= 4:
-    dp[1] = arr[1]
-    dp[2] = arr[2] + arr[1]
-    dp[3] = max(arr[1], arr[2]) + arr[3]
+#if n >= 4:
+#    dp[1] = arr[1]
+#    dp[2] = arr[2] + arr[1]
+#    dp[3] = max(arr[1], arr[2]) + arr[3]
 
-    for i in range(4, n + 1):
-        dp[i] = max(dp[i - 2], arr[i - 1] + dp[i - 3]) + arr[i]
-    print(dp[n])
+#    for i in range(4, n + 1):
+#        dp[i] = max(dp[i - 2], arr[i - 1] + dp[i - 3]) + arr[i]
+#    print(dp[n])
 
-elif n == 1:
-    print(arr[1])
-elif n == 2:
-    print(arr[1] + arr[2])
-elif n == 3:
-    print(max(arr[1], arr[2]) + arr[3])
-
+#elif n == 1:
+#    print(arr[1])
+#elif n == 2:
+#    print(arr[1] + arr[2])
+#elif n == 3:
+#    print(max(arr[1], arr[2]) + arr[3])
 
 # 1463
+n = int(input())
+cnt=0
+
+
+        
+print(cnt)
 
 # 10844
 
