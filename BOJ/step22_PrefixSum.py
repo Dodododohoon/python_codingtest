@@ -46,7 +46,50 @@
 #제네레이터 표현식이라고 하네. 적응하면 꽤나 유용할 거 같은데 일단 keep
 
 #16139
+import sys
+input = sys.stdin.readline
 
+s = input().strip()
+n = int(input())
+        
+pre = [[0]*26 for _ in range(len(s)+1)]
+for i in range(1, len(s)+1):
+    for j in range(26):
+        if ord(s[i-1]) - 97 == j:
+            pre[i][j] = pre[i-1][j] +1
+        else:
+            pre[i][j] = pre[i-1][j]
+            
+for i in range(1, len(s)+1):
+    for j in range(26):
+        pre[i][j] = pre[i-1][j]
+    pre[i][ord(s[i-1])-97] +=1
+
+
+
+for _ in range(n):
+    le, l, r = map(str, input().split())
+    l, r = int(l), int(r)
+    re =ord(le) -97
+    print(pre[r+1][re] - pre[l][re])
+
+
+
+########밑에는 a에 우선 적용##
+#pre_a = [0] * (len(s)+1)
+
+#for i in range(1,len(s)+1):
+#    if s[i-1] == 'a':
+#        pre_a[i]=pre_a[i-1] + 1
+#    else:
+#        pre_a[i]=pre_a[i-1]
+
+#for _ in range(n):
+#    le, l, r = map(str, input().split())
+#    if le =='a':
+#        print(pre_a[int(r)+1] - pre_a[int(l)])
+
+    
 
 #10986
 

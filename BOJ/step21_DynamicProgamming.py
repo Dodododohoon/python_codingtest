@@ -184,14 +184,36 @@
 #    print(max(arr[1], arr[2]) + arr[3])
 
 # 1463
-n = int(input())
-cnt=0
+#n = int(input())
+#dp = [0] * (n+1)
 
+#for i in range(2, n+1):
+#        dp[i] = dp[i-1] +1
+#        if i%2==0:
+#            dp[i] = min(dp[i], dp[i//2]+1)
+#        if i%3==0:
+#            dp[i] = min(dp[i], dp[i//3]+1 )
+#        
+#print(dp[n])
 
-        
-print(cnt)
+#아쉽네, 뭔가 풀 수 있었을 거 같은데.. 너무 빨리 포기했나 싶기도?
+#점화식만 뽑아내면 아무 어려운거 없는 문제
 
 # 10844
+#n = int(input())
+#dp = [[1]*10 for _ in range((n+1))]
+#dp[1][0] = 0 
+
+#for i in range(2,n+1):
+#    for j in range(1, 9):
+#        dp[i][j] = dp[i-1][j-1] + dp[i-1][j+1]
+#    dp[i][0] = dp[i-1][1]
+#    dp[i][9] = dp[i-1][8]
+#    
+#print(sum(dp[n])%1000000000)
+
+# 하.. 규칙은 잘 찾았는데 2차원으로 풀어야 할 줄은 몰랐네.. ㄹㅇ 까비.
+# BUT 하나 배웠음. 애매하게 풀 바에 메모리 낭비좀 하더라도 2차원 적극 쓰자.
 
 # 2156
 
