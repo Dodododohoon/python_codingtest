@@ -46,32 +46,30 @@
 #제네레이터 표현식이라고 하네. 적응하면 꽤나 유용할 거 같은데 일단 keep
 
 #16139
-import sys
-input = sys.stdin.readline
+#import sys
+#input = sys.stdin.readline
 
-s = input().strip()
-n = int(input())
-        
-pre = [[0]*26 for _ in range(len(s)+1)]
-for i in range(1, len(s)+1):
-    for j in range(26):
-        if ord(s[i-1]) - 97 == j:
-            pre[i][j] = pre[i-1][j] +1
-        else:
-            pre[i][j] = pre[i-1][j]
-            
-for i in range(1, len(s)+1):
-    for j in range(26):
-        pre[i][j] = pre[i-1][j]
-    pre[i][ord(s[i-1])-97] +=1
+#s = input().strip()
+#n = int(input())
+#        
+#pre = [[0]*26 for _ in range(len(s)+1)]
+#for i in range(1, len(s)+1):
+#    for j in range(26):
+#        if ord(s[i-1]) - 97 == j:
+#            pre[i][j] = pre[i-1][j] +1
+#        else:
+#            pre[i][j] = pre[i-1][j]
+#            
+#for i in range(1, len(s)+1):
+#    for j in range(26):
+#        pre[i][j] = pre[i-1][j]
+#    pre[i][ord(s[i-1])-97] +=1
 
-
-
-for _ in range(n):
-    le, l, r = map(str, input().split())
-    l, r = int(l), int(r)
-    re =ord(le) -97
-    print(pre[r+1][re] - pre[l][re])
+#for _ in range(n):
+#    le, l, r = map(str, input().split())
+#    l, r = int(l), int(r)
+#    re =ord(le) -97
+#    print(pre[r+1][re] - pre[l][re])
 
 
 
@@ -89,10 +87,35 @@ for _ in range(n):
 #    if le =='a':
 #        print(pre_a[int(r)+1] - pre_a[int(l)])
 
-    
-
 #10986
+#import sys
+#input = sys.stdin.readline
 
+#n,m = map(int, input().split())
+#li = list(map(int, input().split()))
+#dic = dict()
+
+#prefix = [0] * (n+1)
+#for i in range(1,n +1):
+#    k = (prefix[i-1] + li[i-1]) % m
+#    prefix[i] = k 
+#    if k in dic:
+#        dic[k] +=1
+#    else:
+#        dic[k] = 1
+#cnt=0
+
+#for x in dic:
+#    r = dic[x]
+#    if x == 0:
+#        cnt += r*(r+1)//2
+#    else:
+#        cnt += r*(r-1)//2
+
+#구간 나머지에서 구간합 자체를 나머지로 받는거 까진 생각했는데
+#S[i] - S[j] =0 이걸 생각을 못했음. 이 아이디어만 좀 빌리고 구현은 직접함.
+
+#print(cnt)
 
 #11660
 

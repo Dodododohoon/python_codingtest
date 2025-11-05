@@ -9,49 +9,81 @@
 #     return combine(res1, res2)      #결과 합치기
 
 # 2630
-import sys
+#import sys
 
-input = sys.stdin.readline
+#input = sys.stdin.readline
 
-n = int(input())
-paper = [list(map(int, input().split())) for _ in range(n)]
+#n = int(input())
+#paper = [list(map(int, input().split())) for _ in range(n)]
 
-white = 0
-blue = 0
+#white = 0
+#blue = 0
 
+#def solve(r, c, d):
+#    global white, blue
+#    
+#    first = paper[r][c]
+#    same = True
+#    
+#    for i in range(r, r+d):
+#        for j in range(c, c+d):
+#            if paper[i][j] != first:
+#                same = False
+#                break
+#            
+#    if same:
+#        if first == 1:
+#            blue += 1
+#            return
+#        else:
+#            white += 1
+#            return
+#    
+#    solve(r,c,d//2)
+#    solve(r,c+d//2,d//2)
+#    solve(r+d//2,c,d//2)
+#    solve(r+d//2,c+d//2,d//2)
 
-def solve(r, c, size):
-    global white, blue
-
-    first = paper[r][c]
-    same = True
-
-    for i in range(r, r + size):
-        if not same:
-            break
-        for j in range(c, c + size):
-            if paper[i][j] != first:
-                same = False
-                break
-    if same:
-        if first == 0:
-            white += 1
-        else:
-            blue += 1
-        return
-
-    half = size // 2
-    solve(r, c, half)
-    solve(r, c + half, half)
-    solve(r + half, c, half)
-    solve(r + half, c + half, half)
-
-
-solve(0, 0, n)
-print(white)
-print(blue)
+#solve(0,0,n)
+#print(white)
+#print(blue)
 
 # 1992
+#import sys
+#input = sys.stdin.readline
+
+#n = int(input())
+#li = [input().strip() for _ in range(n)]
+
+#out = []
+
+#def solve(r,c,d):
+#    first = li[r][c]
+#    same = True
+#    
+#    for i in range(r, r+d):
+#        for j in range(c, c+d):
+#            if li[i][j] != first:
+#                same = False
+#                break
+#    
+#    if same:
+#        if first == '1':
+#            out.append('1')
+#            return
+#        else:
+#            out.append('0')
+#            return
+#    
+#    out.append('(')
+#    solve(r,c,d//2)
+#    solve(r,c+d//2,d//2)
+#    solve(r+d//2,c,d//2)
+#    solve(r+d//2,c+d//2,d//2)
+#    out.append(')')
+
+#solve(0,0,n)
+#print(''.join(out))
 
 # 1780
 
