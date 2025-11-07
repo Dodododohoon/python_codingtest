@@ -74,6 +74,7 @@ max_freq = max(cnt.values())
 modes = [k for k, v in cnt.items() if v == max_freq]
 
 mean = sum(li) / len(li)
+
 if mean > 0:
     mean = int(mean + 0.5)
 else:
