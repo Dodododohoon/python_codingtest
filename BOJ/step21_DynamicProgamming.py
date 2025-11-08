@@ -155,19 +155,19 @@
 # 깊은 복사 하려면. dp = [x[:] for x in li] 이렇게 해야함.
 
 # 2579
-#import sys
+# import sys
 
-#input = sys.stdin.readline
+# input = sys.stdin.readline
 
-#n = int(input())
+# n = int(input())
 
-#arr = [int(input()) for _ in range(n)]
-#arr.insert(0, 0)
+# arr = [int(input()) for _ in range(n)]
+# arr.insert(0, 0)
 
-#dp = [0 for _ in range(n + 1)]
+# dp = [0 for _ in range(n + 1)]
 
 
-#if n >= 4:
+# if n >= 4:
 #    dp[1] = arr[1]
 #    dp[2] = arr[2] + arr[1]
 #    dp[3] = max(arr[1], arr[2]) + arr[3]
@@ -176,46 +176,75 @@
 #        dp[i] = max(dp[i - 2], arr[i - 1] + dp[i - 3]) + arr[i]
 #    print(dp[n])
 
-#elif n == 1:
+# elif n == 1:
 #    print(arr[1])
-#elif n == 2:
+# elif n == 2:
 #    print(arr[1] + arr[2])
-#elif n == 3:
+# elif n == 3:
 #    print(max(arr[1], arr[2]) + arr[3])
 
 # 1463
-#n = int(input())
-#dp = [0] * (n+1)
+# n = int(input())
+# dp = [0] * (n+1)
 
-#for i in range(2, n+1):
+# for i in range(2, n+1):
 #        dp[i] = dp[i-1] +1
 #        if i%2==0:
 #            dp[i] = min(dp[i], dp[i//2]+1)
 #        if i%3==0:
 #            dp[i] = min(dp[i], dp[i//3]+1 )
-#        
-#print(dp[n])
+#
+# print(dp[n])
 
-#아쉽네, 뭔가 풀 수 있었을 거 같은데.. 너무 빨리 포기했나 싶기도?
-#점화식만 뽑아내면 아무 어려운거 없는 문제
+# 아쉽네, 뭔가 풀 수 있었을 거 같은데.. 너무 빨리 포기했나 싶기도?
+# 점화식만 뽑아내면 아무 어려운거 없는 문제
 
 # 10844
-#n = int(input())
-#dp = [[1]*10 for _ in range((n+1))]
-#dp[1][0] = 0 
+# n = int(input())
+# dp = [[1]*10 for _ in range((n+1))]
+# dp[1][0] = 0
 
-#for i in range(2,n+1):
+# for i in range(2,n+1):
 #    for j in range(1, 9):
 #        dp[i][j] = dp[i-1][j-1] + dp[i-1][j+1]
 #    dp[i][0] = dp[i-1][1]
 #    dp[i][9] = dp[i-1][8]
-#    
-#print(sum(dp[n])%1000000000)
+#
+# print(sum(dp[n])%1000000000)
 
 # 하.. 규칙은 잘 찾았는데 2차원으로 풀어야 할 줄은 몰랐네.. ㄹㅇ 까비.
 # BUT 하나 배웠음. 애매하게 풀 바에 메모리 낭비좀 하더라도 2차원 적극 쓰자.
 
 # 2156
+import sys
+
+input = sys.stdin.readline
+
+n = int(input())
+li = [int(input()) for _ in range(n)]
+li.insert(0, 0)
+
+dp = [0] * (n + 1)
+
+if n >= 4:
+    dp[1] = li[1]
+    dp[2] = li[1] + li[2]
+    dp[3] = max(dp[1] + li[3], dp[2], li[2] + li[3])
+    for i in range(4, n + 1):
+        dp[i] = max(dp[i - 2] + li[i], dp[i - 3] + li[i - 1] + li[i], dp[i - 1])
+    print(max(dp[n], dp[n - 1]))
+elif n == 1:
+    print(li[1])
+elif n == 2:
+    print(li[1] + li[2])
+elif n == 3:
+    dp[1] = li[1]
+    dp[2] = li[1] + li[2]
+    dp[3] = max(dp[1] + li[3], dp[2], li[2] + li[3])
+    print(dp[3])
+
+# 반례를 찾아서 내가 틀렸다는 건 알겠는데, 정확하게 왜 틀렸는지는 이해가 안감..
+#
 
 # 11053
 
