@@ -9,28 +9,28 @@
 #     return combine(res1, res2)      #결과 합치기
 
 # 2630
-#import sys
+# import sys
 
-#input = sys.stdin.readline
+# input = sys.stdin.readline
 
-#n = int(input())
-#paper = [list(map(int, input().split())) for _ in range(n)]
+# n = int(input())
+# paper = [list(map(int, input().split())) for _ in range(n)]
 
-#white = 0
-#blue = 0
+# white = 0
+# blue = 0
 
-#def solve(r, c, d):
+# def solve(r, c, d):
 #    global white, blue
-#    
+#
 #    first = paper[r][c]
 #    same = True
-#    
+#
 #    for i in range(r, r+d):
 #        for j in range(c, c+d):
 #            if paper[i][j] != first:
 #                same = False
 #                break
-#            
+#
 #    if same:
 #        if first == 1:
 #            blue += 1
@@ -38,35 +38,35 @@
 #        else:
 #            white += 1
 #            return
-#    
+#
 #    solve(r,c,d//2)
 #    solve(r,c+d//2,d//2)
 #    solve(r+d//2,c,d//2)
 #    solve(r+d//2,c+d//2,d//2)
 
-#solve(0,0,n)
-#print(white)
-#print(blue)
+# solve(0,0,n)
+# print(white)
+# print(blue)
 
 # 1992
-#import sys
-#input = sys.stdin.readline
+# import sys
+# input = sys.stdin.readline
 
-#n = int(input())
-#li = [input().strip() for _ in range(n)]
+# n = int(input())
+# li = [input().strip() for _ in range(n)]
 
-#out = []
+# out = []
 
-#def solve(r,c,d):
+# def solve(r,c,d):
 #    first = li[r][c]
 #    same = True
-#    
+#
 #    for i in range(r, r+d):
 #        for j in range(c, c+d):
 #            if li[i][j] != first:
 #                same = False
 #                break
-#    
+#
 #    if same:
 #        if first == '1':
 #            out.append('1')
@@ -74,7 +74,7 @@
 #        else:
 #            out.append('0')
 #            return
-#    
+#
 #    out.append('(')
 #    solve(r,c,d//2)
 #    solve(r,c+d//2,d//2)
@@ -82,10 +82,63 @@
 #    solve(r+d//2,c+d//2,d//2)
 #    out.append(')')
 
-#solve(0,0,n)
-#print(''.join(out))
+# solve(0,0,n)
+# print(''.join(out))
 
 # 1780
+import sys
+
+input = sys.stdin.readline
+
+n = int(input())
+li = [list(map(int, input().split())) for _ in range(n)]
+
+minus = 0
+zero = 0
+plus = 0
+
+
+def dq(r, c, d):
+    global minus, zero, plus
+    same = True
+    first = li[r][c]
+
+    for i in range(r, r + d):
+        for j in range(c, c + d):
+            if li[i][j] != first:
+                same = False
+                break
+        if same == False:
+            break
+
+    if same:
+        if first == 1:
+            plus += 1
+            return
+        if first == 0:
+            zero += 1
+            return
+        if first == -1:
+            minus += 1
+            return
+    d = d // 3
+
+    dq(r, c, d)
+    dq(r, c + d, d)
+    dq(r, c + 2 * d, d)
+    dq(r + d, c, d)
+    dq(r + d, c + d, d)
+    dq(r + d, c + 2 * d, d)
+    dq(r + 2 * d, c, d)
+    dq(r + 2 * d, c + d, d)
+    dq(r + 2 * d, c + 2 * d, d)
+
+
+dq(0, 0, n)
+
+print(minus)
+print(zero)
+print(plus)
 
 # 1629
 
