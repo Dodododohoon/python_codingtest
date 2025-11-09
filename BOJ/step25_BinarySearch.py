@@ -64,42 +64,34 @@
 # print(bisect_right(arr, 2) - bisect_left(arr, 2))  # 3개
 
 # 1654
-import sys
+# import sys
 
-input = sys.stdin.readline
+# input = sys.stdin.readline
 
-k, n = map(int, input().split())
-li = [int(input()) for _ in range(k)]
-
-
-def search(cnt, left, right):
-    if left > right:
-        return
-    total = 0
-    mid = (left + right) // 2
-
-    for x in li:
-        total += x // mid
-
-    if total == cnt:
-        return mid
-
-    if total > cnt:
-        return search(cnt, mid + 1, right)
-    else:
-        return search(cnt, left, mid - 1)
+# k, n = map(int, input().split())
+# li = [int(input()) for _ in range(k)]
 
 
-total = n
-num = search(n, 0, min(li))
+# def search(cnt, left, right):
+#     ans = 0
+#     while left <= right:
+#         mid = (left + right) // 2
+#         total = 0
+#         for x in li:
+#             total += x // mid
 
-while total == n:
-    total = 0
-    num += 1
-    for x in li:
-        total += x // num
+#         if total >= cnt:
+#             ans = mid
+#             left = mid + 1
+#         else:
+#             right = mid - 1
+#     return ans
 
-print(num - 1)
+
+# print(search(n, 1, max(li)))
+
+# 다시 풀어보자
+# 이분탐색을 할 꺼면 확실하게 이분탐색으로 쭉.
 
 # 2805
 
