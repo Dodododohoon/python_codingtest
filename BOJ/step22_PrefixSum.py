@@ -131,14 +131,11 @@ for i in range(1, n + 1):
     for j in range(1, n + 1):
         prefix[i][j] = prefix[i][j - 1] + li[i - 1][j - 1]
 
-
 for _ in range(m):
     x1, y1, x2, y2 = map(int, input().split())
     sum = 0
     for i in range(x1, x2 + 1):
         sum += prefix[i][y2] - prefix[i][y1 - 1]
     print(sum)
-
-print(prefix)
 
 # 25682

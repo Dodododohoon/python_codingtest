@@ -216,35 +216,35 @@
 # BUT 하나 배웠음. 애매하게 풀 바에 메모리 낭비좀 하더라도 2차원 적극 쓰자.
 
 # 2156
-import sys
+# import sys
 
-input = sys.stdin.readline
+# input = sys.stdin.readline
 
-n = int(input())
-li = [int(input()) for _ in range(n)]
-li.insert(0, 0)
+# n = int(input())
+# li = [int(input()) for _ in range(n)]
+# li.insert(0, 0)
 
-dp = [0] * (n + 1)
+# dp = [0] * (n + 1)
 
-if n >= 4:
-    dp[1] = li[1]
-    dp[2] = li[1] + li[2]
-    dp[3] = max(dp[1] + li[3], dp[2], li[2] + li[3])
-    for i in range(4, n + 1):
-        dp[i] = max(dp[i - 2] + li[i], dp[i - 3] + li[i - 1] + li[i], dp[i - 1])
-    print(max(dp[n], dp[n - 1]))
-elif n == 1:
-    print(li[1])
-elif n == 2:
-    print(li[1] + li[2])
-elif n == 3:
-    dp[1] = li[1]
-    dp[2] = li[1] + li[2]
-    dp[3] = max(dp[1] + li[3], dp[2], li[2] + li[3])
-    print(dp[3])
+# if n >= 4:
+#     dp[1] = li[1]
+#     dp[2] = li[1] + li[2]
+#     dp[3] = max(dp[1] + li[3], dp[2], li[2] + li[3])
+#     for i in range(4, n + 1):
+#         dp[i] = max(dp[i - 2] + li[i], dp[i - 3] + li[i - 1] + li[i], dp[i - 1])
+#     print(max(dp[n], dp[n - 1]))
+# elif n == 1:
+#     print(li[1])
+# elif n == 2:
+#     print(li[1] + li[2])
+# elif n == 3:
+#     dp[1] = li[1]
+#     dp[2] = li[1] + li[2]
+#     dp[3] = max(dp[1] + li[3], dp[2], li[2] + li[3])
+#     print(dp[3])
 
 # 반례를 찾아서 내가 틀렸다는 건 알겠는데, 정확하게 왜 틀렸는지는 이해가 안감..
-#
+# 약간 찜찜하긴 했는데
 
 # 11053
 
