@@ -86,59 +86,59 @@
 # print(''.join(out))
 
 # 1780
-import sys
+# import sys
 
-input = sys.stdin.readline
+# input = sys.stdin.readline
 
-n = int(input())
-li = [list(map(int, input().split())) for _ in range(n)]
+# n = int(input())
+# li = [list(map(int, input().split())) for _ in range(n)]
 
-minus = 0
-zero = 0
-plus = 0
-
-
-def dq(r, c, d):
-    global minus, zero, plus
-    same = True
-    first = li[r][c]
-
-    for i in range(r, r + d):
-        for j in range(c, c + d):
-            if li[i][j] != first:
-                same = False
-                break
-        if same == False:
-            break
-
-    if same:
-        if first == 1:
-            plus += 1
-            return
-        if first == 0:
-            zero += 1
-            return
-        if first == -1:
-            minus += 1
-            return
-    d = d // 3
-
-    dq(r, c, d)
-    dq(r, c + d, d)
-    dq(r, c + 2 * d, d)
-    dq(r + d, c, d)
-    dq(r + d, c + d, d)
-    dq(r + d, c + 2 * d, d)
-    dq(r + 2 * d, c, d)
-    dq(r + 2 * d, c + d, d)
-    dq(r + 2 * d, c + 2 * d, d)
+# minus = 0
+# zero = 0
+# plus = 0
 
 
-dq(0, 0, n)
+# def dq(r, c, d):
+#     global minus, zero, plus
+#     same = True
+#     first = li[r][c]
 
-print(minus)
-print(zero)
-print(plus)
+#     for i in range(r, r + d):
+#         for j in range(c, c + d):
+#             if li[i][j] != first:
+#                 same = False
+#                 break
+#         if same == False:
+#             break
+
+#     if same:
+#         if first == 1:
+#             plus += 1
+#             return
+#         if first == 0:
+#             zero += 1
+#             return
+#         if first == -1:
+#             minus += 1
+#             return
+#     d = d // 3
+
+#     dq(r, c, d)
+#     dq(r, c + d, d)
+#     dq(r, c + 2 * d, d)
+#     dq(r + d, c, d)
+#     dq(r + d, c + d, d)
+#     dq(r + d, c + 2 * d, d)
+#     dq(r + 2 * d, c, d)
+#     dq(r + 2 * d, c + d, d)
+#     dq(r + 2 * d, c + 2 * d, d)
+
+
+# dq(0, 0, n)
+
+# print(minus)
+# print(zero)
+# print(plus)
 
 # 1629
 
@@ -149,6 +149,5 @@ print(plus)
 # 10830
 
 # 11444
-
 
 # 6549
