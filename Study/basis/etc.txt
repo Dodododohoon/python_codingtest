@@ -20,3 +20,5 @@ RecursionError - 재귀가 너무 깊게 들어가서 파이썬이 허용하는 
 
 - min, max  최대 최소 : 파이썬은 한방에 구할 수있음.
 min(x, y, z, w) -> 제일 작은 수
+
+- 절대값 : abs(num)

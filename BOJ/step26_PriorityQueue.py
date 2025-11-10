@@ -1,40 +1,69 @@
+#우선순위가 가장 높은 데이터를 가장 먼저 삭제하는 자료구조
+# heapq 이용. 파이썬에서는 min heap이 기본 구조.
+
 #11279
-import sys
-from collections import deque
+#import sys
+#import heapq
 
-input=sys.stdin.readline
+#input=sys.stdin.readline
 
-d = deque()
-n=int(input())
-max=0
+#n = int(input())
 
-for i in range(n):
-    num = int(input())
-    
-    if num ==0:
-        if not d:
-            print('0')
-        else:
-            print(max)
-            d.pop()
-            if d:
-                max=d[-1]
-            else:
-                max=0
-    else:
-         if num >= max:
-             max = num
-             d.append(num)
-         else:
-             d.appendleft(num)
-         
+#heap = []    
 
+#for _ in range(n):
+#    x = int(input())
+#    
+#    if x:
+#        heapq.heappush(heap,-x)
+#    else:
+#        if heap:
+#            k = heapq.heappop(heap)
+#            print(-k)
+#        else:
+#            print('0')
+        
 
 #1927
+#import sys
+#import heapq
 
+#input=sys.stdin.readline
+
+#n = int(input())
+
+#heap = []    
+#for _ in range(n):
+#    x = int(input())
+#    
+#    if x:
+#        heapq.heappush(heap,x)
+#    else:
+#        if heap:
+#            print(heapq.heappop(heap))
+#        else:
+#            print('0') 
 
 #11286
+#import sys
+#import heapq
 
+#input = sys.stdin.readline
+
+#heap =[]
+#n = int(input())
+
+#for _ in range(n):
+#    x = int(input())
+#    
+#    if x == 0:
+#        if heap:
+#            print(heapq.heappop(heap)[1])
+#        else:
+#            print('0')
+#    else:
+#        heapq.heappush(heap,(abs(x),x))
+        
 
 #2075
 
