@@ -67,14 +67,116 @@
 #    return
 #dfs(r)
 
-#print('\n'.join(map(str, visited[1:])))
-    
+#print('\n'.join(map(str, visited[1:])))    
 
 #24444
+#from collections import deque
+#import sys
+
+#input = sys.stdin.readline
+
+#n,m,r = map(int, input().split())
+
+#graph = [[] for _ in range(n+1)]
+#q = deque()
+#visited = [0] *(n+1)
+
+#for _ in range(m):
+#    a,b = map(int, input().split())
+#    graph[a].append(b)
+#    graph[b].append(a)
+
+#for i in range(1, n+1):
+#    graph[i].sort()
+#    
+#def bfs(r):
+#    cnt = 1
+#    visited[r] = cnt
+#    
+#    q.append(r)
+#    
+#    while q:
+#        u = q.popleft()
+#        for x in graph[u]:
+#            if not visited[x]:
+#                cnt+=1
+#                visited[x] = cnt
+#                q.append(x)
+
+#bfs(r)        
+#print('\n'.join(map(str, visited[1:])))
+
 
 #24445
+#import sys
+#from collections import deque
+
+#input = sys.stdin.readline
+#q=deque()
+
+#n,m,r = map(int, input().split())
+
+#visited= [0] *(n+1)
+#graph=[[] for _ in range(n+1)]
+
+#for _ in range(m):
+#    a,b = map(int, input().split())
+#    graph[a].append(b)
+#    graph[b].append(a)
+
+#for i in range(1,n+1):
+#    graph[i].sort(reverse=True)
+
+#def dfs(r):
+#    cnt=1
+#    visited[r] = cnt
+#    
+#    q.append(r)
+#    
+#    while q:
+#        u = q.popleft()
+#        for x in graph[u]:
+#            if visited[x] ==0:
+#                cnt +=1
+#                visited[x] = cnt
+#                q.append(x)
+#                
+#dfs(r)
+#print('\n'.join(map(str, visited[1:])))
 
 #2606
+#import sys
+#from collections import deque
+#input = sys.stdin.readline
+
+#n = int(input())
+#m = int(input())
+
+#visited = [False] * (n+1)
+#graph = [[] for _ in range(n+1)]
+
+#for _ in range(m):
+#    a,b = map(int, input().split())
+#    graph[a].append(b)
+#    graph[b].append(a)
+
+#cnt=0
+
+#def bfs(r):
+#    global cnt
+#    visited[r] = True
+#    q=deque([r])
+#    
+#    while q:
+#        u = q.popleft()
+#        for x in graph[u]:
+#            if visited[x] == False:
+#                visited[x] =True
+#                cnt+=1
+#                q.append(x)
+#bfs(1)
+#print(cnt)
+
 
 #1260
 
