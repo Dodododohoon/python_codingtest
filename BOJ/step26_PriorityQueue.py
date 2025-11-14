@@ -66,7 +66,32 @@
         
 
 #2075
+#import heapq
+#import sys
 
+#input = sys.stdin.readline
+
+#n = int(input())
+#h = list(map(int, input().split()))
+#heapq.heapify(h)
+
+#----------------------------------- 내 풀이.
+#for _ in range(n-1):
+#    tmp = [-x for x in map(int, input().split())]
+#    heapq.heapify(tmp)
+#    
+#    while -(tmp[0]) > h[0]:
+#        a = -heapq.heappop(tmp)
+#        heapq.heappop(h)
+#        heapq.heappush(h,a)
+#------------------------------------ 더 심플 버전
+#for _ in range(n-1):
+#    for x in map(int, input().split()):
+#        if x >h[0]:
+#            heapq.heapreplace(h,x)
+
+
+#print(h[0])
 
 #2696
 

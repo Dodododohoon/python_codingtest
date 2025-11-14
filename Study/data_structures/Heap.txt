@@ -21,6 +21,9 @@ heapq.heappush(heap, 1)
 print(heap[0])         # 1
 print(heapq.heappop(heap))  # 1
 ```
+# 제거 & 추가
+heapq.heapreplace(heap, item): heappop() + heappush()를 한 번에 수행해 최솟값을 교체함.  
+예: if x > heap[0]: heapq.heapreplace(heap, x)
 
 ---
 
