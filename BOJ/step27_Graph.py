@@ -177,8 +177,69 @@
 #bfs(1)
 #print(cnt)
 
-
 #1260
+#import sys
+#from collections import deque
+
+#input = sys.stdin.readline
+#n, m, v = map(int, input().split())
+
+#graph= [[] for _ in range(n+1)]
+
+#for _ in range(m):
+#    a,b = map(int, input().split())
+#    graph[a].append(b)
+#    graph[b].append(a)
+
+#for i in range(1, n+1):
+#    graph[i].sort()
+
+
+#visited = [0] * (n+1)
+#ord = [v]
+#cnt = 0
+
+#def dfs(v):
+#    global cnt
+#    cnt += 1
+#    visited[v] = cnt
+#    
+#    for x in graph[v]:
+#        if visited[x] == 0:
+#            ord.append(x)
+#            dfs(x)
+
+
+#def bfs(v):
+#    global cnt
+#    cnt =1
+#    visited[v] =cnt
+#    q.append(v)
+#    
+#    
+#    while q:
+#        u = q.popleft()
+#        
+#        for x in graph[u]:
+#            if visited[x] ==0:
+#                q.append(x)
+#                cnt +=1
+#                visited[x] =cnt
+#                ord.append(x)
+#    
+#dfs(v)
+#print(' '.join(map(str, ord)))
+
+#visited = [0] * (n+1)
+#cnt=0
+#q = deque()
+#ord=[v]
+
+#bfs(v)
+
+#print(' '.join(map(str, ord)))
+
+
 
 #2667
 

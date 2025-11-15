@@ -36,13 +36,15 @@
 #        nd = cur_dist + w
 #        if nd < dist[nxt]:
 #            dist[nxt] = nd
-#            heapq.heappush(hq, (nd, nxt))
+#            heapq.heappush(hq, (nd, nxt))         #lazy deletion
 #        
 #for i in range(1,v+1):
 #    if dist[i] ==INF:
 #        print('INF')
 #    else:
 #        print(dist[i])
+
+
 
 #1504
 
