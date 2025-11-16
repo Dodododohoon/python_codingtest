@@ -141,6 +141,33 @@
 # print(plus)
 
 # 1629
+import sys
+
+input = sys.stdin.readline
+
+
+a, b, c = map(int, input().split())
+
+
+def dc(a, b, c):
+    if b % 2:
+        if b == 1:
+            return a % c
+        else:
+            k = dc(a, (b - 1) // 2, c)
+            return ((k * k) % c * (a % c)) % c
+    else:
+        k = dc(a, b // 2, c)
+        return (k * k) % c
+
+
+if b == 1:
+    print(a % c)
+else:
+    print(dc(a, b, c))
+
+# (A⋅B)modC=((AmodC)⋅(BmodC))modC
+# 최대한 제귀, 숫자 작게 유지.
 
 # 11401
 
