@@ -127,6 +127,41 @@
 # for i in range(a,b) s[i]= '' => s[a:b] = '' * (b-a) 슬라이싱으로 간결하게
 
 # 2447
+import sys
 
+input = sys.stdin.readline
+
+n = int(input())
+
+li = [["*"] * n for _ in range(n)]
+
+
+def space(a, b, len):
+    for l in range(a, a + len):
+        for m in range(b, b + len):
+            li[l][m] = " "
+
+
+def recur(x, y, len):
+    if len == 1:
+        return
+    len = len // 3
+    a = x + len
+    b = y + len
+
+    for i in range(3):
+        for j in range(3):
+            if i == 1 and j == 1:
+                space(a, b, len)
+            else:
+                recur(x + len * i, y + len * j, len)
+
+
+recur(0, 0, n)
+
+for i in range(n):
+    print("".join(li[i]))
+
+# 암산으로 한다고 대갈통 터지는줄. BUT 깔끔 아주 나이스
 
 # 11729
