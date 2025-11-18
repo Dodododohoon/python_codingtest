@@ -123,3 +123,13 @@
 
 
 # 13909
+import sys
+import math
+
+input = sys.stdin.readline
+
+n = int(input().strip())
+
+print(math.isqrt(n))  # n의 정수 제곱근
+
+# 그냥 gpt 받음.
