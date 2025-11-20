@@ -1,0 +1,114 @@
+📌 트리(Tree) 정리 노트 — 복붙 전용
+
+[1] 트리(Tree)란?
+- 사이클이 없는 연결 그래프
+- 노드 N개일 때 간선은 항상 N-1개
+- 모든 노드가 하나로 연결됨
+- 두 노드 사이 경로는 항상 1개
+
+[2] 트리 vs 일반 그래프
+- 트리는 사이클 없음 / 그래프는 있을 수 있음
+- 트리는 간선이 N-1로 고정
+- 경로는 트리=유일 / 그래프=여러 개 가능
+- 트리는 루트 정할 수 있음
+
+[3] 루트 트리(rooted tree) 기본 개념
+- root(보통 1)
+- parent / child / sibling
+- depth(루트부터 거리)
+- height(가장 깊은 노드의 depth)
+- subtree(특정 노드를 루트로 하는 부분 트리)
+➡ 대부분의 백준 트리는 1을 루트로 두고 parent, depth, subtree 크기 구하는 문제로 구성됨
+
+[4] 트리 핵심 성질
+- 사이클 없음 → DFS에서 반드시 visited 또는 parent 체크 필요
+- 간선이 N-1 → 전체 탐색 O(N)
+- 최단 경로가 유일 → 탐색이 단순
+- 트리 기반 알고리즘: LCA, 트리 DP, HLD 등
+
+[5] 트리 입력 형태
+n
+u v
+u v
+...
+양방향 그래프로 받고 DFS/BFS로 구조를 결정함
+
+[6] 트리 기본 코드 템플릿
+
+(1) 인접 리스트 + DFS
+--------------------------------
+import sys
+sys.setrecursionlimit(10**7)
+input = sys.stdin.readline
+
+n = int(input())
+graph = [[] for _ in range(n+1)]
+visited = [False] * (n+1)
+
+for _ in range(n-1):
+    a, b = map(int, input().split())
+    graph[a].append(b)
+    graph[b].append(a)
+
+def dfs(u):
+    visited[u] = True
+    for v in graph[u]:
+        if not visited[v]:
+            dfs(v)
+
+dfs(1)
+--------------------------------
+
+(2) 부모(parent) 배열 찾기
+--------------------------------
+parent = [0] * (n+1)
+
+def dfs(u, p):
+    parent[u] = p
+    for v in graph[u]:
+        if v != p:
+            dfs(v, u)
+
+dfs(1, 0)
+--------------------------------
+
+(3) 깊이(depth) 배열
+--------------------------------
+depth = [0] * (n+1)
+
+def dfs(u, d):
+    depth[u] = d
+    for v in graph[u]:
+        if depth[v] == 0:
+            dfs(v, d+1)
+
+dfs(1, 1)
+--------------------------------
+
+(4) 서브트리 크기 배열(subtree size)
+--------------------------------
+sub = [0] * (n+1)
+
+def dfs(u, p):
+    sub[u] = 1
+    for v in graph[u]:
+        if v != p:
+            dfs(v, u)
+            sub[u] += sub[v]
+
+dfs(1, 0)
+--------------------------------
+
+[7] 트리 문제 핵심 아이디어
+- 부모를 기록하자 → 필수
+- 깊이를 기록하자 → 트리 거리/LCA에 필수
+- 서브트리 크기를 기록하자 → 트리 DP 기본
+- 트리는 사이클이 없으므로 visited 또는 parent로만 관리하면 끝
+- 트리 DP: "자식 먼저 계산 → 부모가 취합" 방식
+
+[8] 트리 난이도 단계
+1단계: 부모 찾기
+2단계: 깊이 / 서브트리
+3단계: 트리 DP
+4단계: LCA
+5단계: HLD
