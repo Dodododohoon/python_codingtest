@@ -1,0 +1,58 @@
+📌 Union-Find (Disjoint Set Union, DSU) — 요약 정리
+
+[1] 유니온파인드는?
+- 서로소 집합(Disjoint Set)을 관리하는 자료구조
+- 대표 기능: 두 원소가 같은 그룹인지 확인(find), 두 그룹 합치기(union)
+- 활용: 사이클 판별, 최소 스패닝 트리(Kruskal), 네트워크 연결 문제
+
+[2] 핵심 개념
+- parent[x]: x의 부모(루트면 parent[x] = x)
+- find(x): x의 루트(대표자) 찾기
+- union(a,b): 두 집합 합치기
+- 경로 압축(Path Compression) + 랭크 기반 합치기(Union by Rank)를 반드시 사용
+
+[3] DSU 초기화
+parent = [i for i in range(n+1)]
+rank = [0] * (n+1)
+
+[4] find (경로 압축)
+def find(x):
+    if parent[x] != x:
+        parent[x] = find(parent[x])
+    return parent[x]
+
+[5] union (랭크 기반)
+def union(a, b):
+    a = find(a)
+    b = find(b)
+    if a != b:
+        if rank[a] < rank[b]:
+            parent[a] = b
+        else:
+            parent[b] = a
+            if rank[a] == rank[b]:
+                rank[a] += 1
+
+[6] 두 원소가 같은 집합인지 확인
+if find(a) == find(b):
+    # 같은 그룹
+else:
+    # 다른 그룹
+
+[7] 대표 활용 예시
+(1) 사이클 판별
+for a, b in edges:
+    if find(a) == find(b):
+        print("cycle")
+    else:
+        union(a, b)
+
+(2) Kruskal MST
+edges.sort(key=lambda x: x[2])
+total = 0
+for a, b, w in edges:
+    if find(a) != find(b):
+        union(a, b)
+        total += w
+print(total)
+
