@@ -243,6 +243,8 @@
 # 2667
 import sys
 
+input = sys.stdin.readline
+
 
 # 1012
 
