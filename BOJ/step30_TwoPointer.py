@@ -73,7 +73,42 @@
 
 
 # 1806
+# import sys
 
+# input = sys.stdin.readline
+
+# n, s = map(int, input().split())
+
+# li = list(map(int, input().split()))
+
+# pre = [0] * (n + 1)
+
+# for i in range(1, n + 1):
+#     pre[i] = pre[i - 1] + li[i - 1]
+
+# start = 0
+# end = 1
+# min_len = 100000
+# while start < end:
+#     if min_len==1:
+#         break
+#     if end > n:
+#         break
+#     pre_sum = pre[end] - pre[start]
+#     if pre_sum >= s:
+#         if end - start < min_len:
+#             min_len = end - start
+#         start += 1
+#     else:
+#         end += 1
+
+
+# if min_len == 100000:
+#     print("0")
+# else:
+#     print(min_len)
+
+# prefix_sum 안써도 되네? 그냥 sum += end, -= start 요론식으로 바로 가능. (슬라이딩 윈도우)
 
 # 1644
 
