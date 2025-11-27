@@ -241,10 +241,54 @@
 
 
 # 2667
-import sys
+#import sys
 
-input = sys.stdin.readline
+#input = sys.stdin.readline
 
+#n = int(input())
+
+#li = [input() for _ in range(n)]
+#visited = [[False] *(n) for _ in range(n)]
+
+#apt = 0
+#ans = []
+#cnt =0
+
+#def dfs(row,col):
+#    if visited[row][col] != False:
+#        return
+#    if li[row][col] == '0':
+#        return
+#        
+#    global cnt
+#    
+#    if li[row][col] == '1':
+#        visited[row][col] = apt
+#        cnt+=1
+#        if row >0:
+#            dfs(row-1,col)
+#        if col > 0:
+#            dfs(row,col-1)
+#        if col < n-1:
+#            dfs(row,col+1)
+#        if row < n-1:
+#            dfs(row+1,col)
+#        
+#        
+#for i in range(n):
+#    for j in range(n):
+#        if li[i][j] == '1' and visited[i][j] == False:
+#            apt +=1
+#            cnt = 0 
+#            dfs(i,j)
+#            ans.append(cnt)
+#            
+#print(apt)
+#ans.sort()
+#for i in range(apt):
+#    print(ans[i])
+
+#dfs로 풀었는데 다음에는 bfs로 ㄲㄲ
 
 # 1012
 

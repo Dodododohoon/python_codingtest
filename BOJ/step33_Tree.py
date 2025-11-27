@@ -100,7 +100,55 @@
 
 
 # 1991
+#import sys
+#input =sys.stdin.readline
 
+
+#n = int(input())
+#graph = [[] for _ in range(n)]
+
+#for _ in range(n):
+#    a,b,c = map(str, input().split())
+#    graph[ord(a)-65].append(b)
+#    graph[ord(a)-65].append(c)
+
+#def preorder(s):
+#    print(chr(s+65), end='')
+#    for x in graph[s]:
+#        if x == '.':
+#            continue
+#        preorder(ord(x)-65)
+
+#def inorder(s):
+#    for i in range(2):
+#        x = graph[s][i]
+#        if i==0:
+#            if x =='.':
+#                print(chr(s+65), end='')
+#                continue
+#            inorder(ord(x)-65)
+#            print(chr(s+65), end='')
+#        else:
+#            if x =='.':
+#                continue
+#            inorder(ord(x)-65)
+
+#def postorder(s):
+#    for x in graph[s]:
+#        if x == '.':
+#            continue
+#        postorder(ord(x)-65)
+#    print(chr(s+65), end='')
+
+#preorder(0)
+#print()
+#inorder(0)
+#print()
+#postorder(0)
+
+#정답은 맞췄는데 정석보다는 좀 가독성 떨어지는듯.
+#정석은 ord써서 idx맞춰서 집어 넣되 함수에서 그냥 grahp[idx][0], [1] 이렇게만 씀.
+#그럼 for문 필요도 없고 각 함수당 6줄 컷 가능. 담에는 더 깔끔하게 ㄲ
 
 # 2263
 
