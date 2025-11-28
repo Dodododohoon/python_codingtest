@@ -247,6 +247,24 @@
 # 약간 찜찜하긴 했는데
 
 # 11053
+#import sys
+#input = sys.stdin.readline
+
+#n= int(input())
+#li = list(map(int, input().split()))
+
+#dp = [1] * (n)
+
+#for i in range(1,n):
+#    dp_max=0
+#    for j in range(0,i):
+#        if li[i] > li[j] and dp_max < dp[j]:
+#            dp_max = dp[j]
+#    dp[i] = dp_max + 1
+#        
+#print(max(dp))
+
+#점화식 뽑아내는게 힘들어서 힌트 받음..               
 
 # 11054
 
