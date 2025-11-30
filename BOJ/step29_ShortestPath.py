@@ -127,6 +127,13 @@
 # 다익스트라 세번 돌렸는데 그냥 함수로 만들어서 3번 돌리는게 깔끔.
 
 # 13549
+import sys
+
+sys.setrecursionlimit(10**6)
+
+input = sys.stdin.readline
+
+n, k = map(int, input().split())
 
 
 # 9370
