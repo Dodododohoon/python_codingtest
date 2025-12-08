@@ -94,38 +94,38 @@
 # 이분탐색을 할 꺼면 확실하게 이분탐색으로 쭉.
 
 # 2805
-import sys
-input = sys.stdin.readline
+#import sys
+#input = sys.stdin.readline
 
-n, m = map(int, input().split())
+#n, m = map(int, input().split())
 
-li = list(map(int, input().split()))
+#li = list(map(int, input().split()))
 
-li.sort(reverse=True)
+#li.sort(reverse=True)
 
-def search(left, right,m):
-    h = 0
-    while left <= right:
-        total=0
-        mid = (left + right)//2
-        
-        for x in li:
-            if x <= mid:
-                break
-            total += x - mid
-        
-        if total == m:
-            h= mid
-            break
-        elif total > m:
-            h=mid
-            left = mid +1
-        else:
-            right = mid -1
+#def search(left, right,m):
+#    h = 0
+#    while left <= right:
+#        total=0
+#        mid = (left + right)//2
+#        
+#        for x in li:
+#            if x <= mid:
+#                break
+#            total += x - mid
+#        
+#        if total == m:
+#            h= mid
+#            break
+#        elif total > m:
+#            h=mid
+#            left = mid +1
+#        else:
+#            right = mid -1
 
-    return h
+#    return h
 
-print(search(0,li[0],m))                        
+#print(search(0,li[0],m))                        
 
 
 #mid로만 풀릴 줄 알고 mid로 경우 분석하다가 안풀려서 h 쓰니깐 바로 해결됨.
@@ -134,6 +134,16 @@ print(search(0,li[0],m))
 #그니깐 검증 들어가기 전 값이 확실한 정답 값이 되는 거. mid값이 답이 아니라.
 
 # 2110
+import sys
+input = sys.stdin.readline
+
+n, c = map(int, input().split())
+arr =[int(input().strip()) for _ in range(n)]
+
+arr.sort()
+
+def search():
+    
 
 
 # 1300
