@@ -43,7 +43,7 @@
 #                    
 #bt(1) 
 #---------------------------------------------------------
-##Dynamic Programming
+##Dynamic Programming - 점화식이 메인
 #2579
 #import sys
 
@@ -69,7 +69,7 @@
 
 #print(dp[n])
 #--------------------------------------------------
-##Prefix Sum
+##Prefix Sum - 1차원은 일단 깔끔, 2차원도 적응해보자.
 #11659
 #import sys
 #input = sys.stdin.readline
