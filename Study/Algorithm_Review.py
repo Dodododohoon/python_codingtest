@@ -88,30 +88,64 @@
 #    print(prefix[j] - prefix[i-1])
 
 # 11660
-import sys
+#import sys
 
+#input = sys.stdin.readline
+
+#n, m = map(int, input().split())
+
+#arr = [list(map(int, input().split())) for _ in range(n)]
+
+#prefix = [[0] * (n + 1) for _ in range(n + 1)]
+
+#for i in range(1, n + 1):
+#    for j in range(1, n + 1):
+#        prefix[i][j] = (
+#            prefix[i - 1][j]
+#            + prefix[i][j - 1]
+#            - prefix[i - 1][j - 1]
+#            + arr[i - 1][j - 1]
+#        )
+
+#for _ in range(m):
+#    x1, y1, x2, y2 = map(int, input().split())
+#    print(
+#        prefix[x2][y2]
+#        - prefix[x1 - 1][y2]
+#        - prefix[x2][y1 - 1]
+#        + prefix[x1 - 1][y1 - 1]
+#    )
+
+#-------------------------------------
+#Greedy
+#1931
+#import sys
+#input = sys.stdin.readline
+
+#n = int(input())
+#arr = []
+
+#for _ in range(n):
+#    x1, x2 = map(int, input().split())
+#    arr.append((x1,x2))
+
+#arr.sort(key=lambda x : (x[1], x[0]))
+
+#finish = -1
+#cnt = 0
+
+#for a,b in arr:
+#    if a >= finish:
+#        cnt +=1
+#        finish = b
+
+#print(cnt)
+
+#---------------------------------------------
+#Divide & Conquer
+import sys
+sys.setrecursionlimit(10**6)
 input = sys.stdin.readline
 
-n, m = map(int, input().split())
+n = int(input())
 
-arr = [list(map(int, input().split())) for _ in range(n)]
-
-prefix = [[0] * (n + 1) for _ in range(n + 1)]
-
-for i in range(1, n + 1):
-    for j in range(1, n + 1):
-        prefix[i][j] = (
-            prefix[i - 1][j]
-            + prefix[i][j - 1]
-            - prefix[i - 1][j - 1]
-            + arr[i - 1][j - 1]
-        )
-
-for _ in range(m):
-    x1, y1, x2, y2 = map(int, input().split())
-    print(
-        prefix[x2][y2]
-        - prefix[x1 - 1][y2]
-        - prefix[x2][y1 - 1]
-        + prefix[x1 - 1][y1 - 1]
-    )
