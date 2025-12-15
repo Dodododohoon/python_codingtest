@@ -143,9 +143,49 @@
 
 #---------------------------------------------
 #Divide & Conquer
+#2630
 import sys
 sys.setrecursionlimit(10**6)
 input = sys.stdin.readline
 
 n = int(input())
 
+arr = [list(map(int, input().split())) for _ in range(n)]
+
+cnt_b = 0
+cnt_w = 0
+
+def dc(row, col, size):
+    global cnt_b, cnt_w
+    check = arr[row][col]
+    same = True
+    
+    if size == 1:
+        if check:
+            cnt_b +=1
+        else:
+            cnt_w +=1
+        return
+    
+    for i in range(row, row+size):
+        for j in range(col, col+size):
+            if arr[i][j] != check:
+                same= False
+                break
+        if arr[i][j] != check:
+            break
+            
+    if same :
+        if check:
+            cnt_b +=1
+        else:
+            cnt_w +=1
+    else:
+        dc(row,col,size//2)
+        dc(row+size//2,col,size//2)
+        dc(row,col+size//2,size//2)
+        dc(row+size//2,col+size//2,size//2)
+        
+dc(0,0,n)
+print(cnt_w)
+print(cnt_b)
