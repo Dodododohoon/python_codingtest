@@ -88,17 +88,17 @@
 #    print(prefix[j] - prefix[i-1])
 
 # 11660
-#import sys
+# import sys
 
-#input = sys.stdin.readline
+# input = sys.stdin.readline
 
-#n, m = map(int, input().split())
+# n, m = map(int, input().split())
 
-#arr = [list(map(int, input().split())) for _ in range(n)]
+# arr = [list(map(int, input().split())) for _ in range(n)]
 
-#prefix = [[0] * (n + 1) for _ in range(n + 1)]
+# prefix = [[0] * (n + 1) for _ in range(n + 1)]
 
-#for i in range(1, n + 1):
+# for i in range(1, n + 1):
 #    for j in range(1, n + 1):
 #        prefix[i][j] = (
 #            prefix[i - 1][j]
@@ -107,7 +107,7 @@
 #            + arr[i - 1][j - 1]
 #        )
 
-#for _ in range(m):
+# for _ in range(m):
 #    x1, y1, x2, y2 = map(int, input().split())
 #    print(
 #        prefix[x2][y2]
@@ -116,76 +116,110 @@
 #        + prefix[x1 - 1][y1 - 1]
 #    )
 
-#-------------------------------------
-#Greedy
-#1931
-#import sys
-#input = sys.stdin.readline
+# -------------------------------------
+# Greedy
+# 1931
+# import sys
+# input = sys.stdin.readline
 
-#n = int(input())
-#arr = []
+# n = int(input())
+# arr = []
 
-#for _ in range(n):
+# for _ in range(n):
 #    x1, x2 = map(int, input().split())
 #    arr.append((x1,x2))
 
-#arr.sort(key=lambda x : (x[1], x[0]))
+# arr.sort(key=lambda x : (x[1], x[0]))
 
-#finish = -1
-#cnt = 0
+# finish = -1
+# cnt = 0
 
-#for a,b in arr:
+# for a,b in arr:
 #    if a >= finish:
 #        cnt +=1
 #        finish = b
 
-#print(cnt)
+# print(cnt)
 
-#---------------------------------------------
-#Divide & Conquer
-#2630
-import sys
-sys.setrecursionlimit(10**6)
-input = sys.stdin.readline
+# ---------------------------------------------
+# Divide & Conquer
+# 2630
+# import sys
+# sys.setrecursionlimit(10**6)
+# input = sys.stdin.readline
 
-n = int(input())
+# n = int(input())
 
-arr = [list(map(int, input().split())) for _ in range(n)]
+# arr = [list(map(int, input().split())) for _ in range(n)]
 
-cnt_b = 0
-cnt_w = 0
+# cnt_b = 0
+# cnt_w = 0
 
-def dc(row, col, size):
-    global cnt_b, cnt_w
-    check = arr[row][col]
-    same = True
-    
-    if size == 1:
-        if check:
-            cnt_b +=1
-        else:
-            cnt_w +=1
-        return
-    
-    for i in range(row, row+size):
-        for j in range(col, col+size):
-            if arr[i][j] != check:
-                same= False
-                break
-        if arr[i][j] != check:
-            break
-            
-    if same :
-        if check:
-            cnt_b +=1
-        else:
-            cnt_w +=1
-    else:
-        dc(row,col,size//2)
-        dc(row+size//2,col,size//2)
-        dc(row,col+size//2,size//2)
-        dc(row+size//2,col+size//2,size//2)
-        
-dc(0,0,n)
-print(cnt_w)
-print(cnt_b)
+# def dc(row, col, size):
+#     global cnt_b, cnt_w
+#     check = arr[row][col]
+#     same = True
+
+#     if size == 1:
+#         if check:
+#             cnt_b +=1
+#         else:
+#             cnt_w +=1
+#         return
+
+#     for i in range(row, row+size):
+#         for j in range(col, col+size):
+#             if arr[i][j] != check:
+#                 same= False
+#                 break
+#         if arr[i][j] != check:
+#             break
+
+#     if same :
+#         if check:
+#             cnt_b +=1
+#         else:
+#             cnt_w +=1
+#     else:
+#         dc(row,col,size//2)
+#         dc(row+size//2,col,size//2)
+#         dc(row,col+size//2,size//2)
+#         dc(row+size//2,col+size//2,size//2)
+
+# dc(0,0,n)
+# print(cnt_w)
+# print(cnt_b)
+
+# -------------------------------------------------
+# Binary Search
+# 1920
+# import sys
+
+# input = sys.stdin.readline
+
+# n = int(input())
+# arr = list(map(int, input().split()))
+# m = int(input())
+# check = list(map(int, input().split()))
+
+# arr.sort()
+
+
+# def bs(target):
+#     left = 0
+#     right = len(arr) - 1
+
+#     while left <= right:
+#         mid = (left + right) // 2
+
+#         if arr[mid] == target:
+#             return 1
+#         elif arr[mid] < target:
+#             left = mid + 1
+#         else:
+#             right = mid - 1
+#     return 0
+
+
+# for x in check:
+#     print(bs(x))
