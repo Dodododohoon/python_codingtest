@@ -223,3 +223,54 @@
 
 # for x in check:
 #     print(bs(x))
+
+#-------------------------------------------------
+#Prioity Queue
+#11279
+#import sys
+#import heapq
+#input = sys.stdin.readline
+
+#hq = []
+
+#n = int(input())
+
+#for _ in range(n):
+#    x = int(input())
+#    
+#    if x == 0:
+#        if hq:
+#            print(-heapq.heappop(hq))
+#        else:
+#            print('0')
+#    else:
+#        heapq.heappush(hq, -x)
+
+#---------------------------------------
+#Two Pointer
+#3273
+#import sys
+#input = sys.stdin.readline
+
+#n = int(input())
+#arr = list(map(int,input().split()))
+#x = int(input())
+
+#arr.sort()
+
+#left = 0
+#right = len(arr)-1
+#cnt =0
+
+#while left<right:
+#    sum = arr[left] + arr[right]
+#    if sum == x:
+#        cnt +=1
+#        left +=1
+#        right -= 1
+#    elif sum>x:
+#        right-=1
+#    else:
+#        left +=1
+
+#print(cnt)
