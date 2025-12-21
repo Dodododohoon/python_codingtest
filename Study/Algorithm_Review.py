@@ -224,20 +224,20 @@
 # for x in check:
 #     print(bs(x))
 
-#-------------------------------------------------
-#Prioity Queue
-#11279
-#import sys
-#import heapq
-#input = sys.stdin.readline
+# -------------------------------------------------
+# Prioity Queue
+# 11279
+# import sys
+# import heapq
+# input = sys.stdin.readline
 
-#hq = []
+# hq = []
 
-#n = int(input())
+# n = int(input())
 
-#for _ in range(n):
+# for _ in range(n):
 #    x = int(input())
-#    
+#
 #    if x == 0:
 #        if hq:
 #            print(-heapq.heappop(hq))
@@ -246,23 +246,23 @@
 #    else:
 #        heapq.heappush(hq, -x)
 
-#---------------------------------------
-#Two Pointer
-#3273
-#import sys
-#input = sys.stdin.readline
+# ---------------------------------------
+# Two Pointer
+# 3273
+# import sys
+# input = sys.stdin.readline
 
-#n = int(input())
-#arr = list(map(int,input().split()))
-#x = int(input())
+# n = int(input())
+# arr = list(map(int,input().split()))
+# x = int(input())
 
-#arr.sort()
+# arr.sort()
 
-#left = 0
-#right = len(arr)-1
-#cnt =0
+# left = 0
+# right = len(arr)-1
+# cnt =0
 
-#while left<right:
+# while left<right:
 #    sum = arr[left] + arr[right]
 #    if sum == x:
 #        cnt +=1
@@ -273,4 +273,88 @@
 #    else:
 #        left +=1
 
-#print(cnt)
+# print(cnt)
+
+# --------------------------------------
+# Depth First Search
+# 24479
+# import sys
+
+# input = sys.stdin.readline
+# sys.setrecursionlimit(10**6)
+
+# n, m, r = map(int, input().split())
+
+# graph = [[] for _ in range(n + 1)]
+# visited = [0] * (n + 1)
+
+# for _ in range(m):
+#     u, v = map(int, input().split())
+#     graph[u].append(v)
+#     graph[v].append(u)
+
+# for i in range(n):
+#     graph[i].sort()
+
+# cnt = 1
+# visited[r] = 1
+
+
+# def dfs(start):
+#     global cnt
+#     for x in graph[start]:
+#         if visited[x] == 0:
+#             cnt += 1
+#             visited[x] = cnt
+#             dfs(x)
+
+# dfs(r)
+
+# print("\n".join(map(str, visited[1:])))
+
+# ------------------------------------------
+# Breadth First Search
+# 24444
+# import sys
+# from collections import deque
+
+# input = sys.stdin.readline
+
+# n, m, r = map(int, input().split())
+
+# q = deque()
+# graph = [[] for _ in range(n + 1)]
+# visited = [0] * (n + 1)
+
+# for _ in range(m):
+#     u, v = map(int, input().split())
+#     graph[u].append(v)
+#     graph[v].append(u)
+
+# for i in range(n + 1):
+#     graph[i].sort()
+
+
+# def bfs():
+#     global cnt
+#     while q:
+#         start = q.popleft()
+
+#         for x in graph[start]:
+#             if visited[x] == 0:
+#                 cnt += 1
+#                 visited[x] = cnt
+#                 q.append(x)
+
+# q.append(r)
+# visited[r] = 1
+# cnt = 1
+
+# bfs()
+# print("\n".join(map(str, visited[1:])))
+
+# -------------------------------------
+# Short Path
+# 1753
+import sys
+import heapq
