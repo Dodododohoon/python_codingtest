@@ -354,7 +354,127 @@
 # print("\n".join(map(str, visited[1:])))
 
 # -------------------------------------
-# Short Path
+# Shortest Path
 # 1753
-import sys
-import heapq
+#import sys
+#import heapq
+
+#input = sys.stdin.readline
+#hq = []
+#INF = int(1e9)
+
+#v, e = map(int, input().split())
+#k = int(input())
+
+#graph = [[] for _ in range(v+1)]
+#dist = [INF] * (v+1)
+#dist[k] = 0
+
+#for _ in range(e):
+#    a,b,c = map(int, input().split())
+#    graph[a].append((b,c))
+
+#heapq.heappush(hq, (0,k))
+
+#while hq:
+#    cur_dist, u = heapq.heappop(hq)
+#    
+#    for nxt, w in graph[u]:
+#        nd = cur_dist + w
+#        if nd < dist[nxt]:
+#            dist[nxt] = nd
+#            heapq.heappush(hq, (nd,nxt))
+
+#for i in range(1,v+1):
+#    if dist[i] == INF:
+#        print('INF')
+#    else:
+#        print(dist[i])
+
+#--------------------------------------------------------
+#Union Find
+#1717
+#import sys
+#sys.setrecursionlimit(10**6)
+
+#input = sys.stdin.readline
+
+#n,m=map(int, input().split())
+
+#parent = [i for i in range(n+1)]
+#rank = [0]*(n+1)
+
+#def find(x):
+#    if parent[x] != x:
+#        parent[x] = find(parent[x])
+#    return parent[x]
+
+#def union(a,b):
+#    a = find(a)
+#    b = find(b)
+#    
+#    if a==b:
+#        return
+#    
+#    if rank[b] > rank[a]:
+#        parent[a] = b
+#    else:
+#        parent[b] = a
+#        if rank[a] == rank[b]:
+#            rank[a] += 1
+
+#for _ in range(m):
+#    a, b, c = map(int, input().split())
+#    if a == 0:
+#        union(b,c)
+#    else:
+#        if find(b) == find(c):
+#            print("YES")
+#        else:
+#            print("NO")
+
+#------------------------------------------------------------------
+#Minimum Spanning Tree (MST)
+#1197
+#import sys
+
+#input = sys.stdin.readline
+
+#v,e = map(int, input().split())
+
+#parent = [i for i in range(v+1)]
+#rank = [0] * (v+1)
+#edge=[]
+#cost = 0
+
+#for _ in range(e):
+#    a,b,c = map(int, input().split())
+#    edge.append((a,b,c))
+
+#def find(x):
+#    if parent[x] != x:
+#        parent[x] = find(parent[x])
+#    return parent[x]
+#    
+#def union(a,b):
+#    a = find(a)
+#    b = find(b)
+#    
+#    if a==b:
+#        return
+#    
+#    if rank[a] < rank[b]:
+#        parent[a] = b
+#    else:
+#        parent[b] = a
+#        if rank[a]==rank[b]:
+#            rank[a] +=1
+#            
+#edge.sort(key = lambda x : x[2])
+#    
+#for a,b,c in edge:
+#    if find(a) != find(b):
+#        union(a,b)
+#        cost += c
+
+#print(cost)
