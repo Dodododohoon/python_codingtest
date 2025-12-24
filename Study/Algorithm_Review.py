@@ -42,6 +42,35 @@
 #        arr.pop()
 #
 # bt(1)
+
+#15649
+#import sys
+#sys.setrecursionlimit(10**6)
+
+#input = sys.stdin.readline
+
+#n, m = map(int, input().split())
+
+#visited = [False] * (n+1)
+#out = []
+
+#def bt():
+#    if len(out) == m:
+#        print(' '.join(map(str, out)))
+#        return
+#        
+#    for i in range(1,n+1):
+#        if visited[i]:
+#            continue
+#        else:
+#            visited[i] = True
+#            out.append(i)
+#            bt()
+#        out.pop()
+#        visited[i]=False
+
+#bt()
+
 # ---------------------------------------------------------
 ##Dynamic Programming - 점화식이 메인
 # 2579
