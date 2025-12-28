@@ -43,22 +43,22 @@
 #
 # bt(1)
 
-#15649
-#import sys
-#sys.setrecursionlimit(10**6)
+# 15649
+# import sys
+# sys.setrecursionlimit(10**6)
 
-#input = sys.stdin.readline
+# input = sys.stdin.readline
 
-#n, m = map(int, input().split())
+# n, m = map(int, input().split())
 
-#visited = [False] * (n+1)
-#out = []
+# visited = [False] * (n+1)
+# out = []
 
-#def bt():
+# def bt():
 #    if len(out) == m:
 #        print(' '.join(map(str, out)))
 #        return
-#        
+#
 #    for i in range(1,n+1):
 #        if visited[i]:
 #            continue
@@ -69,7 +69,7 @@
 #        out.pop()
 #        visited[i]=False
 
-#bt()
+# bt()
 
 # ---------------------------------------------------------
 ##Dynamic Programming - 점화식이 메인
@@ -384,95 +384,109 @@
 
 # -------------------------------------
 # Shortest Path
-#1753
+# 1753
 import sys
 import heapq
+
+input = sys.stdin.readline
 
 INF = int(1e9)
 
 v, e = map(int, input().split())
 k = int(input())
-hq = [(0,k)]
+hq = [(0, k)]
 
-graph = [[] for _ in range(v+1)]
-visited=[INF]*(v+1)
+graph = [[] for _ in range(v + 1)]
+visited = [INF] * (v + 1)
+visited[k] = 0
 
 for _ in range(e):
-    a,b,c = map(int, input().split())
-    graph[a].append((c,b))
+    a, b, c = map(int, input().split())
+    graph[a].append((c, b))
 
+for i in range(1, v + 1):
+    graph[i].sort()
 
+while hq:
+    cur_dist, start = heapq.heappop(hq)
 
+    if visited[start] < cur_dist:
+        continue
 
+    for w, nxt in graph[start]:
+        nd = cur_dist + w
+        if visited[nxt] > nd:
+            visited[nxt] = nd
+            heapq.heappush(hq, (nd, nxt))
 
-
-
-
-
-
+for i in range(1, v + 1):
+    if visited[i] == INF:
+        print("INF")
+    else:
+        print(visited[i])
 
 
 # 1753
-#import sys
-#import heapq
+# import sys
+# import heapq
 
-#input = sys.stdin.readline
-#hq = []
-#INF = int(1e9)
+# input = sys.stdin.readline
+# hq = []
+# INF = int(1e9)
 
-#v, e = map(int, input().split())
-#k = int(input())
+# v, e = map(int, input().split())
+# k = int(input())
 
-#graph = [[] for _ in range(v+1)]
-#dist = [INF] * (v+1)
-#dist[k] = 0
+# graph = [[] for _ in range(v+1)]
+# dist = [INF] * (v+1)
+# dist[k] = 0
 
-#for _ in range(e):
+# for _ in range(e):
 #    a,b,c = map(int, input().split())
 #    graph[a].append((b,c))
 
-#heapq.heappush(hq, (0,k))
+# heapq.heappush(hq, (0,k))
 
-#while hq:
+# while hq:
 #    cur_dist, u = heapq.heappop(hq)
-#    
+#
 #    for nxt, w in graph[u]:
 #        nd = cur_dist + w
 #        if nd < dist[nxt]:
 #            dist[nxt] = nd
 #            heapq.heappush(hq, (nd,nxt))
 
-#for i in range(1,v+1):
+# for i in range(1,v+1):
 #    if dist[i] == INF:
 #        print('INF')
 #    else:
 #        print(dist[i])
 
-#--------------------------------------------------------
-#Union Find
-#1717
-#import sys
-#sys.setrecursionlimit(10**6)
+# --------------------------------------------------------
+# Union Find
+# 1717
+# import sys
+# sys.setrecursionlimit(10**6)
 
-#input = sys.stdin.readline
+# input = sys.stdin.readline
 
-#n,m=map(int, input().split())
+# n,m=map(int, input().split())
 
-#parent = [i for i in range(n+1)]
-#rank = [0]*(n+1)
+# parent = [i for i in range(n+1)]
+# rank = [0]*(n+1)
 
-#def find(x):
+# def find(x):
 #    if parent[x] != x:
 #        parent[x] = find(parent[x])
 #    return parent[x]
 
-#def union(a,b):
+# def union(a,b):
 #    a = find(a)
 #    b = find(b)
-#    
+#
 #    if a==b:
 #        return
-#    
+#
 #    if rank[b] > rank[a]:
 #        parent[a] = b
 #    else:
@@ -480,7 +494,7 @@ for _ in range(e):
 #        if rank[a] == rank[b]:
 #            rank[a] += 1
 
-#for _ in range(m):
+# for _ in range(m):
 #    a, b, c = map(int, input().split())
 #    if a == 0:
 #        union(b,c)
@@ -490,52 +504,52 @@ for _ in range(e):
 #        else:
 #            print("NO")
 
-#------------------------------------------------------------------
-#Minimum Spanning Tree (MST)
-#1197
-#import sys
-#import heapq
-#sys.setrecursionlimit(10**6)
+# ------------------------------------------------------------------
+# Minimum Spanning Tree (MST)
+# 1197
+# import sys
+# import heapq
+# sys.setrecursionlimit(10**6)
 
-#input = sys.stdin.readline
+# input = sys.stdin.readline
 
-#v, e = map(int, input().split())
-#hq = []
-#cnt =0
+# v, e = map(int, input().split())
+# hq = []
+# cnt =0
 
-#parent = [i for i in range(v+1)]
-#rank = [0] * (v+1)
+# parent = [i for i in range(v+1)]
+# rank = [0] * (v+1)
 
-#for _ in range(e):
+# for _ in range(e):
 #    a,b,c = map(int, input().split())
 #    heapq.heappush(hq, (c,a,b))
-#    
-#def find(r):
+#
+# def find(r):
 #    if parent[r] != r:
 #        parent[r] = find(parent[r])
 #    return parent[r]
 
-#def union(a,b):
+# def union(a,b):
 #    a=find(a)
 #    b=find(b)
-#    
+#
 #    if a==b:
 #        return
-#    
+#
 #    if rank[a] > rank[b]:
 #        parent[b] = a
 #    else:
 #        parent[a] = b
 #        if rank[a] == rank[b]:
 #            rank[b] += 1
-#        
-#while hq:
+#
+# while hq:
 #    c, a, b = heapq.heappop(hq)
-#    
+#
 #    if find(a) == find(b):
 #        continue
 #    else:
 #        union(a,b)
 #        cnt+=c
 
-#print(cnt)
+# print(cnt)
