@@ -384,6 +384,34 @@
 
 # -------------------------------------
 # Shortest Path
+#1753
+import sys
+import heapq
+
+INF = int(1e9)
+
+v, e = map(int, input().split())
+k = int(input())
+hq = [(0,k)]
+
+graph = [[] for _ in range(v+1)]
+visited=[INF]*(v+1)
+
+for _ in range(e):
+    a,b,c = map(int, input().split())
+    graph[a].append((c,b))
+
+
+
+
+
+
+
+
+
+
+
+
 # 1753
 #import sys
 #import heapq
@@ -466,44 +494,48 @@
 #Minimum Spanning Tree (MST)
 #1197
 #import sys
+#import heapq
+#sys.setrecursionlimit(10**6)
 
 #input = sys.stdin.readline
 
-#v,e = map(int, input().split())
+#v, e = map(int, input().split())
+#hq = []
+#cnt =0
 
 #parent = [i for i in range(v+1)]
 #rank = [0] * (v+1)
-#edge=[]
-#cost = 0
 
 #for _ in range(e):
 #    a,b,c = map(int, input().split())
-#    edge.append((a,b,c))
-
-#def find(x):
-#    if parent[x] != x:
-#        parent[x] = find(parent[x])
-#    return parent[x]
+#    heapq.heappush(hq, (c,a,b))
 #    
+#def find(r):
+#    if parent[r] != r:
+#        parent[r] = find(parent[r])
+#    return parent[r]
+
 #def union(a,b):
-#    a = find(a)
-#    b = find(b)
+#    a=find(a)
+#    b=find(b)
 #    
 #    if a==b:
 #        return
 #    
-#    if rank[a] < rank[b]:
-#        parent[a] = b
-#    else:
+#    if rank[a] > rank[b]:
 #        parent[b] = a
-#        if rank[a]==rank[b]:
-#            rank[a] +=1
-#            
-#edge.sort(key = lambda x : x[2])
+#    else:
+#        parent[a] = b
+#        if rank[a] == rank[b]:
+#            rank[b] += 1
+#        
+#while hq:
+#    c, a, b = heapq.heappop(hq)
 #    
-#for a,b,c in edge:
-#    if find(a) != find(b):
+#    if find(a) == find(b):
+#        continue
+#    else:
 #        union(a,b)
-#        cost += c
+#        cnt+=c
 
-#print(cost)
+#print(cnt)
