@@ -71,6 +71,39 @@
 
 # bt()
 
+#9663
+#import sys
+#input = sys.stdin.readline
+
+#n = int(input())
+
+#col = [False] * (n)
+#right = [False] * (2*n-1)
+#left = [False] * (2*n-1)
+
+#cnt =0
+
+#def bt(k):
+#    global cnt
+#    global n
+#    
+#    if k == n:
+#        cnt +=1
+#        return
+#    
+#    for j in range(n):
+#        r = j-k+(n-1)
+#        l = j+k
+#        
+#        if col[j] or right[r] or left[l]:
+#            continue
+#        
+#        col[j] = right[r] = left[l] = True
+#        bt(k+1)
+#        col[j] = right[r] = left[l] = False
+#                
+#bt(0)
+#print(cnt)
 # ---------------------------------------------------------
 ##Dynamic Programming - 점화식이 메인
 # 2579
@@ -385,45 +418,45 @@
 # -------------------------------------
 # Shortest Path
 # 1753
-import sys
-import heapq
+#import sys
+#import heapq
 
-input = sys.stdin.readline
+#input = sys.stdin.readline
 
-INF = int(1e9)
+#INF = int(1e9)
 
-v, e = map(int, input().split())
-k = int(input())
-hq = [(0, k)]
+#v, e = map(int, input().split())
+#k = int(input())
+#hq = [(0, k)]
 
-graph = [[] for _ in range(v + 1)]
-visited = [INF] * (v + 1)
-visited[k] = 0
+#graph = [[] for _ in range(v + 1)]
+#visited = [INF] * (v + 1)
+#visited[k] = 0
 
-for _ in range(e):
-    a, b, c = map(int, input().split())
-    graph[a].append((c, b))
+#for _ in range(e):
+#    a, b, c = map(int, input().split())
+#    graph[a].append((c, b))
 
-for i in range(1, v + 1):
-    graph[i].sort()
+#for i in range(1, v + 1):
+#    graph[i].sort()
 
-while hq:
-    cur_dist, start = heapq.heappop(hq)
+#while hq:
+#    cur_dist, start = heapq.heappop(hq)
 
-    if visited[start] < cur_dist:
-        continue
+#    if visited[start] < cur_dist:
+#        continue
 
-    for w, nxt in graph[start]:
-        nd = cur_dist + w
-        if visited[nxt] > nd:
-            visited[nxt] = nd
-            heapq.heappush(hq, (nd, nxt))
+#    for w, nxt in graph[start]:
+#        nd = cur_dist + w
+#        if visited[nxt] > nd:
+#            visited[nxt] = nd
+#            heapq.heappush(hq, (nd, nxt))
 
-for i in range(1, v + 1):
-    if visited[i] == INF:
-        print("INF")
-    else:
-        print(visited[i])
+#for i in range(1, v + 1):
+#    if visited[i] == INF:
+#        print("INF")
+#    else:
+#        print(visited[i])
 
 
 # 1753
@@ -503,6 +536,49 @@ for i in range(1, v + 1):
 #            print("YES")
 #        else:
 #            print("NO")
+
+#1976
+#import sys
+#sys.setrecursionlimit(10**6)
+
+#input = sys.stdin.readline
+
+#n = int(input())
+#m = int(input())
+
+#parent = [i for i in range(n+1)]
+#graph = [list(map(int, input().split())) for _ in range(n)]
+#plan = list(map(int, input().split()))
+#status = True
+
+#def find(r):
+#    if parent[r] != r:
+#        parent[r] = find(parent[r])
+#    return parent[r]
+
+#def union(a,b):
+#    a = find(a)
+#    b = find(b)
+#    
+#    if a != b:    
+#        parent[b] = a
+
+#for i in range(n):
+#    for j in range(n):
+#        if graph[i][j] == 1:
+#            union(i+1,j+1)
+
+#root = find(plan[0])
+
+#for x in plan:
+#    if root != find(x):
+#        status = False
+#        break
+
+#if status:
+#    print('YES')
+#else:
+#    print('NO')
 
 # ------------------------------------------------------------------
 # Minimum Spanning Tree (MST)

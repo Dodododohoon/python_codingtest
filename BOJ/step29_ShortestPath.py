@@ -127,13 +127,46 @@
 # 다익스트라 세번 돌렸는데 그냥 함수로 만들어서 3번 돌리는게 깔끔.
 
 # 13549
-import sys
+#import sys
+#import heapq
 
-sys.setrecursionlimit(10**6)
+#input = sys.stdin.readline
 
-input = sys.stdin.readline
+#n, k = map(int, input().split())
 
-n, k = map(int, input().split())
+#MAX = 200000
+#INF = 10**9
+
+#dist = [INF] * (MAX +1)
+#dist[n] = 0
+
+#hq = [(0,n)]
+
+#while hq:
+#    t, x = heapq.heappop(hq)
+#    
+#    if t > dist[x]:
+#        continue
+#        
+#    if x == k:
+#        print(t)
+#        break
+#    
+#    nx = 2*x
+#    if 0<= nx <= MAX and dist[nx] > t:
+#        dist[nx] = t
+#        heapq.heappush(hq,(t,nx))
+
+#    nx = x-1
+#    if 0<= nx <= MAX and dist[nx] > t+1:
+#        dist[nx] = t+1
+#        heapq.heappush(hq,(t+1,nx))
+
+#    nx = x+1
+#    if 0<= nx <= MAX and dist[nx] > t+1:
+#        dist[nx] = t+1
+#        heapq.heappush(hq,(t+1,nx))
+
 
 
 # 9370
