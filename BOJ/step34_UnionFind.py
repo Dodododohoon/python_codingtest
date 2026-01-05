@@ -41,52 +41,93 @@
 #        print(uf(m,n))
         
 #1976
-import sys
-sys.setrecursionlimit(10**6)
-input = sys.stdin.readline
+#import sys
+#sys.setrecursionlimit(10**6)
+#input = sys.stdin.readline
 
-n = int(input())
-m = int(input())
+#n = int(input())
+#m = int(input())
 
-parent = [i for i in range(n+1)]
-rank = [0] * (n+1)
+#parent = [i for i in range(n+1)]
+#rank = [0] * (n+1)
 
-def find(a):
-    if parent[a] != a :
-        parent[a] = find(parent[a])
-    return parent[a]
+#def find(a):
+#    if parent[a] != a :
+#        parent[a] = find(parent[a])
+#    return parent[a]
 
-def union(a,b):
-    a = find(a)
-    b = find(b)
-    if a != b:
-        if rank[a] < rank[b]:
-            parent[a] = b
-        else:
-            parent[b] = a
-            if rank[a] == rank[b]:
-                rank[a] +=1
+#def union(a,b):
+#    a = find(a)
+#    b = find(b)
+#    if a != b:
+#        if rank[a] < rank[b]:
+#            parent[a] = b
+#        else:
+#            parent[b] = a
+#            if rank[a] == rank[b]:
+#                rank[a] +=1
 
-for i in range(n):
-    li = list(map(int,input().split()))
-    for j in range(n):
-        if li[j]==1:
-            union(i+1,j+1)
+#for i in range(n):
+#    li = list(map(int,input().split()))
+#    for j in range(n):
+#        if li[j]==1:
+#            union(i+1,j+1)
 
-li = list(map(int,input().split()))
-check = find(li[0])
+#li = list(map(int,input().split()))
+#check = find(li[0])
 
-for x in li:
-    if check != find(x):
-        print('NO')
-        break
-else:
-    print("YES")
-
-
-#4195
+#for x in li:
+#    if check != find(x):
+#        print('NO')
+#        break
+#else:
+#    print("YES")
 
 
+#4195                            키랑 값이랑 연결 짓는 문제는 딕셔너리로. O(1)임.
+#import sys
+#sys.setrecursionlimit(10**6)
+#input = sys.stdin.readline
+
+#t = int(input())
+
+#for _ in range(t):
+#    f = int(input())
+#    parent = [i for i in range(2*f +1)]
+#    dict = {}
+#    cnt = [1] * (2*f + 1)
+#    idx = 0
+#    
+#    def find(a):
+#        if a != parent[a]:
+#            parent[a] = find(parent[a])
+#        return parent[a]
+#        
+#    def union(a,b):
+#        a = find(a)
+#        b = find(b)
+#        
+#        if a != b:
+#            parent[b] = a
+#            temp = cnt[a]
+#            cnt[a] += cnt[b]
+#            cnt[b] += temp
+#            
+#    for _ in range(f):
+#        a,b = map(str, input().split())
+#        
+#        if not a in dict:
+#            dict[a] = idx
+#            idx+=1
+#        index_a = dict.get(a)
+#        if not b in dict:
+#            dict[b] = idx
+#            idx +=1
+#        index_b = dict.get(b)
+#        
+#        union(index_a,index_b)
+#        print(cnt[find(index_a)])
+        
 #20040
 
 
