@@ -167,10 +167,16 @@
 #        dist[nx] = t+1
 #        heapq.heappush(hq,(t+1,nx))
 
-
-
 # 9370
+#import sys
+#input = sys.stdin.readline
 
+#t = int(input())
+
+#for _ in range(t):
+#    n,m,t = map(int, input().split())
+#    
+#    s,g,h = map(int, input().split())
 
 # 11657
 
@@ -182,3 +188,41 @@
 
 
 # memo
+
+#1753        
+#import sys
+#import heapq
+
+#input = sys.stdin.readline
+#INF = int(1e9)
+
+#v,e = map(int, input().split())
+#k = int(input())
+
+#graph = [[] for _ in range(v+1)]
+#dist = [INF] * (v+1)
+#dist[k] = 0
+
+#for _ in range(e):
+#    a,b,c = map(int, input().split())
+#    graph[a].append((c,b))
+
+#hq = [(0,k)]
+
+#while hq:
+#    cur_dist, u = heapq.heappop(hq)
+#    
+#    if cur_dist>dist[u]:
+#        continue
+#    
+#    for w, nxt in graph[u]:
+#        nd = cur_dist + w
+#        if nd < dist[nxt]:
+#            dist[nxt] = nd
+#            heapq.heappush(hq,(nd,nxt))
+
+#for i in range(1,v+1):
+#    if dist[i] == INF:
+#        print('INF')
+#    else:
+#        print(dist[i])    

@@ -138,13 +138,13 @@ import sys
 input = sys.stdin.readline
 
 n, c = map(int, input().split())
-arr =[int(input().strip()) for _ in range(n)]
+arr =[int(input()) for _ in range(n)]
 
 arr.sort()
 
-def search():
-    
+dist = [arr[i+1]- arr[i] for i in range(n-1)]
 
+print(dist)
 
 # 1300
 
