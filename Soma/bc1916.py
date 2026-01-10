@@ -284,6 +284,22 @@
 
 #print(dp[k][n])
 
+#1309                    깔끔하게 혼자 클리어.
+#import sys
+#input = sys.stdin.readline
+
+#n = int(input())
+
+#dp = [0] * (n+1)
+#dp[0] = 1
+#dp[1] = 3
+
+#for i in range(2,n+1):
+#    dp[i] = (dp[i-1] + (dp[i-1] - dp[i-2]) + dp[i-2] * 2) % 9901
+
+#print(dp[n])
+
+
 
 
 #9663                직접 clear 전체 범위 세팅하는 거 다시 생각해보셈. 2n+1아님
