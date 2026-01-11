@@ -151,6 +151,10 @@
 #그럼 for문 필요도 없고 각 함수당 6줄 컷 가능. 담에는 더 깔끔하게 ㄲ
 
 # 2263
+import sys
+input =sys.stdin.readline
+#
+n = int(input())
 
 
 # 5639

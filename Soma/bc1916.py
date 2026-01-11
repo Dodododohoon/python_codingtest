@@ -299,7 +299,66 @@
 
 #print(dp[n])
 
+#1924                            그냥 하드 코딩으로 품. 딱히 뭐 더 규칙 찾는게 더 비효율같아서. 근데 month리스트 따로 두는 게 더 괜찮은 듯.
+#import sys
+#input = sys.stdin.readline
 
+#x,y = map(int, input().split())
+
+#day = ['SUN']
+#week = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN']
+#day = day + (week*52)
+#day.append('MON')
+
+#if x == 1:
+#    print(day[y])
+#if x == 2:
+#    print(day[31+y])
+#if x == 3:
+#    print(day[31+28+y])
+#if x == 4:
+#    print(day[31+28+31+y])
+#if x == 5:
+#    print(day[31+28+31+30+y])
+#if x == 6:
+#    print(day[31+28+31+30+31+y])
+#if x == 7:
+#    print(day[31+28+31+30+31+30+y])
+#if x == 8:
+#    print(day[31+28+31+30+31+30+31+y])
+#if x == 9:
+#    print(day[31+28+31+30+31+30+31+31+y])
+#if x == 10:
+#    print(day[31+28+31+30+31+30+31+31+30+y])
+#if x == 11:
+#    print(day[31+28+31+30+31+30+31+31+30+31+y])
+#if x == 12:
+#    print(day[31+28+31+30+31+30+31+31+30+31+30+y])
+
+#15649                                외워진건지 모르겠는데 깔끔하게 풀어감. 딱딱딱 그냥
+#import sys
+#sys.setrecursionlimit(10**6)
+
+#input = sys.stdin.readline
+
+#n,m = map(int, input().split())
+
+#visited = [False] * (n+1)
+#out = []
+
+#def bt(k):
+#    if k == m:
+#        print(' '.join(map(str, out)))
+#        return
+#    for i in range(1,n+1):
+#        if not visited[i]:
+#            visited[i] = True
+#            out.append(i)
+#            bt(k+1)
+#            visited[i] = False
+#            out.remove(i)           #out.pop()이 훨씬 효율
+#    
+#bt(0)
 
 
 #9663                직접 clear 전체 범위 세팅하는 거 다시 생각해보셈. 2n+1아님
@@ -334,6 +393,30 @@
 #bt(0)
 
 #print(cnt) 
+
+#8958
+#import sys
+#input =sys.stdin.readline
+
+#n = int(input())
+
+#for _ in range(n):
+#    s = input()
+#    score = 0
+#    con = 1
+#    
+#    if s[0] == 'O':
+#        score += 1
+#    
+#    for i in range(1, len(s)):
+#        if s[i] == 'O':
+#            if s[i-1] == 'O':
+#                con +=1
+#            else:
+#                con = 1
+#            score += con
+#    print(score)
+
 
 #1012
 #import sys
