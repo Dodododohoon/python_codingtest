@@ -150,11 +150,129 @@
 #정석은 ord써서 idx맞춰서 집어 넣되 함수에서 그냥 grahp[idx][0], [1] 이렇게만 씀.
 #그럼 for문 필요도 없고 각 함수당 6줄 컷 가능. 담에는 더 깔끔하게 ㄲ
 
-# 2263
+#1991
+#import sys
+#input = sys.stdin.readline
+
+#print(ord('A'))
+#print(chr(65))
+#print(ord('.')) 46
+
+#n = int(input())
+
+#graph = [[] for _ in range(n+1)]
+
+
+#for _ in range(n):
+#    a,b,c = map(str, input().split())
+#    
+#    
+#    graph[ord(a)-64].append(ord(b)-64)        # . 이면 -1 저장
+#    graph[ord(a)-64].append(ord(c)-64)
+
+#out = []
+#visited = [False] * (n+1)
+
+#def preorder(v):
+#    if visited[v]:
+#        return
+#    
+#    out.append(chr(v+64))
+#    visited[v] = True
+#    
+#    for x in graph[v]:
+#        if x == -18:
+#            continue
+#        
+#        preorder(x)
+#        if not visited[x]: 
+#            out.append(chr(x+64))
+#    
+#preorder(1)    
+#print(''.join(out))
+#    
+#out = []
+#visited = [False] * (n+1)
+
+#def inorder(v):
+#    for x in graph[v]:
+#        if x != -18:
+#            inorder(x)
+#            if not visited[x]:
+#                out.append(chr(x+64))
+#                visited[x] = True
+#            
+#        if not visited[v]:
+#            out.append(chr(v+64))
+#            visited[v]=True
+#        
+#inorder(1)
+#print(''.join(out))
+
+#out = []
+#visited = [False] * (n+1)
+
+#def postorder(v):
+#    for x in graph[v]:
+#        if x != -18:
+#            postorder(x)
+#            if not visited[x]:
+#                out.append(chr(x+64))
+#                visited[x] = True
+#            
+#    if not visited[v]:
+#        out.append(chr(v+64))
+#        visited[v]=True
+
+#postorder(1)
+#print(''.join(out))
+
 import sys
-input =sys.stdin.readline
-#
+input = sys.stdin.readline
+
 n = int(input())
+
+left = [-1] * 26
+right = [-1] * 26 
+
+for _ in  range(n):
+    a,b,c = input().split()
+    
+    left[ord(a)-ord('A')] = -1 if b == '.' else ord(b) - ord('A')
+    right[ord(a)-ord('A')] = -1 if c == '.' else ord(c) - ord('A')
+
+def preorder(v):
+    if v == -1:
+        return
+    print(chr(v+65), end='')
+    preorder(left[v])
+    preorder(right[v])
+
+def inorder(v):
+    if v ==-1:
+        return
+    inorder(left[v])
+    print(chr(v+65), end='')
+    inorder(right[v])
+
+def postorder(v):
+    if v ==-1:
+        return
+    postorder(left[v])
+    postorder(right[v])
+    print(chr(v+65), end='')
+
+preorder(0)
+print()
+inorder(0)
+print()
+postorder(0)
+
+# 2263
+#import sys
+#input =sys.stdin.readline
+
+#n = int(input())
 
 
 # 5639
