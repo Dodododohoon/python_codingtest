@@ -247,76 +247,99 @@
 # 약간 찜찜하긴 했는데
 
 # 11053
-#import sys
-#input = sys.stdin.readline
+# import sys
+# input = sys.stdin.readline
 
-#n= int(input())
-#li = list(map(int, input().split()))
+# n= int(input())
+# li = list(map(int, input().split()))
 
-#dp = [1] * (n)
+# dp = [1] * (n)
 
-#for i in range(1,n):
+# for i in range(1,n):
 #    dp_max=0
 #    for j in range(0,i):
 #        if li[i] > li[j] and dp_max < dp[j]:
 #            dp_max = dp[j]
 #    dp[i] = dp_max + 1
-#        
-#print(max(dp))
+#
+# print(max(dp))
 
-#점화식 뽑아내는게 힘들어서 힌트 받음..               
+# 점화식 뽑아내는게 힘들어서 힌트 받음..
 
-#11053
-#import sys
-#input = sys.stdin.readline
+# 11053
+# import sys
+# input = sys.stdin.readline
 
-#n = int(input())
-#arr = list(map(int, input().split()))
+# n = int(input())
+# arr = list(map(int, input().split()))
 
-#dp = [1] * (n)
+# dp = [1] * (n)
 
-#for i in range(1,n):
+# for i in range(1,n):
 #    dp_max = 0
 #    for j in range(0,i):
 #        if arr[i] > arr[j] and dp_max < dp[j]:
 #            dp_max = dp[j]
 #    dp[i] = dp_max +1
 
-#print(max(dp))
+# print(max(dp))
 
 
-# 11054                    나름 혼자 풀 수도 있었는데 까비. 반례만 빨리 찾았어도. 직접 풀었을 듯. 
-#import sys
-#input = sys.stdin.readline
+# 11054                    나름 혼자 풀 수도 있었는데 까비. 반례만 빨리 찾았어도. 직접 풀었을 듯.
+# import sys
+# input = sys.stdin.readline
 
-#n = int(input())
-#arr =list(map(int,input().split()))
+# n = int(input())
+# arr =list(map(int,input().split()))
 
-#dp_up = [1] * n
-#dp_down = [1] * n
+# dp_up = [1] * n
+# dp_down = [1] * n
 
-#for i in range(1,n):
+# for i in range(1,n):
 #    dp_max = 0
 #    for j in range(0,i):
 #        if arr[i] > arr[j] and dp_max < dp_up[j]:
 #            dp_max = dp_up[j]
 #    dp_up[i] = dp_max +1
 
-#change = dp_up.index(max(dp_up))
+# change = dp_up.index(max(dp_up))
 
-#for i in range(n-1,-1,-1):
+# for i in range(n-1,-1,-1):
 #    dp_max = 0
 #    for j in range(n-1,i,-1):
 #        if arr[i] > arr[j] and dp_max < dp_down[j]:
 #            dp_max = dp_down[j]
 #    dp_down[i] = dp_max + 1
-#ans = 0
+# ans = 0
 
-#for i in range(n):
+# for i in range(n):
 #    ans = max(ans,(dp_up[i] + dp_down[i] -1))
-#print(ans)
+# print(ans)
 
 # 2565
+# import sys
+
+# input = sys.stdin.readline
+
+# n = int(input())
+# arr = []
+
+# for _ in range(n):
+#     a, b = map(int, input().split())
+
+#     arr.append((a, b))
+# arr.sort()
+
+# dp = [1] * n
+
+# for i in range(1, n):
+#     max_dp = 0
+#     for j in range(0, i):
+#         if arr[i][1] > arr[j][1] and max_dp < dp[j]:
+#             max_dp = dp[j]
+#     dp[i] = max_dp + 1
+
+# print(n - max(dp))
 
 # 9251
 
