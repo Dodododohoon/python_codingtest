@@ -141,30 +141,30 @@
 # print(plus)
 
 # 1629
-import sys
+#import sys
 
-input = sys.stdin.readline
-
-
-a, b, c = map(int, input().split())
+#input = sys.stdin.readline
 
 
-def dc(a, b, c):
-    if b % 2:
-        if b == 1:
-            return a % c
-        else:
-            k = dc(a, (b - 1) // 2, c)
-            return ((k * k) % c * (a % c)) % c
-    else:
-        k = dc(a, b // 2, c)
-        return (k * k) % c
+#a, b, c = map(int, input().split())
 
 
-if b == 1:
-    print(a % c)
-else:
-    print(dc(a, b, c))
+#def dc(a, b, c):
+#    if b % 2:
+#        if b == 1:
+#            return a % c
+#        else:
+#            k = dc(a, (b - 1) // 2, c)
+#            return ((k * k) % c * (a % c)) % c
+#    else:
+#        k = dc(a, b // 2, c)
+#        return (k * k) % c
+
+
+#if b == 1:
+#    print(a % c)
+#else:
+#    print(dc(a, b, c))
 
 # (A⋅B)modC=((AmodC)⋅(BmodC))modC
 # 최대한 제귀, 숫자 작게 유지.
@@ -178,3 +178,44 @@ else:
 # 11444
 
 # 6549
+
+#--------------------------review-------------------
+#2630
+#import sys
+#input =sys.stdin.readline
+
+#n = int(input())
+
+#arr = [list(map(int,input().split())) for _ in range(n)]
+#cnt_b = 0
+#cnt_w = 0
+
+#def dc(row,col,len):
+#    global cnt_b, cnt_w
+#    check = arr[col][row]
+#    all = True
+#    
+#    for i in range(col, col+len):
+#        for j in range(row, row+len):
+#            if arr[i][j] != check:
+#                all = False
+#                break
+#        if arr[i][j] != check:
+#            break
+#    
+#    if all == False:
+#          len = len//2
+#          dc(row,col,len)
+#          dc(row+len,col,len)
+#          dc(row,col+len,len)
+#          dc(row+len,col+len,len)
+#    else:
+#         if check:
+#             cnt_b += 1
+#         else:
+#             cnt_w +=1
+
+#dc(0,0,n)
+#print(cnt_w)
+#print(cnt_b)
+
