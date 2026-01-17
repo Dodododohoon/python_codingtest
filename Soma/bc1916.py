@@ -16,6 +16,43 @@
 #
 # print(dp[n])
 
+#1463
+#import sys
+#import heapq
+#INF = int(1e6)
+#input = sys.stdin.readline
+
+#n = int(input())
+
+#dp = [INF] * (n+1)
+#dp[n] = 0
+#for i in range(n,0,-1):
+#    cnt = dp[i]
+#    if i %3 ==0:
+#        dp[i//3] = min(cnt +1, dp[i//3])
+#    if i %2 ==0:
+#        dp[i//2] = min(cnt +1, dp[i//2])
+#    dp[i-1] = min(cnt +1, dp[i-1])
+#        
+#print(dp[1])
+
+#hq = [(0,n)]                         - 얘가 안된 이유 : heap 접근은 좋았는데, 나는 힙 해주면 중복은 알아서 밀릴꺼고 1나오면 끝날꺼니깐 중복처리 안해줘도 상관없겠다 싶었다. 근데 push하는 것 또한 시간 잡아먹고 한 루프당 최대 3번 push가 있으니 중복 처리는 필수네.
+
+#while hq:
+#    cnt, num = heapq.heappop(hq)
+#    
+#    if num == 1:
+#        break
+#    
+#    if num %3 ==0:
+#        heapq.heappush(hq,(cnt+1, num//3))
+#    if num %2 ==0:
+#        heapq.heappush(hq, (cnt+1, num//2))
+#    heapq.heappush(hq, (cnt+1, num-1))
+
+#print(cnt)
+
+
 # # 2579        - 깔끔하게 clear, 너무 강렬해서 그냥 기억이남.
 # import sys
 
