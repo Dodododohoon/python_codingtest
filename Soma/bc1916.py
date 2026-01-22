@@ -95,7 +95,7 @@
 # dp_2[1] = 0
 # dp_3[1] = 0
 
-# dp_1[2] = 1
+# dp_1[2] = 1 
 # dp_2[2] = 1
 # dp_3[2] = 0
 
@@ -107,6 +107,44 @@
 # for _ in range(t):
 #     n = int(input())
 #     print(dp_1[n] + dp_2[n] + dp_3[n])
+
+#9095
+#import sys
+#input = sys.stdin.readline
+
+#t = int(input())
+#dp = [0] * 11
+#dp[1] = 1
+#dp[2] = 2
+#dp[3] = 4
+
+#for i in range(4,11):
+#    dp[i] = dp[i-1] +dp[i-2] + dp[i-3]
+
+#for _ in range(t):
+#    n = int(input())
+#    
+#    print(dp[n])
+    
+#11726
+#import sys
+#input =sys.stdin.readline
+
+#n = int(input())
+
+#if n==1:
+#    print('1')
+#else:
+#    
+#    dp = [0] * (n+1)
+#    dp[1] = 1
+#    dp[2] = 2
+#    
+#    for i in range(3,n+1):
+#        dp[i] = (dp[i-1] + dp[i-2]) % 10007
+#    
+#    print(dp[n])
+    
 
 # 11726 - 10분 컷 매우 쉽노
 # import sys

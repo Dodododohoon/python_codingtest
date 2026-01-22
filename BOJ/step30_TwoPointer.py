@@ -118,29 +118,29 @@
 
 #-----------------------REVIEW---------
 #3273
-import sys
-input =sys.stdin.readline
+#import sys
+#input =sys.stdin.readline
 
-n = int(input())
-arr = list(map(int,input().split()))
-target = int(input())
+#n = int(input())
+#arr = list(map(int,input().split()))
+#target = int(input())
 
-arr.sort()
+#arr.sort()
 
-cnt = 0
-i=0
-j=len(arr)-1
+#cnt = 0
+#i=0
+#j=len(arr)-1
 
-while i<j:
-    sum = arr[i] + arr[j]
-    
-    if sum == target:
-        cnt +=1
-        i +=1
-        j -=1
-    elif sum < target:
-        i+=1
-    else:
-        j -= 1
-        
-print(cnt)
+#while i<j:
+#    sum = arr[i] + arr[j]
+#    
+#    if sum == target:
+#        cnt +=1
+#        i +=1
+#        j -=1
+#    elif sum < target:
+#        i+=1
+#    else:
+#        j -= 1
+#        
+#print(cnt)
