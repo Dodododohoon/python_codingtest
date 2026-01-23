@@ -205,28 +205,29 @@
 
 # print(min(dp[n]))
 
-# 1932
-import sys
+# # 1932      -
+# import sys
 
-input = sys.stdin.readline
+# input = sys.stdin.readline
 
-n = int(input())
-arr = [list(map(int, input().split())) for _ in range(n)]
+# n = int(input())
+# arr = [list(map(int, input().split())) for _ in range(n)]
 
-dp = [[0] * n for _ in range(n)]
-dp[0][0] = arr[0][0]
+# dp = [[0] * n for _ in range(n)]
+# dp[0][0] = arr[0][0]
 
-for i in range(1, n):
-    for j in range(i + 1):
-        if j == 0:
-            dp[i][j] = dp[i - 1][j] + arr[i][j]
-            continue
-        if j == i:
-            dp[i][j] = dp[i - 1][j - 1] + arr[i][j]
-            continue
-        dp[i][j] = max(dp[i - 1][j - 1], dp[i - 1][j]) + arr[i][j]
+# for i in range(1, n):
+#     for j in range(i + 1):
+#         if j == 0:
+#             dp[i][j] = dp[i - 1][j] + arr[i][j]
+#             continue
+#         if j == i:
+#             dp[i][j] = dp[i - 1][j - 1] + arr[i][j]
+#             continue
+#         dp[i][j] = max(dp[i - 1][j - 1], dp[i - 1][j]) + arr[i][j]
 
-print(max(dp[n - 1]))
+# print(max(dp[n - 1]))
+
 
 # 1260                    - 10~15분 컷. DFS, BFS 기본 구조는 이제 깔끔하게 이해 한 듯.
 # import sys
