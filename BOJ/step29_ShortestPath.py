@@ -226,3 +226,43 @@
 #        print('INF')
 #    else:
 #        print(dist[i])    
+
+
+#1753
+#import sys
+#import heapq
+
+#INF = int(1e9)
+#input = sys.stdin.readline
+
+#v,e = map(int, input().split())
+#k = int(input())
+
+#graph = [[] for _ in range(v+1)]
+#dist = [INF] * (v+1)
+
+#for _ in range(e):
+#    a,b,w = map(int, input().split())
+#    
+#    graph[a].append((b,w))
+
+#dist[k] = 0
+#hq = [(0,k)]
+
+#while hq:
+#    cur_dist, point = heapq.heappop(hq)
+#    
+#    if cur_dist > dist[point]:
+#        continue
+#    
+#    for nxt, w in graph[point]:
+#        if dist[nxt] > cur_dist + w:
+#            dist[nxt] = cur_dist + w
+#            heapq.heappush(hq,(cur_dist+w, nxt))
+#            
+#            
+#for i in range(1,v+1):
+#     if dist[i] == INF:
+#         print('INF')
+#     else:
+#         print(dist[i])

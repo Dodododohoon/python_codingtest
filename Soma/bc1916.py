@@ -185,6 +185,54 @@
 
 #print(min(dp[n]))
 
+#1260
+#import sys
+#from collections import deque
+#input = sys.stdin.readline
+
+#n,m,v = map(int,input().split())
+
+#graph = [[] for _ in range(n+1)]
+#visited = [False] * (n+1)
+
+#for _ in range(m):
+#    a,b = map(int, input().split())
+#    graph[a].append(b)
+#    graph[b].append(a)
+
+#for i in range(1,n+1):
+#    graph[i].sort()
+
+#out_dfs=[v]
+#visited[v] = True
+
+#def dfs(k):
+#    for nxt in graph[k]:
+#        if visited[nxt] == False:
+#            visited[nxt] = True
+#            out_dfs.append(nxt)
+#            dfs(nxt)
+#            
+#dfs(v)
+
+#visited = [False] * (n+1)
+#visited[v] = True
+#q=deque()
+#q.append(v)
+#out_bfs=[v]
+
+#while q:
+#    w = q.popleft()
+#    
+#    for nxt in graph[w]:
+#        if visited[nxt] == False:
+#            visited[nxt] = True
+#            q.append(nxt)
+#            out_bfs.append(nxt)
+
+#print(' '.join(map(str, out_dfs)))
+#print(' '.join(map(str, out_bfs)))
+
 #1260                    - 10~15분 컷. DFS, BFS 기본 구조는 이제 깔끔하게 이해 한 듯.
 #import sys
 #from collections import deque
@@ -239,6 +287,107 @@
 #print(' '.join(map(str, out_dfs)))
 #print(' '.join(map(str, out_bfs)))
 
+#2667
+#import sys
+#from collections import deque
+
+#input = sys.stdin.readline
+
+#n = int(input())
+#arr=[[] for _ in range(n)]
+
+#for i in range(n):
+#    temp = input().strip()
+#    for x in temp:
+#        arr[i].append(int(x))
+
+#q=deque()
+#block = 2
+#cnt = 0
+#out=[]
+
+#for i in range(n):
+#    for j in range(n):
+#        if arr[i][j] ==1:
+#            q.append((i,j))
+#            while q:
+#                col, row = q.popleft()
+#                
+#                if arr[col][row] ==1:
+#                    arr[col][row] = block
+#                    cnt+=1
+#                    
+#                    if row < n-1:
+#                        q.append((col, row+1))
+#                    if col < n-1:
+#                        q.append((col+1, row))
+#                    if row >0:
+#                        q.append((col, row-1))
+#                    if col >0:
+#                        q.append((col-1, row))
+#            block +=1
+#            out.append(cnt)
+#            cnt=0
+#                    
+#print(block-2)
+#out.sort()
+#print('\n'.join(map(str, out)))
+
+#1697
+#import sys
+#import heapq
+#INF = int(1e9)
+#input= sys.stdin.readline
+
+#n,k = map(int,input().split())
+
+#if n==k:
+#    print('0')
+#    exit()
+
+#hq = [(0,n)]
+#time = [INF] * 200001
+
+#while hq:
+#    sec, loc = heapq.heappop(hq)
+#    
+#    if loc == k:
+#        print(sec)
+#        break
+#    if loc < k and time[loc+1] > sec +1:
+#        time[loc+1] = sec +1
+#        heapq.heappush(hq,(sec+1, loc+1))
+#    if loc >0 and time[loc-1] > sec+1:
+#        time[loc-1] = sec+1
+#        heapq.heappush(hq,(sec+1, loc-1))
+#    if loc < k and time[loc*2] > sec+1:
+#        time[loc*2] = sec +1
+#        heapq.heappush(hq,(sec+1, 2 * loc))
+
+#import sys
+#from collections import deque
+
+#input= sys.stdin.readline
+
+#n,k = map(int,input().split())
+
+#MAX = 100000
+#q=deque([n])
+#visited = [-1] * (MAX+1)
+#visited[n] = 0
+
+#while q:
+#    loc = q.popleft()
+#    if loc == k:
+#        print(visited[k])
+#        break
+#    
+#    for nxt in (loc -1, loc+1, loc *2):
+#        if 0<= nxt <= MAX and visited[nxt] == -1 :
+#            visited[nxt] = visited[loc] + 1
+#            q.append(nxt)
+
+
 #1697
 #import sys
 #import heapq
@@ -274,6 +423,59 @@
 #        time[nx] = t+1
 #        heapq.heappush(hq,(t+1,nx))
 
+#1697
+#import sys
+#from collections import deque
+#INF = int(1e9)
+
+#input = sys.stdin.readline
+
+#n, k = map(int, input().split())
+
+#visited = [INF] * 100001
+#visited[n] = 0
+
+#q = deque([n])
+
+#while q:
+#    loc = q.popleft()
+#    t= visited[loc]
+#    
+#    if loc == k:
+#        print(t)
+#        break
+#    
+#    nxt = loc -1
+#    if 0<= nxt <= 100000 and visited[nxt] == INF:
+#        visited[nxt] = t+1
+#        q.append(nxt)
+#    
+#    nxt = loc +1
+#    if 0<= nxt <= 100000 and visited[nxt] == INF:
+#        visited[nxt] = t+1
+#        q.append(nxt)
+#    
+#    nxt = 2 * loc
+#    if 0<= nxt <= 100000 and visited[nxt] == INF:
+#        visited[nxt] = t+1
+#        q.append(nxt)
+
+#1904
+#import sys
+#input = sys.stdin.readline
+
+#n = int(input())
+
+#dp = [0] * (n+1)
+#dp[1] = 1
+#if n>1:
+#    dp[2] = 2
+
+#for i in range(3,n+1):
+#    dp[i] = (dp[i-1] + dp[i-2]) % 15746
+
+#print(dp[n])
+
 #1904
 #import sys
 #input = sys.stdin.readline
@@ -289,6 +491,9 @@
 #    for i in range(3,n+1):
 #        dp[i] = (dp[i-1]+ dp[i-2])%15746
 #print(dp[n])
+
+
+
 
 #2293            - 아이디어 보고도 이해하기 힘들었음. 조합,순열 차이. 어렵네
 #import sys
