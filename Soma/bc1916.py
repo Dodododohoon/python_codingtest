@@ -492,6 +492,24 @@
 #        dp[i] = (dp[i-1]+ dp[i-2])%15746
 #print(dp[n])
 
+#2293
+#import sys
+#input = sys.stdin.readline
+
+#n,k = map(int,input().split())
+#coins = [int(input()) for _ in range(n)]
+
+#coins.sort()
+
+#dp = [0] * (k+1)
+#dp[0] = 1
+
+#for coin in coins:
+#    for i in range(coin, k+1):
+#        dp[i] += dp[i-coin]
+
+#print(dp[k])
+
 
 
 #2293            - 아이디어 보고도 이해하기 힘들었음. 조합,순열 차이. 어렵네
