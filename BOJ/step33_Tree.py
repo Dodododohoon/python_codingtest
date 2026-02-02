@@ -227,46 +227,46 @@
 #postorder(1)
 #print(''.join(out))
 
-import sys
-input = sys.stdin.readline
+#import sys
+#input = sys.stdin.readline
 
-n = int(input())
+#n = int(input())
 
-left = [-1] * 26
-right = [-1] * 26 
+#left = [-1] * 26
+#right = [-1] * 26 
 
-for _ in  range(n):
-    a,b,c = input().split()
-    
-    left[ord(a)-ord('A')] = -1 if b == '.' else ord(b) - ord('A')
-    right[ord(a)-ord('A')] = -1 if c == '.' else ord(c) - ord('A')
+#for _ in  range(n):
+#    a,b,c = input().split()
+#    
+#    left[ord(a)-ord('A')] = -1 if b == '.' else ord(b) - ord('A')
+#    right[ord(a)-ord('A')] = -1 if c == '.' else ord(c) - ord('A')
 
-def preorder(v):
-    if v == -1:
-        return
-    print(chr(v+65), end='')
-    preorder(left[v])
-    preorder(right[v])
+#def preorder(v):
+#    if v == -1:
+#        return
+#    print(chr(v+65), end='')
+#    preorder(left[v])
+#    preorder(right[v])
 
-def inorder(v):
-    if v ==-1:
-        return
-    inorder(left[v])
-    print(chr(v+65), end='')
-    inorder(right[v])
+#def inorder(v):
+#    if v ==-1:
+#        return
+#    inorder(left[v])
+#    print(chr(v+65), end='')
+#    inorder(right[v])
 
-def postorder(v):
-    if v ==-1:
-        return
-    postorder(left[v])
-    postorder(right[v])
-    print(chr(v+65), end='')
+#def postorder(v):
+#    if v ==-1:
+#        return
+#    postorder(left[v])
+#    postorder(right[v])
+#    print(chr(v+65), end='')
 
-preorder(0)
-print()
-inorder(0)
-print()
-postorder(0)
+#preorder(0)
+#print()
+#inorder(0)
+#print()
+#postorder(0)
 
 # 2263
 #import sys
@@ -279,3 +279,32 @@ postorder(0)
 
 
 # 4803
+#----------------------------REVIEW
+#11725
+#import sys
+#from collections import deque
+#input =sys.stdin.readline
+#q=deque([1])
+
+#n = int(input())
+
+#graph = [[] for _ in range(n+1)]
+#visited = [False] * (n+1)
+#visited[1] = 1
+
+#for _ in range(n-1):
+#    a, b = map(int, input().split())
+#    
+#    graph[a].append(b)
+#    graph[b].append(a)
+#    
+#while q:
+#    cur = q.popleft()
+#    
+#    for nxt in graph[cur]:
+#        if visited[nxt] ==False:
+#            visited[nxt] = cur
+#            q.append(nxt)
+
+#print('\n'.join(map(str, visited[2:])))
+        
