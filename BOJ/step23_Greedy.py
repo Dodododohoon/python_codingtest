@@ -128,3 +128,20 @@
 #print(total)
 
 # 아이디어 부분에서 조큼 개선 더하니 best 코드.
+
+#-----------review----------
+#11399
+import sys
+input = sys.stdin.readline
+
+n = int(input())
+arr = list(map(int,input().split()))
+
+arr.sort()
+
+pre_fix = [0] * (n+1)
+
+for i in range(1,n+1):
+    pre_fix[i] = pre_fix[i-1] + arr[i-1]
+
+print(sum(pre_fix))

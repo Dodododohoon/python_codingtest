@@ -528,6 +528,34 @@
 
 #print(dp[k])
 
+#11057
+#import sys
+
+#n = int(input())
+
+#dp = [[0] * 10 for _ in range(n+1)]
+
+#for i in range(10):
+#    dp[1][i] = 1
+
+#for i in range(2,n+1):
+#    for j in range(10):
+#        dp[i][j] = sum(dp[i-1][0:j+1])%10007
+
+#print(sum(dp[n])%10007)
+
+#import sys
+
+#n = int(input())
+
+#dp = [1] * 10
+
+#for _ in range(n-1):
+#    for i in range(9,-1,-1):
+#        dp[i] = sum(dp[0:i+1])%10007
+
+#print(sum(dp)%10007)
+
 #11057                혼자 풀긴함. 근데 조금씩 잘 못 써서 틀림. 그래도 bt하다가 수식으로 하다가 dp로 풀고 그럼. 1차원 DP로 가능.
 #import sys
 #input = sys.stdin.readline
@@ -559,6 +587,28 @@
 #    for i in range(r, 10):
 #        bt(i, len +1)
 #bt(0,0)
+
+#11052
+#import sys
+
+#n = int(input())
+
+#arr = list(map(int, input().split()))
+
+#dp = [0] * (n+1)
+#arr.insert(0,0)
+
+#dp[1] = arr[1]
+
+#for i in range(1, n+1):
+#    for j in range(1,i+1):
+#        dp[i] = max(dp[i], dp[i-j] + arr[j])
+
+#print(dp[n])
+
+
+
+
 
 #2225                    혼자 못 풀었음. 아무리 생각해도 전 문제는 나름 직접 끌고 왔는데 이건 못 푼게 좀 빡침.
 #import sys
