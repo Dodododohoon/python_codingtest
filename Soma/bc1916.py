@@ -496,6 +496,22 @@
 #import sys
 #input = sys.stdin.readline
 
+#n,k = map(int, input().split())
+#coins = [int(input()) for _ in range(n)]
+#dp = [0] * (k+1)
+#dp[0] = 1
+#coins.sort()
+
+#for coin in coins:
+#    for i in range(coin, k+1):
+#        dp[i] += dp[i-coin]
+
+#print(dp[k])
+
+#2293
+#import sys
+#input = sys.stdin.readline
+
 #n,k = map(int,input().split())
 #coins = [int(input()) for _ in range(n)]
 
@@ -606,7 +622,20 @@
 
 #print(dp[n])
 
+#2225
+#import sys
 
+#input = sys.stdin.readline
+
+#n,k = map(int,input().split())
+
+#dp = [[1] * (n+1) for _ in range(k+1)]
+
+#for i in range(2,k+1):
+#    for j in range(0,n+1):
+#        dp[i][j] = sum(dp[i-1][:j+1]) % 1000000000   #점화식 더 깔끔하게 가능
+
+#print(dp[k][n]%1000000000)
 
 
 
@@ -629,6 +658,23 @@
 #        dp[i][j] = (dp[i-1][j] + dp[i][j-1]) % 1000000000
 
 #print(dp[k][n])
+
+#1309
+#import sys
+#input = sys.stdin.readline
+
+
+#n = int(input())
+
+
+#dp = [0] * (n+1)
+#dp[0] = 1
+#dp[1] = 3
+
+#for i in range(2,n+1):
+#    dp[i] = (2* dp[i-1] + dp[i-2])%9901
+#print(dp[n]%9901)
+
 
 #1309                    깔끔하게 혼자 클리어.
 #import sys
