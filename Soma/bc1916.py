@@ -16,41 +16,41 @@
 #
 # print(dp[n])
 
-#1463
-#import sys
-#import heapq
-#INF = int(1e6)
-#input = sys.stdin.readline
+# 1463
+# import sys
+# import heapq
+# INF = int(1e6)
+# input = sys.stdin.readline
 
-#n = int(input())
+# n = int(input())
 
-#dp = [INF] * (n+1)
-#dp[n] = 0
-#for i in range(n,0,-1):
+# dp = [INF] * (n+1)
+# dp[n] = 0
+# for i in range(n,0,-1):
 #    cnt = dp[i]
 #    if i %3 ==0:
 #        dp[i//3] = min(cnt +1, dp[i//3])
 #    if i %2 ==0:
 #        dp[i//2] = min(cnt +1, dp[i//2])
 #    dp[i-1] = min(cnt +1, dp[i-1])
-#        
-#print(dp[1])
+#
+# print(dp[1])
 
-#hq = [(0,n)]                         - 얘가 안된 이유 : heap 접근은 좋았는데, 나는 힙 해주면 중복은 알아서 밀릴꺼고 1나오면 끝날꺼니깐 중복처리 안해줘도 상관없겠다 싶었다. 근데 push하는 것 또한 시간 잡아먹고 한 루프당 최대 3번 push가 있으니 중복 처리는 필수네.
+# hq = [(0,n)]                         - 얘가 안된 이유 : heap 접근은 좋았는데, 나는 힙 해주면 중복은 알아서 밀릴꺼고 1나오면 끝날꺼니깐 중복처리 안해줘도 상관없겠다 싶었다. 근데 push하는 것 또한 시간 잡아먹고 한 루프당 최대 3번 push가 있으니 중복 처리는 필수네.
 
-#while hq:
+# while hq:
 #    cnt, num = heapq.heappop(hq)
-#    
+#
 #    if num == 1:
 #        break
-#    
+#
 #    if num %3 ==0:
 #        heapq.heappush(hq,(cnt+1, num//3))
 #    if num %2 ==0:
 #        heapq.heappush(hq, (cnt+1, num//2))
 #    heapq.heappush(hq, (cnt+1, num-1))
 
-#print(cnt)
+# print(cnt)
 
 
 # # 2579        - 깔끔하게 clear, 너무 강렬해서 그냥 기억이남.
@@ -95,7 +95,7 @@
 # dp_2[1] = 0
 # dp_3[1] = 0
 
-# dp_1[2] = 1 
+# dp_1[2] = 1
 # dp_2[2] = 1
 # dp_3[2] = 0
 
@@ -108,43 +108,43 @@
 #     n = int(input())
 #     print(dp_1[n] + dp_2[n] + dp_3[n])
 
-#9095
-#import sys
-#input = sys.stdin.readline
+# 9095
+# import sys
+# input = sys.stdin.readline
 
-#t = int(input())
-#dp = [0] * 11
-#dp[1] = 1
-#dp[2] = 2
-#dp[3] = 4
+# t = int(input())
+# dp = [0] * 11
+# dp[1] = 1
+# dp[2] = 2
+# dp[3] = 4
 
-#for i in range(4,11):
+# for i in range(4,11):
 #    dp[i] = dp[i-1] +dp[i-2] + dp[i-3]
 
-#for _ in range(t):
+# for _ in range(t):
 #    n = int(input())
-#    
+#
 #    print(dp[n])
-    
-#11726
-#import sys
-#input =sys.stdin.readline
 
-#n = int(input())
+# 11726
+# import sys
+# input =sys.stdin.readline
 
-#if n==1:
+# n = int(input())
+
+# if n==1:
 #    print('1')
-#else:
-#    
+# else:
+#
 #    dp = [0] * (n+1)
 #    dp[1] = 1
 #    dp[2] = 2
-#    
+#
 #    for i in range(3,n+1):
 #        dp[i] = (dp[i-1] + dp[i-2]) % 10007
-#    
+#
 #    print(dp[n])
-    
+
 
 # 11726 - 10분 컷 매우 쉽노
 # import sys
@@ -164,159 +164,159 @@
 
 # print(dp[n] % 10007)
 
-#1149       - 배열 이상하게 세팅해서 좀 걸렸음. 점화식 뽑는데는 한 10~20분 걸린듯?
-#import sys
-#input = sys.stdin.readline
+# 1149       - 배열 이상하게 세팅해서 좀 걸렸음. 점화식 뽑는데는 한 10~20분 걸린듯?
+# import sys
+# input = sys.stdin.readline
 
-#n = int(input())
+# n = int(input())
 
-#li = [list(map(int, input().split())) for _ in range(n)]
+# li = [list(map(int, input().split())) for _ in range(n)]
 
-#dp = [[0] * (3) for _ in range(n+1)]
+# dp = [[0] * (3) for _ in range(n+1)]
 
-#dp[1][0] = li[0][0]
-#dp[1][1] = li[0][1]
-#dp[1][2] = li[0][2]
+# dp[1][0] = li[0][0]
+# dp[1][1] = li[0][1]
+# dp[1][2] = li[0][2]
 
-#for i in range(2,n+1):
+# for i in range(2,n+1):
 #    dp[i][0] = li[i-1][0] + min(dp[i-1][1], dp[i-1][2])
 #    dp[i][1] = li[i-1][1] + min(dp[i-1][0], dp[i-1][2])
 #    dp[i][2] = li[i-1][2] + min(dp[i-1][0], dp[i-1][1])
 
-#print(min(dp[n]))
+# print(min(dp[n]))
 
-#1260
-#import sys
-#from collections import deque
-#input = sys.stdin.readline
+# 1260
+# import sys
+# from collections import deque
+# input = sys.stdin.readline
 
-#n,m,v = map(int,input().split())
+# n,m,v = map(int,input().split())
 
-#graph = [[] for _ in range(n+1)]
-#visited = [False] * (n+1)
+# graph = [[] for _ in range(n+1)]
+# visited = [False] * (n+1)
 
-#for _ in range(m):
+# for _ in range(m):
 #    a,b = map(int, input().split())
 #    graph[a].append(b)
 #    graph[b].append(a)
 
-#for i in range(1,n+1):
+# for i in range(1,n+1):
 #    graph[i].sort()
 
-#out_dfs=[v]
-#visited[v] = True
+# out_dfs=[v]
+# visited[v] = True
 
-#def dfs(k):
+# def dfs(k):
 #    for nxt in graph[k]:
 #        if visited[nxt] == False:
 #            visited[nxt] = True
 #            out_dfs.append(nxt)
 #            dfs(nxt)
-#            
-#dfs(v)
+#
+# dfs(v)
 
-#visited = [False] * (n+1)
-#visited[v] = True
-#q=deque()
-#q.append(v)
-#out_bfs=[v]
+# visited = [False] * (n+1)
+# visited[v] = True
+# q=deque()
+# q.append(v)
+# out_bfs=[v]
 
-#while q:
+# while q:
 #    w = q.popleft()
-#    
+#
 #    for nxt in graph[w]:
 #        if visited[nxt] == False:
 #            visited[nxt] = True
 #            q.append(nxt)
 #            out_bfs.append(nxt)
 
-#print(' '.join(map(str, out_dfs)))
-#print(' '.join(map(str, out_bfs)))
+# print(' '.join(map(str, out_dfs)))
+# print(' '.join(map(str, out_bfs)))
 
-#1260                    - 10~15분 컷. DFS, BFS 기본 구조는 이제 깔끔하게 이해 한 듯.
-#import sys
-#from collections import deque
-#sys.setrecursionlimit(10**6)
+# 1260                    - 10~15분 컷. DFS, BFS 기본 구조는 이제 깔끔하게 이해 한 듯.
+# import sys
+# from collections import deque
+# sys.setrecursionlimit(10**6)
 
-#input = sys.stdin.readline
+# input = sys.stdin.readline
 
-#n, m, v = map(int,input().split())
+# n, m, v = map(int,input().split())
 
-#graph = [[] for _ in range(n+1)]
-#visited = [False] *(n+1)
-#visited[v] = True
+# graph = [[] for _ in range(n+1)]
+# visited = [False] *(n+1)
+# visited[v] = True
 
-#for _ in range(m):
+# for _ in range(m):
 #    a,b = map(int, input().split())
 #    graph[a].append(b)
 #    graph[b].append(a)
 
-#for i in range(n+1):
+# for i in range(n+1):
 #    graph[i].sort()
 
-#out_dfs = [v]
-#out_bfs = [v]
+# out_dfs = [v]
+# out_bfs = [v]
 
-#def dfs(r):
+# def dfs(r):
 #    for nxt in graph[r]:
 #        if not visited[nxt]:
 #            visited[nxt] = True
 #            out_dfs.append(nxt)
 #            dfs(nxt)
 
-#def bfs(r):
+# def bfs(r):
 #    q = deque()
 #    q.append(r)
-#    
+#
 #    while q:
 #        x = q.popleft()
-#        
+#
 #        for nxt in graph[x]:
 #            if not visited[nxt]:
 #                visited[nxt] = True
 #                out_bfs.append(nxt)
 #                q.append(nxt)
 
-#dfs(v)
+# dfs(v)
 
-#visited = [False] *(n+1)
-#visited[v] = True
+# visited = [False] *(n+1)
+# visited[v] = True
 
-#bfs(v)
+# bfs(v)
 
-#print(' '.join(map(str, out_dfs)))
-#print(' '.join(map(str, out_bfs)))
+# print(' '.join(map(str, out_dfs)))
+# print(' '.join(map(str, out_bfs)))
 
-#2667
-#import sys
-#from collections import deque
+# 2667
+# import sys
+# from collections import deque
 
-#input = sys.stdin.readline
+# input = sys.stdin.readline
 
-#n = int(input())
-#arr=[[] for _ in range(n)]
+# n = int(input())
+# arr=[[] for _ in range(n)]
 
-#for i in range(n):
+# for i in range(n):
 #    temp = input().strip()
 #    for x in temp:
 #        arr[i].append(int(x))
 
-#q=deque()
-#block = 2
-#cnt = 0
-#out=[]
+# q=deque()
+# block = 2
+# cnt = 0
+# out=[]
 
-#for i in range(n):
+# for i in range(n):
 #    for j in range(n):
 #        if arr[i][j] ==1:
 #            q.append((i,j))
 #            while q:
 #                col, row = q.popleft()
-#                
+#
 #                if arr[col][row] ==1:
 #                    arr[col][row] = block
 #                    cnt+=1
-#                    
+#
 #                    if row < n-1:
 #                        q.append((col, row+1))
 #                    if col < n-1:
@@ -328,29 +328,29 @@
 #            block +=1
 #            out.append(cnt)
 #            cnt=0
-#                    
-#print(block-2)
-#out.sort()
-#print('\n'.join(map(str, out)))
+#
+# print(block-2)
+# out.sort()
+# print('\n'.join(map(str, out)))
 
-#1697
-#import sys
-#import heapq
-#INF = int(1e9)
-#input= sys.stdin.readline
+# 1697
+# import sys
+# import heapq
+# INF = int(1e9)
+# input= sys.stdin.readline
 
-#n,k = map(int,input().split())
+# n,k = map(int,input().split())
 
-#if n==k:
+# if n==k:
 #    print('0')
 #    exit()
 
-#hq = [(0,n)]
-#time = [INF] * 200001
+# hq = [(0,n)]
+# time = [INF] * 200001
 
-#while hq:
+# while hq:
 #    sec, loc = heapq.heappop(hq)
-#    
+#
 #    if loc == k:
 #        print(sec)
 #        break
@@ -364,381 +364,428 @@
 #        time[loc*2] = sec +1
 #        heapq.heappush(hq,(sec+1, 2 * loc))
 
-#import sys
-#from collections import deque
+# import sys
+# from collections import deque
 
-#input= sys.stdin.readline
+# input= sys.stdin.readline
 
-#n,k = map(int,input().split())
+# n,k = map(int,input().split())
 
-#MAX = 100000
-#q=deque([n])
-#visited = [-1] * (MAX+1)
-#visited[n] = 0
+# MAX = 100000
+# q=deque([n])
+# visited = [-1] * (MAX+1)
+# visited[n] = 0
 
-#while q:
+# while q:
 #    loc = q.popleft()
 #    if loc == k:
 #        print(visited[k])
 #        break
-#    
+#
 #    for nxt in (loc -1, loc+1, loc *2):
 #        if 0<= nxt <= MAX and visited[nxt] == -1 :
 #            visited[nxt] = visited[loc] + 1
 #            q.append(nxt)
 
 
-#1697
-#import sys
-#import heapq
-#input = sys.stdin.readline
-#INF = int(1e9)
+# 1697
+# import sys
+# import heapq
+# input = sys.stdin.readline
+# INF = int(1e9)
 
-#n, k = map(int, input().split())
+# n, k = map(int, input().split())
 
-#hq = [(0,n)]
+# hq = [(0,n)]
 
-#time = [INF] * (100001)
-#time[n] = 0
+# time = [INF] * (100001)
+# time[n] = 0
 
-#while hq:
+# while hq:
 #    t, loc = heapq.heappop(hq)
-#    
+#
 #    if loc == k:
 #        print(t)
 #        break
-#    
+#
 #    nx = 2*loc
 #    if 0 <= nx <= 100000 and time[nx] > t+1:
 #        time[nx] = t+1
 #        heapq.heappush(hq,(t+1,nx))
-#    
+#
 #    nx = loc - 1
 #    if 0 <= nx <= 100000 and time[nx] > t+1:
 #        time[nx] = t+1
 #        heapq.heappush(hq,(t+1,nx))
-#            
+#
 #    nx = loc + 1
 #    if 0 <= nx <= 100000 and time[nx] > t+1:
 #        time[nx] = t+1
 #        heapq.heappush(hq,(t+1,nx))
 
-#1697
-#import sys
-#from collections import deque
-#INF = int(1e9)
+# 1697
+# import sys
+# from collections import deque
+# INF = int(1e9)
 
-#input = sys.stdin.readline
+# input = sys.stdin.readline
 
-#n, k = map(int, input().split())
+# n, k = map(int, input().split())
 
-#visited = [INF] * 100001
-#visited[n] = 0
+# visited = [INF] * 100001
+# visited[n] = 0
 
-#q = deque([n])
+# q = deque([n])
 
-#while q:
+# while q:
 #    loc = q.popleft()
 #    t= visited[loc]
-#    
+#
 #    if loc == k:
 #        print(t)
 #        break
-#    
+#
 #    nxt = loc -1
 #    if 0<= nxt <= 100000 and visited[nxt] == INF:
 #        visited[nxt] = t+1
 #        q.append(nxt)
-#    
+#
 #    nxt = loc +1
 #    if 0<= nxt <= 100000 and visited[nxt] == INF:
 #        visited[nxt] = t+1
 #        q.append(nxt)
-#    
+#
 #    nxt = 2 * loc
 #    if 0<= nxt <= 100000 and visited[nxt] == INF:
 #        visited[nxt] = t+1
 #        q.append(nxt)
 
-#1904
-#import sys
-#input = sys.stdin.readline
+# 1904
+# import sys
+# input = sys.stdin.readline
 
-#n = int(input())
+# n = int(input())
 
-#dp = [0] * (n+1)
-#dp[1] = 1
-#if n>1:
+# dp = [0] * (n+1)
+# dp[1] = 1
+# if n>1:
 #    dp[2] = 2
 
-#for i in range(3,n+1):
+# for i in range(3,n+1):
 #    dp[i] = (dp[i-1] + dp[i-2]) % 15746
 
-#print(dp[n])
+# print(dp[n])
 
-#1904
-#import sys
-#input = sys.stdin.readline
+# 1904
+# import sys
+# input = sys.stdin.readline
 
-#n = int(input())
+# n = int(input())
 
-#dp = [0] * (n+1)
-#dp[1] = 1
+# dp = [0] * (n+1)
+# dp[1] = 1
 
-#if n >= 2:
+# if n >= 2:
 #    dp[2] = 2
-#    
+#
 #    for i in range(3,n+1):
 #        dp[i] = (dp[i-1]+ dp[i-2])%15746
-#print(dp[n])
+# print(dp[n])
 
-#2293
-#import sys
-#input = sys.stdin.readline
+# 2293
+# import sys
+# input = sys.stdin.readline
 
-#n,k = map(int, input().split())
-#coins = [int(input()) for _ in range(n)]
-#dp = [0] * (k+1)
-#dp[0] = 1
-#coins.sort()
+# n,k = map(int, input().split())
+# coins = [int(input()) for _ in range(n)]
+# dp = [0] * (k+1)
+# dp[0] = 1
+# coins.sort()
 
-#for coin in coins:
+# for coin in coins:
 #    for i in range(coin, k+1):
 #        dp[i] += dp[i-coin]
 
-#print(dp[k])
+# print(dp[k])
 
-#2293
-#import sys
-#input = sys.stdin.readline
+# 2293
+# import sys
+# input = sys.stdin.readline
 
-#n,k = map(int,input().split())
-#coins = [int(input()) for _ in range(n)]
+# n,k = map(int,input().split())
+# coins = [int(input()) for _ in range(n)]
 
-#coins.sort()
+# coins.sort()
 
-#dp = [0] * (k+1)
-#dp[0] = 1
+# dp = [0] * (k+1)
+# dp[0] = 1
 
-#for coin in coins:
+# for coin in coins:
 #    for i in range(coin, k+1):
 #        dp[i] += dp[i-coin]
 
-#print(dp[k])
+# print(dp[k])
 
 
-#2293            - 아이디어 보고도 이해하기 힘들었음. 조합,순열 차이. 어렵네
-#import sys
-#input = sys.stdin.readline
+# 2293            - 아이디어 보고도 이해하기 힘들었음. 조합,순열 차이. 어렵네
+# import sys
+# input = sys.stdin.readline
 
-#n,k = map(int, input().split())
-#coins = [int(input()) for _ in range(n)]
+# n,k = map(int, input().split())
+# coins = [int(input()) for _ in range(n)]
 
-#coins.sort()
-#dp = [0]*(k+1)
-#dp[0]=1
+# coins.sort()
+# dp = [0]*(k+1)
+# dp[0]=1
 
-#for coin in coins:
+# for coin in coins:
 #    for i in range(coin, k+1):
 #        dp[i] += dp[i - coin]
 
-#print(dp[k])
+# print(dp[k])
 
-#11057
-#import sys
+# 11057
+# import sys
 
-#n = int(input())
+# n = int(input())
 
-#dp = [[0] * 10 for _ in range(n+1)]
+# dp = [[0] * 10 for _ in range(n+1)]
 
-#for i in range(10):
+# for i in range(10):
 #    dp[1][i] = 1
 
-#for i in range(2,n+1):
+# for i in range(2,n+1):
 #    for j in range(10):
 #        dp[i][j] = sum(dp[i-1][0:j+1])%10007
 
-#print(sum(dp[n])%10007)
+# print(sum(dp[n])%10007)
 
-#import sys
+# import sys
 
-#n = int(input())
+# n = int(input())
 
-#dp = [1] * 10
+# dp = [1] * 10
 
-#for _ in range(n-1):
+# for _ in range(n-1):
 #    for i in range(9,-1,-1):
 #        dp[i] = sum(dp[0:i+1])%10007
 
-#print(sum(dp)%10007)
+# print(sum(dp)%10007)
 
-#11057                혼자 풀긴함. 근데 조금씩 잘 못 써서 틀림. 그래도 bt하다가 수식으로 하다가 dp로 풀고 그럼. 1차원 DP로 가능.
-#import sys
-#input = sys.stdin.readline
+# 11057                혼자 풀긴함. 근데 조금씩 잘 못 써서 틀림. 그래도 bt하다가 수식으로 하다가 dp로 풀고 그럼. 1차원 DP로 가능.
+# import sys
+# input = sys.stdin.readline
 
-#n = int(input())
-#dp = [[0] *10 for _ in range(n+1)]
+# n = int(input())
+# dp = [[0] *10 for _ in range(n+1)]
 
-#for i in range(10):
+# for i in range(10):
 #    dp[1][i] = 1
 
-#if n >= 2:
+# if n >= 2:
 #    for i in range(2,n+1):
 #        for j in range(0, 10):
 #            if j ==0:
 #                dp[i][j] = 1
 #            else:
 #                dp[i][j] = (dp[i-1][j] + dp[i][j-1])%10007
-#    
-#print(sum(dp[n])% 10007)
+#
+# print(sum(dp[n])% 10007)
 
-#def bt(r, len):        넣을때 부터 찝찝했음. 10^n
+# def bt(r, len):        넣을때 부터 찝찝했음. 10^n
 #    global cnt
 #    if len == n :
 #        cnt += 1
 #        if cnt > 10007:
 #            cnt= cnt % 10007
 #        return
-#    
+#
 #    for i in range(r, 10):
 #        bt(i, len +1)
-#bt(0,0)
+# bt(0,0)
 
-#11052
-#import sys
+# 11052
+# import sys
 
-#n = int(input())
+# n = int(input())
 
-#arr = list(map(int, input().split()))
+# arr = list(map(int, input().split()))
 
-#dp = [0] * (n+1)
-#arr.insert(0,0)
+# dp = [0] * (n+1)
+# arr.insert(0,0)
 
-#dp[1] = arr[1]
+# dp[1] = arr[1]
 
-#for i in range(1, n+1):
+# for i in range(1, n+1):
 #    for j in range(1,i+1):
 #        dp[i] = max(dp[i], dp[i-j] + arr[j])
 
-#print(dp[n])
+# print(dp[n])
 
-#2225
-#import sys
+# 2225
+# import sys
 
-#input = sys.stdin.readline
+# input = sys.stdin.readline
 
-#n,k = map(int,input().split())
+# n,k = map(int,input().split())
 
-#dp = [[1] * (n+1) for _ in range(k+1)]
+# dp = [[1] * (n+1) for _ in range(k+1)]
 
-#for i in range(2,k+1):
+# for i in range(2,k+1):
 #    for j in range(0,n+1):
 #        dp[i][j] = sum(dp[i-1][:j+1]) % 1000000000   #점화식 더 깔끔하게 가능
 
-#print(dp[k][n]%1000000000)
+# print(dp[k][n]%1000000000)
 
 
+# 2225                    혼자 못 풀었음. 아무리 생각해도 전 문제는 나름 직접 끌고 왔는데 이건 못 푼게 좀 빡침.
+# import sys
 
-#2225                    혼자 못 풀었음. 아무리 생각해도 전 문제는 나름 직접 끌고 왔는데 이건 못 푼게 좀 빡침.
-#import sys
+# input= sys.stdin.readline
 
-#input= sys.stdin.readline
+# n,k = map(int,input().split())
 
-#n,k = map(int,input().split())
+# dp = [[0] * (n+1) for _ in range(k+1)]
 
-#dp = [[0] * (n+1) for _ in range(k+1)]
-
-#for i in range(k+1):
+# for i in range(k+1):
 #    dp[i][0] = 1
-#for i in range(n+1):
+# for i in range(n+1):
 #    dp[1][i] = 1
 
-#for i in range(1,k+1):
+# for i in range(1,k+1):
 #    for j in range(1,n+1):
 #        dp[i][j] = (dp[i-1][j] + dp[i][j-1]) % 1000000000
 
-#print(dp[k][n])
+# print(dp[k][n])
 
-#1309
-#import sys
-#input = sys.stdin.readline
-
-
-#n = int(input())
+# 1309
+# import sys
+# input = sys.stdin.readline
 
 
-#dp = [0] * (n+1)
-#dp[0] = 1
-#dp[1] = 3
+# n = int(input())
 
-#for i in range(2,n+1):
+
+# dp = [0] * (n+1)
+# dp[0] = 1
+# dp[1] = 3
+
+# for i in range(2,n+1):
 #    dp[i] = (2* dp[i-1] + dp[i-2])%9901
-#print(dp[n]%9901)
+# print(dp[n]%9901)
 
 
-#1309                    깔끔하게 혼자 클리어.
-#import sys
-#input = sys.stdin.readline
+# 1309                    깔끔하게 혼자 클리어.
+# import sys
+# input = sys.stdin.readline
 
-#n = int(input())
+# n = int(input())
 
-#dp = [0] * (n+1)
-#dp[0] = 1
-#dp[1] = 3
+# dp = [0] * (n+1)
+# dp[0] = 1
+# dp[1] = 3
 
-#for i in range(2,n+1):
+# for i in range(2,n+1):
 #    dp[i] = (dp[i-1] + (dp[i-1] - dp[i-2]) + dp[i-2] * 2) % 9901
 
-#print(dp[n])
+# print(dp[n])
 
-#1924                            그냥 하드 코딩으로 품. 딱히 뭐 더 규칙 찾는게 더 비효율같아서. 근데 month리스트 따로 두는 게 더 괜찮은 듯.
-#import sys
-#input = sys.stdin.readline
+# # 1924
+# import sys
 
-#x,y = map(int, input().split())
+# input = sys.stdin.readline
 
-#day = ['SUN']
-#week = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN']
-#day = day + (week*52)
-#day.append('MON')
+# x, y = map(int, input().split())
 
-#if x == 1:
+# month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+# week = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
+
+# day = y
+# mon = 0
+
+# for i in range(0, x):
+#     mon += month[i]
+
+# print(week[(day + mon) % 7])
+
+
+# 1924                            그냥 하드 코딩으로 품. 딱히 뭐 더 규칙 찾는게 더 비효율같아서. 근데 month리스트 따로 두는 게 더 괜찮은 듯.
+# import sys
+# input = sys.stdin.readline
+
+# x,y = map(int, input().split())
+
+# day = ['SUN']
+# week = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN']
+# day = day + (week*52)
+# day.append('MON')
+
+# if x == 1:
 #    print(day[y])
-#if x == 2:
+# if x == 2:
 #    print(day[31+y])
-#if x == 3:
+# if x == 3:
 #    print(day[31+28+y])
-#if x == 4:
+# if x == 4:
 #    print(day[31+28+31+y])
-#if x == 5:
+# if x == 5:
 #    print(day[31+28+31+30+y])
-#if x == 6:
+# if x == 6:
 #    print(day[31+28+31+30+31+y])
-#if x == 7:
+# if x == 7:
 #    print(day[31+28+31+30+31+30+y])
-#if x == 8:
+# if x == 8:
 #    print(day[31+28+31+30+31+30+31+y])
-#if x == 9:
+# if x == 9:
 #    print(day[31+28+31+30+31+30+31+31+y])
-#if x == 10:
+# if x == 10:
 #    print(day[31+28+31+30+31+30+31+31+30+y])
-#if x == 11:
+# if x == 11:
 #    print(day[31+28+31+30+31+30+31+31+30+31+y])
-#if x == 12:
+# if x == 12:
 #    print(day[31+28+31+30+31+30+31+31+30+31+30+y])
 
-#15649                                외워진건지 모르겠는데 깔끔하게 풀어감. 딱딱딱 그냥
-#import sys
-#sys.setrecursionlimit(10**6)
+# 15649
+import sys
 
-#input = sys.stdin.readline
+input = sys.stdin.readline
 
-#n,m = map(int, input().split())
+n, m = map(int, input().split())
 
-#visited = [False] * (n+1)
-#out = []
+visited = [False] * (n + 1)
+out = []
 
-#def bt(k):
+
+def cb(k):
+    if k == m:
+        print(" ".join(map(str, out)))
+        return
+
+    for i in range(1, n + 1):
+        if visited[i] == False:
+            visited[i] = True
+            out.append(i)
+            cb(k + 1)
+
+            visited[i] = False
+            out.pop()
+
+
+cb(0)
+
+
+# 15649                                외워진건지 모르겠는데 깔끔하게 풀어감. 딱딱딱 그냥
+# import sys
+# sys.setrecursionlimit(10**6)
+
+# input = sys.stdin.readline
+
+# n,m = map(int, input().split())
+
+# visited = [False] * (n+1)
+# out = []
+
+# def bt(k):
 #    if k == m:
 #        print(' '.join(map(str, out)))
 #        return
@@ -749,57 +796,57 @@
 #            bt(k+1)
 #            visited[i] = False
 #            out.remove(i)           #out.pop()이 훨씬 효율
-#    
-#bt(0)
+#
+# bt(0)
 
 
-#9663                직접 clear 전체 범위 세팅하는 거 다시 생각해보셈. 2n+1아님
-#import sys
-#input = sys.stdin.readline
+# 9663                직접 clear 전체 범위 세팅하는 거 다시 생각해보셈. 2n+1아님
+# import sys
+# input = sys.stdin.readline
 
-#n = int(input())
+# n = int(input())
 
-#row = [True] * (n)
-#up = [True] * (2*n +1)
-#down = [True] * (2*n + 1)
+# row = [True] * (n)
+# up = [True] * (2*n +1)
+# down = [True] * (2*n + 1)
 
-#cnt =0
+# cnt =0
 
-#def bt(col):
+# def bt(col):
 #    global n, cnt
-#    
+#
 #    if col == n:
 #        cnt +=1
 #        return
-#    
+#
 #    for i in range(n):
 #        if row[i] and up[i+col] and down[n+i-col]:
 #            row[i] = False
 #            up[i+col] = False
 #            down[n+i-col] = False
-#            
+#
 #            bt(col+1)
-#            
-#            row[i] = up[i+col] = down[n+i-col] = True 
-#            
-#bt(0)
+#
+#            row[i] = up[i+col] = down[n+i-col] = True
+#
+# bt(0)
 
-#print(cnt) 
+# print(cnt)
 
-#8958
-#import sys
-#input =sys.stdin.readline
+# 8958
+# import sys
+# input =sys.stdin.readline
 
-#n = int(input())
+# n = int(input())
 
-#for _ in range(n):
+# for _ in range(n):
 #    s = input()
 #    score = 0
 #    con = 1
-#    
+#
 #    if s[0] == 'O':
 #        score += 1
-#    
+#
 #    for i in range(1, len(s)):
 #        if s[i] == 'O':
 #            if s[i-1] == 'O':
@@ -810,22 +857,22 @@
 #    print(score)
 
 
-#1012
-#import sys
-#sys.setrecursionlimit(10**6)
-#input = sys.stdin.readline
+# 1012
+# import sys
+# sys.setrecursionlimit(10**6)
+# input = sys.stdin.readline
 
-#t = int(input())
+# t = int(input())
 
-#for _ in range(t):
+# for _ in range(t):
 #    m,n,k = map(int,input().split())
-#    cnt  = 0    
+#    cnt  = 0
 #    graph=[[0]*m for _ in range(n)]
-#    
+#
 #    for _ in range(k):
 #        x,y = map(int,input().split())
 #        graph[y][x] = 1
-#    
+#
 #    def dfs(row,col):
 #        if row > 0:
 #            if graph[row-1][col] ==1:
@@ -838,12 +885,12 @@
 #        if col < (m-1):
 #            if graph[row][col+1] ==1:
 #                graph[row][col+1] = 2
-#                bfs(row,col+1)            
+#                bfs(row,col+1)
 #        if row < (n-1):
 #            if graph[row+1][col] ==1:
 #                graph[row+1][col] = 2
 #                bfs(row+1,col)
-#    
+#
 #    for i in range(n):
 #        for j in range(m):
 #            if graph[i][j] ==1:
@@ -851,25 +898,24 @@
 #                 bfs(i,j)
 #    print(cnt)
 
-#11052                직접 clear, 문제 직접 푸는 방법을 좀 더 깔끔하게 해보자.
-#import sys
-#input =sys.stdin.readline
+# 11052                직접 clear, 문제 직접 푸는 방법을 좀 더 깔끔하게 해보자.
+# import sys
+# input =sys.stdin.readline
 
-#n = int(input())
-#li = list(map(int, input().split()))
+# n = int(input())
+# li = list(map(int, input().split()))
 # # p = [0] + list(map(int, input().split()))  # 1-index, 보기 좋네
 
-#dp = [0] * (n+1)
+# dp = [0] * (n+1)
 
-#dp[1] = li[0]
-#arr= []
+# dp[1] = li[0]
+# arr= []
 
-#for i in range(2,n+1):
+# for i in range(2,n+1):
 #    for j in range(i):
 #        arr.append(dp[i-j-1] + li[j])
 #        #dp[i] = max(dp[i], dp[i - k] + p[k])        #바로 바로 max 갱신
 #    dp[i] = max(arr)
 #    arr.clear()
 
-#print(dp[n])
-
+# print(dp[n])

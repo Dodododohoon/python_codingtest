@@ -117,25 +117,47 @@
 # print(cnt)
 
 # 11660
-import sys
+# import sys
 
-input = sys.stdin.readline
+# input = sys.stdin.readline
 
-n, m = map(int, input().split())
+# n, m = map(int, input().split())
 
-li = [list(map(int, input().split())) for _ in range(n)]
+# li = [list(map(int, input().split())) for _ in range(n)]
 
-prefix = [[0] * (n + 1) for _ in range(n + 1)]
+# prefix = [[0] * (n + 1) for _ in range(n + 1)]
 
-for i in range(1, n + 1):
-    for j in range(1, n + 1):
-        prefix[i][j] = prefix[i][j - 1] + li[i - 1][j - 1]
+# for i in range(1, n + 1):
+#     for j in range(1, n + 1):
+#         prefix[i][j] = prefix[i][j - 1] + li[i - 1][j - 1]
 
-for _ in range(m):
-    x1, y1, x2, y2 = map(int, input().split())
-    sum = 0
-    for i in range(x1, x2 + 1):
-        sum += prefix[i][y2] - prefix[i][y1 - 1]
-    print(sum)
+# for _ in range(m):
+#     x1, y1, x2, y2 = map(int, input().split())
+#     sum = 0
+#     for i in range(x1, x2 + 1):
+#         sum += prefix[i][y2] - prefix[i][y1 - 1]
+#     print(sum)
 
 # 25682
+
+
+# --------------REVIEW-----------
+# 2559
+# import sys
+
+# input = sys.stdin.readline
+
+# n, k = map(int, input().split())
+
+# arr = list(map(int, input().split()))
+
+# pre = [0] * (n + 1)
+# sum = -1000000000
+
+# for i in range(1, n + 1):
+#     pre[i] = pre[i - 1] + arr[i - 1]
+
+# for i in range(k, n + 1):
+#     sum = max(sum, pre[i] - pre[i - k])
+
+# print(sum)

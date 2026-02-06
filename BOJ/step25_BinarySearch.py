@@ -134,18 +134,53 @@
 # 그니깐 검증 들어가기 전 값이 확실한 정답 값이 되는 거. mid값이 답이 아니라.
 
 # 2110
-import sys
+# import sys
 
-input = sys.stdin.readline
+# input = sys.stdin.readline
 
-n, c = map(int, input().split())
-arr = [int(input()) for _ in range(n)]
-arr.sort()
+# n, c = map(int, input().split())
+# arr = [int(input()) for _ in range(n)]
+# arr.sort()
 
-last = arr[0]
+# last = arr[0]
 
 
 # 1300
 
 
 # 12015
+
+
+# ----------------review-----------------
+# 1920
+# import sys
+
+# input = sys.stdin.readline
+
+# n = int(input())
+# arr = list(map(int, input().split()))
+# m = int(input())
+# check = list(map(int, input().split()))
+
+# arr.sort()
+
+# for x in check:
+#     left = 0
+#     right = len(arr) - 1
+#     ans = 0
+#     
+#     while left <= right:
+#         mid = (left + right) // 2
+#         
+
+#         if arr[mid] == x:
+#             print("1")
+#             ans = 1
+#             break
+#         elif arr[mid] > x:
+#             right = mid - 1
+#         else:
+#             left = mid + 1
+
+#     if ans == 0:
+#         print("0")
