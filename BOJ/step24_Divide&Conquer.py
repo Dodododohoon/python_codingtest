@@ -220,36 +220,36 @@
 #print(cnt_b)
 
 #1992
-#import sys
-#input = sys.stdin.readline
+import sys
+input = sys.stdin.readline
 
-#n = int(input())
-#arr = [input().strip() for _ in range(n)]
+n = int(input())
+arr = [input().strip() for _ in range(n)]
 
-#out = []
+out = []
 
-#def dq(row, col, size):
-#    f = arr[row][col]
-#    same = True
-#    
-#    for i in range(row, row+size):
-#        for j in range(col, col+size):
-#            if arr[i][j] != f:
-#                same = False
-#                break
-#        if same == False:
-#            break
-#    
-#    if same == False:
-#        size = size//2
-#        out.append('(')
-#        dq(row,col,size)
-#        dq(row,col+size,size)
-#        dq(row+size,col,size)
-#        dq(row+size,col+size,size)
-#        out.append(')')
-#    else:
-#        out.append(f)
-#        
-#dq(0,0,n)
-#print(''.join(out))
+def dq(row, col, size):
+    f = arr[row][col]
+    same = True
+    
+    for i in range(row, row+size):
+        for j in range(col, col+size):
+            if arr[i][j] != f:
+                same = False
+                break
+        if same == False:
+            break
+    
+    if same == False:
+        size = size//2
+        out.append('(')
+        dq(row,col,size)
+        dq(row+size,col,size)
+        dq(row,col+size,size)
+        dq(row+size,col+size,size)
+        out.append(')')
+    else:
+        out.append(f)
+        
+dq(0,0,n)
+print(''.join(out))

@@ -94,42 +94,42 @@
 #print(h[0])
 
 #2696                    꼭 다시 풀어보자.
-import sys
-import heapq
-input= sys.stdin.readline
+#import sys
+#import heapq
+#input= sys.stdin.readline
 
-t = int(input())
-arr=[]
+#t = int(input())
+#arr=[]
 
-for _ in range(t):
-    arr=[]
-    m = int(input())
-    for _ in range((m+9)//10):
-        arr.extend(map(int,input().split()))
-    
-    out = []
-    left = []
-    right = []
-    
-    for i in range(m):
-        if not left or arr[i] <= -left[0]:
-            heapq.heappush(left, -arr[i])
-        else:
-            heapq.heappush(right, arr[i]) 
-    
-        if len(left) > len(right) +1 :
-            heapq.heappush(right, -heapq.heappop(left))
-        elif len(left) < len(right):
-            heapq.heappush(left, -heapq.heappop(right))
-            
-        if i % 2 ==0:
-            out.append(-left[0])
-        
-    print((m+1)//2)
-    for i in range(len(out)):
-        if i != 0 and i % 10 ==0:
-            print('')
-        print(out[i], end=' ')
+#for _ in range(t):
+#    arr=[]
+#    m = int(input())
+#    for _ in range((m+9)//10):
+#        arr.extend(map(int,input().split()))
+#    
+#    out = []
+#    left = []
+#    right = []
+#    
+#    for i in range(m):
+#        if not left or arr[i] <= -left[0]:
+#            heapq.heappush(left, -arr[i])
+#        else:
+#            heapq.heappush(right, arr[i]) 
+#    
+#        if len(left) > len(right) +1 :
+#            heapq.heappush(right, -heapq.heappop(left))
+#        elif len(left) < len(right):
+#            heapq.heappush(left, -heapq.heappop(right))
+#            
+#        if i % 2 ==0:
+#            out.append(-left[0])
+#        
+#    print((m+1)//2)
+#    for i in range(len(out)):
+#        if i != 0 and i % 10 ==0:
+#            print('')
+#        print(out[i], end=' ')
 
 
 
@@ -159,3 +159,54 @@ for _ in range(t):
 #            h1 = list(h2)
 
 #1202
+
+#---------------Review------------------
+#11286                        gpt기준 이게 더 가독성이 좋다고 하긴 하는데 abs로 푸는 방법도 있음.
+
+#import sys
+#import heapq
+#input = sys.stdin.readline
+
+#n = int(input())
+#------abs사용 힙큐 하나 풀이
+#h = []
+
+#for _ in range(n):
+#    x = int(input())
+#    
+#    if x != 0:
+#        heapq.heappush(h,(abs(x), x))
+#    else:
+#        if h:
+#            a,b = heapq.heappop(h)
+#            print(b)
+#        else:
+#            print('0')
+#-----마이너스 플러스 분리 풀이
+#hm = []
+#hp = []
+
+#for _ in range(n):
+#    num = int(input())
+#    
+#    if num == 0:
+#        if not hm and not hp:
+#            print('0')
+#        elif not hm and hp:
+#            print(heapq.heappop(hp))
+#        elif not hp and hm:
+#            print(-(heapq.heappop(hm)))
+#        else:
+#            if hm[0] > hp[0]:
+#                print(heapq.heappop(hp))
+#            else:
+#                print(-(heapq.heappop(hm)))          
+#                
+#    elif num<0:
+#        heapq.heappush(hm,-(num))
+#    else:
+#        heapq.heappush(hp,num)
+        
+    
+
+
