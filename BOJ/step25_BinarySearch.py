@@ -168,10 +168,10 @@
 #     left = 0
 #     right = len(arr) - 1
 #     ans = 0
-#     
+#
 #     while left <= right:
 #         mid = (left + right) // 2
-#         
+#
 
 #         if arr[mid] == x:
 #             print("1")
@@ -184,3 +184,65 @@
 
 #     if ans == 0:
 #         print("0")
+
+# 10816     다시 풀어보자 딕셔너리, 이분탐색 둘다. bisect로도
+# import sys
+
+# input = sys.stdin.readline
+
+# n = int(input())
+# arr = list(map(int, input().split()))
+
+# m = int(input())
+# check = list(map(int, input().split()))
+
+# arr.sort()
+
+
+# def lower(x):
+#     lo, hi = 0, len(arr)
+
+#     while lo < hi:
+#         mid = (lo + hi) // 2
+
+#         if arr[mid] >= x:
+#             hi = mid
+#         else:
+#             lo = mid + 1
+
+#     return hi
+
+
+# def upper(x):
+#     lo, hi = 0, len(arr)
+#     while lo < hi:
+#         mid = (lo + hi) // 2
+
+#         if arr[mid] > x:
+#             hi = mid
+#         else:
+#             lo = mid + 1
+
+#     return hi
+
+
+# for x in check:
+
+#     low, high = lower(x), upper(x)
+
+#     print(high - low, end=" ")
+
+
+# dic = dict()      #딕셔너리 버전
+
+# for x in arr:
+#     if not x in dic:
+#         dic[x] = 1
+#     else:
+#         dic[x] += 1
+
+# for x in check:
+#     if x in dic:
+#         print(dic.get(x), end=" ")
+#     else:
+#         print("0", end=" ")
