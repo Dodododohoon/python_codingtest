@@ -207,6 +207,28 @@
 #    else:
 #        heapq.heappush(hp,num)
         
-    
+#2075
+#import sys
+#import heapq
+
+#input = sys.stdin.readline
+
+#n = int(input())
+#arr = list(map(int,input().split()))         #hq = list(map(int, input().split()))
+#hq = []                                                          #heapq.heapify(hq)   이렇게 가 더 심플, 효율적. log n
+
+#for i in range(n):
+#    heapq.heappush(hq,arr[i])
+
+#for _ in range(n-1):
+#    arr = list(map(int,input().split())) 
+#    for i in range(n):
+#        if hq[0] <arr[i]:
+#            heapq.heappop(hq)
+#            heapq.heappush(hq,arr[i])
+#    
+#print(hq[0])
+
+
 
 

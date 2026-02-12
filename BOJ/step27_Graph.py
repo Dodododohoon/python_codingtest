@@ -305,3 +305,34 @@
 # 2206
 
 # 1707
+
+
+
+
+#---------review
+#2606
+#import sys
+#input = sys.stdin.readline
+
+#n = int(input())
+#m = int(input())
+
+#graph = [[] for _ in range(n+1)]
+#visited = [False] * (n+1)
+#visited[1] = True
+
+#for _ in range(m):
+#    a,b = map(int, input().split())
+#    
+#    graph[a].append(b)
+#    graph[b].append(a)
+#    
+#def dfs(v):
+#    for nxt in graph[v]:
+#        if visited[nxt] == False:
+#            visited[nxt] = True
+#            dfs(nxt)
+
+#dfs(1)
+
+#print(visited.count(True) -1)

@@ -144,3 +144,36 @@
 #        j -= 1
 #        
 #print(cnt)
+
+#1806
+#import sys
+#input = sys.stdin.readline
+
+#n, s = map(int, input().split())
+#arr = list(map(int, input().split()))
+
+#prefix = [0] * (n+1)
+
+#for i in range(1,n+1):
+#    prefix[i] = prefix[i-1] + arr[i-1]
+#    
+#left, right = 0, 1
+#size = 100001
+
+#while right <= n:
+#    pre_sum = prefix[right] - prefix[left]
+#    
+#    if pre_sum >= s:
+#        size = min(size,right-left)
+#        if size ==1:
+#            print('1')
+#            exit()
+#        left += 1
+#    else:
+#        right +=1
+
+#if size == 100001:
+#    print('0')
+#else:
+#    print(size)
+    
