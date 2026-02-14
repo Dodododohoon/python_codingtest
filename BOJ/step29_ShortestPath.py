@@ -187,7 +187,7 @@
 # 1956
 
 
-# memo
+# ---------------review
 
 #1753        
 #import sys
@@ -266,3 +266,64 @@
 #         print('INF')
 #     else:
 #         print(dist[i])
+
+#1504
+import sys
+import heapq
+INF = int(1e9)
+input = sys.stdin.readline
+
+
+n, e = map(int, input().split())
+graph = [[] for _ in range(n+1)]
+
+for _ in range(e):
+    a, b, c = map(int,input().split())
+    
+    graph[a].append((b,c))
+    graph[b].append((a,c))
+    
+u,v = map(int,input().split())
+
+dist=[INF] * (n+1)
+
+def dijk(a):
+    hq = [(0,a)]
+    
+    while hq:
+        cur, w = heapq.heappop(hq)
+        
+        if cur > dist[w]:
+            continue
+        
+        for nxt, c in graph[w]:
+            nd = cur + c
+            if dist[nxt] > nd:
+                dist[nxt] = nd
+                heapq.heappush(hq,(nd,nxt))
+
+dist[1] = 0
+dijk(1)
+
+tou = dist[u]
+tov = dist[v]
+
+dist=[INF] * (n+1)
+dist[u]=0
+dijk(u)
+
+utov = dist[v]
+uton = dist[n]
+
+dist=[INF] * (n+1)
+dist[v]=0
+dijk(v)
+
+vtou = dist[u]
+vton = dist[n]
+
+ans = min(tou+utov+vton, tov+vtou+uton)
+if ans >= INF:
+    print('-1')
+else:
+    print(ans)

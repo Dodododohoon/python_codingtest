@@ -220,36 +220,57 @@
 #print(cnt_b)
 
 #1992
-import sys
-input = sys.stdin.readline
+#import sys
+#input = sys.stdin.readline
 
-n = int(input())
-arr = [input().strip() for _ in range(n)]
+#n = int(input())
+#arr = [input().strip() for _ in range(n)]
 
-out = []
+#out = []
 
-def dq(row, col, size):
-    f = arr[row][col]
-    same = True
-    
-    for i in range(row, row+size):
-        for j in range(col, col+size):
-            if arr[i][j] != f:
-                same = False
-                break
-        if same == False:
-            break
-    
-    if same == False:
-        size = size//2
-        out.append('(')
-        dq(row,col,size)
-        dq(row+size,col,size)
-        dq(row,col+size,size)
-        dq(row+size,col+size,size)
-        out.append(')')
-    else:
-        out.append(f)
+#def dq(row, col, size):
+#    f = arr[row][col]
+#    same = True
+#    
+#    for i in range(row, row+size):
+#        for j in range(col, col+size):
+#            if arr[i][j] != f:
+#                same = False
+#                break
+#        if same == False:
+#            break
+#    
+#    if same == False:
+#        size = size//2
+#        out.append('(')
+#        dq(row,col,size)
+#        dq(row+size,col,size)
+#        dq(row,col+size,size)
+#        dq(row+size,col+size,size)
+#        out.append(')')
+#    else:
+#        out.append(f)
+#        
+#dq(0,0,n)
+#print(''.join(out))
+
+#1629
+#import sys
+#sys.setrecursionlimit(10**6)
+#input =sys.stdin.readline
+
+#a,b,c = map(int,input().split())
+
+#def dc(a,b,c):
+#    if b %2 ==1:
+#        if b ==1:
+#            return a%c
+#        k = dc(a,(b-1)//2,c)
+#        return ((a%c) * (k%c) * (k%c))%c
+#    else:
+#        k = dc(a,b//2,c)
+#        return ((k%c)*(k%c))%c
+
+#print(dc(a,b,c))
         
-dq(0,0,n)
-print(''.join(out))
+

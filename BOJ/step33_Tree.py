@@ -307,4 +307,46 @@
 #            q.append(nxt)
 
 #print('\n'.join(map(str, visited[2:])))
-        
+
+#1167
+#import sys
+#from collections import deque
+#input = sys.stdin.readline
+
+#v = int(input())
+#graph = [[] for _ in range(v+1)]
+#dist = [-1] * (v+1)
+
+#arr = [list(map(int,input().split())) for _ in range(v)]
+
+#for i in range(v):
+#    node = arr[i][0]  
+#    for j in range(1, len(arr[i]) - 1, 2):
+#        graph[node].append((arr[i][j], arr[i][j+1]))
+
+#q = deque([(0,1)])
+#dist[1] = 0
+
+#while q:
+#    d, r = q.popleft()
+#    
+#    for nxt, w in graph[r]:
+#        if dist[nxt] ==-1:
+#            dist[nxt] = d+w
+#            q.append((d+w, nxt))
+#        
+#right = dist.index(max(dist))
+#dist = [-1] * (v+1)
+#dist[right] = 0
+
+#q = deque([(0,right)])
+
+#while q:
+#    d, r = q.popleft()
+#    
+#    for nxt, w in graph[r]:
+#        if dist[nxt] == -1:
+#            dist[nxt] = d+w
+#            q.append((d+w, nxt))
+#    
+#print(max(dist))
