@@ -161,3 +161,28 @@
 #     sum = max(sum, pre[i] - pre[i - k])
 
 # print(sum)
+
+#10986
+#import sys
+#input = sys.stdin.readline
+
+#n,m = map(int,input().split())
+#arr = list(map(int,input().split()))
+
+#prefix = [0] * (n+1)
+#c = [0] * (m)
+#cnt = 0
+
+#for i in range(1,n+1):
+#    prefix[i] = (prefix[i-1] + arr[i-1]) % m 
+
+#for i in range(1,n+1):
+#    if prefix[i] ==0:
+#        c[0] += 1
+#        cnt += c[0]
+#    else:
+#        c[prefix[i]] +=1
+#        cnt += c[prefix[i]] - 1
+
+#print(cnt)
+    

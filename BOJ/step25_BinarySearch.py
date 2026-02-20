@@ -246,3 +246,31 @@
 #         print(dic.get(x), end=" ")
 #     else:
 #         print("0", end=" ")
+
+#1654
+#import sys
+#input = sys.stdin.readline
+
+#k,n = map(int, input().split())
+#arr = [int(input()) for _ in range(k)]
+#arr.sort()
+
+#left, right = 0, arr[-1]
+
+#while left <= right:
+#    half = (left + right)//2
+#    cnt = 0
+#    
+#    if right == 1:
+#        print('1')
+#        exit()
+#    
+#    for x in arr:
+#        cnt += x//half
+#    
+#    if cnt < n:
+#        right = half -1
+#    else:
+#        left = half+1
+
+#print(right)
