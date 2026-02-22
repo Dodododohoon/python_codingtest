@@ -133,46 +133,99 @@
 
 #---------------------
 #1976
-import sys
-input =sys.stdin.readline
+#import sys
+#input =sys.stdin.readline
 
-n = int(input())
-m = int(input())
+#n = int(input())
+#m = int(input())
 
-graph = [list(map(int, input().split())) for _ in range(n)]
-parent = [i for i in range(n+1)]
-rank = [0] * (n+1)
+#graph = [list(map(int, input().split())) for _ in range(n)]
+#parent = [i for i in range(n+1)]
+#rank = [0] * (n+1)
 
-check = list(map(int, input().split()))
+#check = list(map(int, input().split()))
 
-def find(v):
-    if parent[v] != v:
-        parent[v] = find(parent[v])
-    return parent[v]
+#def find(v):
+#    if parent[v] != v:
+#        parent[v] = find(parent[v])
+#    return parent[v]
 
-def union(a,b):
-    a = find(a)
-    b = find(b)
+#def union(a,b):
+#    a = find(a)
+#    b = find(b)
+#    
+#    if a==b:
+#        return
+#    
+#    if rank[a] < rank[b]:
+#        parent[a] = b
+#    else:
+#        parent[b] = a
+#        if rank[a] == rank[b]:
+#            rank[a] += 1
+#       
+#for i in range(n):
+#    for j in range(n):
+#        if graph[i][j] == 1:
+#            union(i+1,j+1)
+
+#root = parent[check[0]]
+#for x in check[1:]:
+#    if parent[x] != root:
+#        print('NO')
+#        exit()
+
+#print('YES')
+
+#4195
+#import sys
+#input = sys.stdin.readline
+
+#t = int(input())
+
+#for _ in range(t):
+#    f = int(input())
+#    d = {}
+#    idx = 1
+#    parent = [i for i in range(2*f+1)]
+#    size = [1] * (2*f+1)
+#    
+#    def find(a):
+#        if parent[a] != a:
+#            parent[a] = find(parent[a])
+#        return parent[a]
+#    
+#    def union(a,b):
+#        a=find(a)
+#        b=find(b)
+#        
+#        if a==b:
+#            return size[a]
+#        
+#        if size[a] < size[b]:
+#            parent[a] = b
+#            size[b] += size[a]
+#            return size[b]
+#        else:
+#            parent[b] = a
+#            size[a] += size[b]
+#            return size[a]    
+#    
+#    for _ in range(f):
+#        arr = list(map(str, input().split()))
+#        
+#        for x in arr:
+#            if x in d:
+#                continue
+#            d[x] = idx
+#            idx += 1
+#        
+#        a= d[arr[0]]
+#        b= d[arr[1]]
+#        
+#        ans = union(a,b)
+#        print(ans)
+#        
+        
+        
     
-    if a==b:
-        return
-    
-    if rank[a] < rank[b]:
-        parent[a] = b
-    else:
-        parent[b] = a
-        if rank[a] == rank[b]:
-            rank[a] += 1
-       
-for i in range(n):
-    for j in range(n):
-        if graph[i][j] == 1:
-            union(i+1,j+1)
-
-root = parent[check[0]]
-for x in check[1:]:
-    if parent[x] != root:
-        print('NO')
-        exit()
-
-print('YES')
