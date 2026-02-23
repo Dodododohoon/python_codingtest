@@ -229,6 +229,25 @@
 #    
 #print(hq[0])
 
+#2696
+import sys
+import heapq
+input = sys.stdin.readline
 
-
-
+t = int(input())
+for _ in range(t):
+    hq_left = []
+    hq_right = []
+    
+    m = int(input())
+    line = m // 10 +1
+    for i in range(line):
+        arr = list(map(int,input().split()))
+        
+        if i==0:
+            heapq.heappush(hq_right,(abs(arr[0]), arr[0]))
+        else:
+            for j in range(10):
+                if hq_right[]
+        
+        
