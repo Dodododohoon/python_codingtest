@@ -227,3 +227,161 @@
 #         else:
 #             r = y
 #             c = x
+
+# # 1764 - 듣보잡
+# import sys
+
+# input = sys.stdin.readline
+
+# n, m = map(int, input().split())
+
+# arr_n = set([input().strip() for _ in range(n)])
+# arr_m = set([input().strip() for _ in range(m)])
+# ans = []
+# cnt = 0
+
+# for x in arr_n:
+#     if x in arr_m:
+#         cnt += 1
+#         ans.append(x)
+
+# print(cnt)
+# ans.sort()
+# print("\n".join(ans))
+
+# # 10816
+# import sys
+
+# input = sys.stdin.readline
+
+# n = int(input())
+# arr = list(map(int, input().split()))
+# m = int(input())
+# check = list(map(int, input().split()))
+
+# d = dict()
+
+# for x in arr:
+#     if x in d:
+#         d[x] += 1
+#     else:
+#         d[x] = 1
+
+
+# for x in check:
+#     if x in d:
+#         print(d[x], end=" ")
+#     else:
+#         print("0", end=" ")
+
+# # 9012
+# import sys
+
+# input = sys.stdin.readline
+
+# t = int(input())
+
+# for _ in range(t):
+#     arr = input().strip()
+#     if arr[0] == ")":
+#         print("NO")
+#         continue
+#     if arr[-1] == "(":
+#         print("NO")
+#         continue
+
+#     cnt = 0
+
+#     for x in arr:
+#         if x == "(":
+#             cnt += 1
+#         else:
+#             cnt -= 1
+
+#         if cnt < 0:
+#             break
+
+#     if cnt == 0:
+#         print("YES")
+#     else:
+#         print("NO")
+
+# 2579
+# import sys
+
+# input = sys.stdin.readline
+
+# n = int(input())
+
+# arr = [0] + [int(input()) for _ in range(n)]
+
+# dp = [0] * (n + 1)
+
+# dp[0] = 0
+# dp[1] = arr[1]
+# if n>=2:
+#   dp[2] = arr[1] + arr[2]
+
+# for i in range(3, n + 1):
+#     dp[i] = max(arr[i - 1] + dp[i - 3], dp[i - 2]) + arr[i]
+
+# print(dp[n])
+
+# 1918 - 후위 표기식
+# import sys
+
+# input = sys.stdin.readline
+# s = input().strip()
+
+# prio = {"+": 1, "-": 1, "*": 2, "/": 2}
+
+# stack = []
+# out = []
+
+# for ch in s:
+#     if "A" <= ch <= "Z":
+#         out.append(ch)
+#     elif ch == "(":
+#         stack.append(ch)
+#     elif ch == ")":
+#         while stack and stack[-1] != "(":
+#             out.append(stack.pop())
+#         stack.pop()
+#     else:
+#         while stack and stack[-1] != "(" and prio[stack[-1]] >= prio[ch]:
+#             out.append(stack.pop())
+#         stack.append(ch)
+
+# while stack:      #남은 애들 처리.
+#     out.append(stack.pop())
+
+# print("".join(out))
+
+# import sys
+# input = sys.stdin.readline
+
+# prio = {'+':1, '-':1, '*':2, '/':2}
+
+# arr = input().strip()
+
+# stack=[]
+# out=[]
+
+# for x in arr:
+#   if 'A' <= x <='Z':
+#     out.append(x)
+#   elif x =='(':
+#     stack.append(x)
+#   elif x==')':
+#     while stack and stack[-1] != '(':
+#       out.append(stack.pop())
+#     stack.pop()
+#   else:
+#     while stack and stack[-1] != '(' and prio[stack[-1]] >= prio[x]:
+#       out.append(stack.pop())
+#     stack.append(x)
+
+# while stack:
+#   out.append(stack.pop())
+
+# print(''.join(out))

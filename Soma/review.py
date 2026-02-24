@@ -359,3 +359,79 @@
 #        print('NO')
 #        exit()
 # print('YES')
+
+# 14502
+# import sys
+# from collections import deque
+
+# input = sys.stdin.readline
+
+# n, m = map(int, input().split())
+
+# arr = [list(map(int, input().split())) for _ in range(n)]
+
+
+# def bfs(r1, c1, r2, c2, r3, c3):
+#     temp = [list(arr[i]) for i in range(n)]
+#     q = deque()
+#     temp[r1][c1] = 1
+#     temp[r2][c2] = 1
+#     temp[r3][c3] = 1
+#     cnt = 0
+
+#     dx = [1, -1, 0, 0]
+#     dy = [0, 0, 1, -1]
+
+#     for i in range(n):
+#         for j in range(m):
+#             if temp[i][j] == 2:
+#                 q.append((i, j))
+
+#     while q:
+#         row, col = q.popleft()
+
+#         for i in range(4):
+#             x = col + dx[i]
+#             y = row + dy[i]
+
+#             if 0 <= x < m and 0 <= y < n and temp[y][x] == 0:
+#                 temp[y][x] = 2
+#                 q.append((y, x))
+
+#     for i in range(n):
+#         for j in range(m):
+#             if temp[i][j] == 0:
+#                 cnt += 1
+#     return cnt
+
+
+# ans = 0
+
+# for i in range(n * m - 2):
+#     row_i, col_i = i // m, i % m
+#     if arr[row_i][col_i] != 0:
+#         continue
+#     for j in range(i + 1, n * m - 1):
+#         row_j, col_j = j // m, j % m
+#         if arr[row_j][col_j] != 0:
+#             continue
+#         for k in range(j + 1, n * m):
+#             row_k, col_k = k // m, k % m
+#             if arr[row_k][col_k] != 0:
+#                 continue
+
+#             ans = max(ans, bfs(row_i, col_i, row_j, col_j, row_k, col_k))
+
+# print(ans)
+
+# 14503
+import sys
+
+input = sys.stdin.readline
+
+n, m = map(int, input().split())
+r, c, d = map(int, input().split())
+graph = [list(map(int, input().split())) for _ in range(m)]
+
+dx = [0, 1, 0, -1]
+dy = [1, 0, -1, 0]
