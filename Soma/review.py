@@ -425,13 +425,138 @@
 # print(ans)
 
 # 14503
-import sys
+# import sys
 
-input = sys.stdin.readline
+# input = sys.stdin.readline
 
-n, m = map(int, input().split())
-r, c, d = map(int, input().split())
-graph = [list(map(int, input().split())) for _ in range(m)]
+# n, m = map(int, input().split())
+# r, c, d = map(int, input().split())
+# graph = [list(map(int, input().split())) for _ in range(n)]
 
-dx = [0, 1, 0, -1]
-dy = [1, 0, -1, 0]
+# dx = [0, 1, 0, -1]
+# dy = [-1, 0, 1, 0]
+# cnt = 0
+
+# while True:
+#     check = 0
+#     if graph[r][c] == 0:  # 1
+#         graph[r][c] = 2
+#         cnt += 1
+
+#     for i in range(4):
+#         nx = c + dx[i]
+#         ny = r + dy[i]
+
+#         if 0 <= nx < m and 0 <= ny < n and graph[ny][nx] == 0:
+#             check = 1
+#             break
+
+#     if check == 1:  # 3
+#         for i in range(4):
+#             d = (d + 3) % 4
+#             x = c + dx[d]
+#             y = r + dy[d]
+#             if graph[y][x] == 0:
+#                 c = x
+#                 r = y
+#                 break
+
+#     if check == 0:  # 2
+#         c = c - dx[d]
+#         r = r - dy[d]
+#         if graph[r][c] == 1:
+#             print(cnt)
+#             exit()
+
+# 2667
+# import sys
+# from collections import deque
+
+# input = sys.stdin.readline
+
+# n = int(input())
+# graph = [list(map(int, input().strip())) for _ in range(n)]
+
+# out = []
+
+# dx = [1, -1, 0, 0]
+# dy = [0, 0, 1, -1]
+
+
+# def bfs(row, col):
+#     q = deque([(row, col)])
+#     graph[row][col] = 0
+#     cnt = 1
+#     while q:
+#         r, c = q.popleft()
+
+#         for i in range(4):
+#             nr = r + dy[i]
+#             nc = c + dx[i]
+#             if 0 <= nr < n and 0 <= nc < n and graph[nr][nc] == 1:
+#                 graph[nr][nc] = 0
+#                 cnt += 1
+#                 q.append((nr, nc))
+#     out.append(cnt)
+
+
+# for i in range(n):
+#     for j in range(n):
+#         if graph[i][j] == 1:
+#             bfs(i, j)
+
+# out.sort()
+# print(len(out))
+# print("\n".join(map(str, out)))
+
+# 1918
+# import sys
+# input = sys.stdin.readline
+
+# s = input().strip()
+
+# prio ={'+':1, '-':1, '*':2, '/':2}
+
+# stack = []
+# out=[]
+
+# for x in s:
+#   if 'A'<= x <='Z':
+#     out.append(x)
+#   elif x=='(':
+#     stack.append(x)
+#   elif x==')':
+#     while stack[-1] != '(':
+#       out.append(stack.pop())
+#     stack.pop()
+#   else:
+#     while stack and stack[-1] != '(' and prio[stack[-1]] >= prio[x]:
+#       out.append(stack.pop())
+#     stack.append(x)
+
+# while stack:
+#   out.append(stack.pop())
+
+# print(''.join(out))
+
+# 11052
+# import sys
+# input = sys.stdin.readline
+
+# n = int(input())
+# arr = list(map(int,input().split()))
+
+# dp = [0] * (n+1)
+
+# dp[1] = arr[0]
+# if n==1:
+#   print(dp[1])
+#   exit()
+
+# for i in range(n+1):
+#   for j in range(i):
+#     dp[i] = max(dp[i], dp[j]+arr[i-j-1])
+
+# print(dp[n])
+
+#
