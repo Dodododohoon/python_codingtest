@@ -316,3 +316,178 @@
 #   heapq.heappush(arr, s)
 
 # print(total)
+
+# 1475
+# import sys
+# input = sys.stdin.readline
+
+# li = list(map(int, input().strip()))
+
+# d=dict()
+# for i in range(9):
+#   d[i]=0
+
+# for x in li:
+#   if x==9:
+#     d[6] +=1
+#     continue
+#   d[x] += 1
+
+# num =0
+
+# for x in d:
+#   if x ==6:
+#     if d[x] %2 ==0:
+#       num = max(num, d[x]//2)
+#     else:
+#       num = max(num, d[x]//2+1)
+#     continue
+#   num = max(num, d[x])
+
+# print(num)
+
+# #4949
+# import sys
+# input = sys.stdin.readline
+
+
+# while True:
+#   stack = []
+#   s = input()
+#   if s[0] == '.':
+#     break
+#   wrong = False
+
+#   for ch in s:
+#     if ch == '(' or ch=='[':
+#       stack.append(ch)
+#     elif ch == ')':
+#       if stack and stack[-1] =='(':
+#         stack.pop()
+#       else:
+#         wrong = True
+#         break
+#     elif ch ==']':
+#       if stack and stack[-1] =='[':
+#         stack.pop()
+#       else:
+#         wrong = True
+#         break
+
+#   if not wrong and not stack:
+#     print('yes')
+#   else:
+#     print('no')
+
+# 1697
+# import sys
+# from collections import deque
+
+# input = sys.stdin.readline
+
+# n, k =map(int,input().split())
+
+# MAX = 100001
+# dp = [-1] * (MAX)
+# dp[n] =0
+
+# q = deque([(0,n)])
+# while q:
+#   time, loc = q.popleft()
+
+#   if loc == k:
+#     break
+
+#   nxt = loc + 1
+#   if 0<= nxt < MAX and dp[nxt] == -1:
+#     dp[nxt] = time + 1
+#     q.append((time+1, nxt))
+
+#   nxt = loc - 1
+#   if 0<= nxt < MAX and dp[nxt] == -1:
+#     dp[nxt] = time + 1
+#     q.append((time+1, nxt))
+
+#   nxt = 2*loc
+#   if 0<= nxt < MAX and dp[nxt] == -1:
+#     dp[nxt] = time + 1
+#     q.append((time+1, nxt))
+
+# print(dp[k])
+
+# 2110
+# import sys
+# input = sys.stdin.readline
+
+# n,c = map(int,input().split())
+# house = [int(input()) for _ in range(n)]
+# house.sort()
+
+# left = 1
+# right = house[-1] - house[0]
+# ans = 0
+
+# while left<=right:
+#   mid = (left+ right)//2
+
+#   cnt = 1
+#   last = house[0]
+
+#   for i in range(1,n):
+#     if house[i] - last >= mid:
+#       last = house[i]
+#       cnt +=1
+
+#   if cnt >= c:
+#     ans = mid
+#     left = mid +1
+#   else:
+#     right = mid - 1
+
+# print(ans)
+
+# #1978
+# import sys
+# input = sys.stdin.readline
+
+# n = int(input())
+# arr = list(map(int,input().split()))
+
+# def is_prime(k):
+#   if k==1:
+#     return False
+#   if k==2 or k==3:
+#     return True
+
+#   for i in range(2,int(k**(0.5))+1):
+#     if k%i ==0:
+#       return False
+
+#   return True
+
+# cnt = 0
+# for x in arr:
+#   if is_prime(x):
+#     cnt+=1
+
+# print(cnt)
+
+
+# 11286
+# import sys
+# import heapq
+# input = sys.stdin.readline
+
+# n = int(input())
+# hq = []
+
+# for _ in range(n):
+#   x = int(input())
+
+#   if x==0:
+#     if hq:
+#       print(heapq.heappop(hq)[1])
+#     else:
+#       print('0')
+#   else:
+#     heapq.heappush(hq, (abs(x),x))

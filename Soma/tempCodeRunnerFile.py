@@ -1,13 +1,29 @@
-#1715
+#1918
 import sys
 input = sys.stdin.readline
 
-n = int(input())
-arr = [int(input()) for _ in range(n)]
+s = input().strip()
 
-sum = arr[0] + arr[1]
-for x in arr[2:]:
-  total = sum + x
-  sum += total
+stack = []
+out = []
 
-print(sum)
+prio = {'+': 1, '-':1, '*':2, '/':2}
+
+for ch in s:
+  if 'A' <= ch <= 'Z':
+    out.append(ch)
+  elif ch == '(':
+    stack.append(ch)
+  elif ch == ')':
+    while stack and stack[-1] != '(':
+      out.append(stack.pop())
+    stack.pop()
+  else:
+    while stack and stack[-1] !='(' and prio[stack[-1]] >= prio[ch]:
+      out.append(stack.pop())
+    stack.append(ch)
+
+while stack:
+  out.append(stack.pop())
+
+print(''.join(out))
