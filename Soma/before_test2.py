@@ -140,7 +140,7 @@
 
 # print(ans)
 
-# 1806
+# 1806    - 투포인터
 # import sys
 # input = sys.stdin.readline
 
@@ -292,3 +292,338 @@
 #       heapq.heappush(hq,(nd,nxt))
 
 # print(dist[end])
+
+# 1644  - 투포인터, 소수
+# import sys
+
+# input = sys.stdin.readline
+
+# n = int(input())
+
+# is_prime = [True] * (n + 1)
+
+# is_prime[0] = False
+# is_prime[1] = False
+
+# p = 2
+# while p * p <= n:
+#     if is_prime[p]:
+#         step = p
+#         start = p * p  # p*p-1은 이미 전에서 지워짐. ex. 5*3은 3일때 이미 없어짐.
+#         for i in range(start, n + 1, step):
+#             is_prime[i] = False
+#         # is_prime[start:n+1:step] = [False] * (((n - start) // step) + 1) 훨씬 빠르긴 함.
+#     p += 1
+
+# prime = []
+# for i in range(2, n + 1):
+#     if is_prime[i]:
+#         prime.append(i)
+
+# cnt = 0
+# total = 0
+# left = 0
+
+# for right in range(len(prime)):
+#     total += prime[right]
+#     while total >= n:
+#         if total == n:
+#             cnt += 1
+#         total -= prime[left]
+#         left += 1
+
+# print(cnt)
+# -----------------
+# s = set(i for i in range(3, n + 1, 2))
+# s.add(2)
+
+# for i in range(3, n + 1, 2):
+#     if i in s:
+#         num = 0
+#         k = 2
+#         while num <= n:
+#             num = i * k
+#             if num in s:
+#                 s.remove(num)
+#             k += 1
+
+# li = list(s)
+# li.sort()
+
+# cnt = 0
+# total = 0
+# left = 0
+
+# for right in range(len(li)):
+#     total += li[right]
+#     while total >= n:
+#         if total == n:
+#             cnt += 1
+#         total -= li[left]
+#         left += 1
+
+# print(cnt)
+
+# 2206 - bfs
+# import sys
+# from collections import deque
+# input = sys.stdin.readline
+
+# n,m = map(int,input().split())
+
+# graph = [list(map(int, input().strip())) for _ in range(n)]
+# dist = [[[0]*2 for _ in range(m)] for _ in range(n)]
+# #벽을 뚫고 해당지점에 먼저 도착한 애보다
+# #아직 벽을 안 뚫고 해당지점에 도착한 애가 더 빠를 수 있음. 아직 벽을 뚫을 수 있으니.
+# dist[0][0][0]=1
+
+# dr = [1,-1,0,0]
+# dc = [0,0,1,-1]
+
+# q=deque([(0,0,0)])
+
+# while q:
+#   row, col, brk = q.popleft()
+
+#   if row == n-1 and col ==m-1:
+#     print(dist[row][col][brk])
+#     exit()
+
+#   for i in range(4):
+#     nr = row + dr[i]
+#     nc = col + dc[i]
+
+#     if not (0<= nr <n and 0<=nc<m):
+#       continue
+
+#     if graph[nr][nc] ==0 and dist[nr][nc][brk] ==0:  #다음칸 빈칸일 때
+#       dist[nr][nc][brk] = dist[row][col][brk] + 1
+#       q.append((nr,nc,brk))
+
+#     elif graph[nr][nc] ==1 and dist[nr][nc][1] ==0 and brk ==0:
+#       #다음칸 벽일때 아직 안뚫었고, 이미 한번 뚫은애가 안 지나갔으면
+#       dist[nr][nc][1] = dist[row][col][brk] + 1
+#       q.append((nr,nc,1))
+
+# print('-1')
+
+# 10986  - prefix, dict
+# import sys
+# input =sys.stdin.readline
+
+# n,m = map(int, input().split())
+# arr = list(map(int,input().split()))
+
+# prefix = [0] * (n+1)
+
+# for i in range(1,n+1):
+#   prefix[i] = (prefix[i-1]+arr[i-1])%m
+
+# cnt=0
+# d = {}
+
+# for x in prefix[1:]:
+#   if x in d:
+#     d[x] +=1
+#   else:
+#     d[x] = 1
+
+# for x in d:
+#   if x==0:
+#     cnt += ((d[x])*(d[x]+1))//2
+#   else:
+#     cnt += ((d[x])*(d[x]-1))//2
+
+# print(cnt)
+# for i in range(1,n+1):
+#   for j in range(i):
+#     if prefix[i]-prefix[j] ==0:
+#       cnt +=1
+
+
+# 1629 - divide & conquer
+# import sys
+# sys.setrecursionlimit(10**9)
+# input = sys.stdin.readline
+
+# a,b,c = map(int,input().split())
+# # (a*a)mod c = ((a mod c) * (a mod c) mod c)
+
+# def dc(a,b,c):
+#   if b==1:
+#     return a%c
+#   elif b%2==0:
+#     return (dc(a,b//2,c)**2)%c
+#   else:
+#     return ((a%c) * ((dc(a,(b-1)//2,c)**2) %c))%c
+
+# print(dc(a,b,c))
+
+# #2293 - dp
+# import sys
+# input = sys.stdin.readline
+
+# n,k = map(int,input().split())
+# coins = [int(input()) for _ in range(n)]
+
+# dp = [0]*(k+1)
+# dp[0] = 1
+
+# for coin in coins:
+#   for i in range(coin,k+1):
+#     dp[i] += dp[i-coin]
+
+# print(dp[k])
+
+# 1806 - 투포인터, 슬라이딩 윈도우
+# import sys
+# input =sys.stdin.readline
+# MAX = 100000
+
+# n,s = map(int,input().split())
+# arr = list(map(int,input().split()))
+
+# cnt = 0
+# total = 0
+# j=0
+# ans = MAX
+
+# for i in range(n):
+#   total += arr[i]
+#   cnt+=1
+#   while total >=s:
+#     ans=min(ans,cnt)
+#     total -= arr[j]
+#     j+=1
+#     cnt-=1
+
+# if ans == MAX:
+#   print('0')
+# else:
+#   print(ans)
+
+# #2225 - dp
+# import sys
+# input =sys.stdin.readline
+
+# n,k = map(int,input().split())
+
+# dp = [[0]*(k+1) for _ in range(n+1)]
+
+# for i in range(k+1):
+#   dp[0][i]=1
+# for j in range(n+1):
+#   dp[j][1]=1
+
+# for i in range(1,n+1):
+#   for j in range(2,k+1):
+#     dp[i][j] = (dp[i][j-1] + dp[i-1][j])%1000000000
+
+# print(dp[n][k]%1000000000)
+
+# # #11053
+# import sys
+# import bisect
+# input = sys.stdin.readline
+
+# n = int(input())
+# arr = list(map(int,input().split()))
+
+# lis = []
+
+# for x in arr:
+#   pos = bisect.bisect_left(lis,x)
+
+#   if pos == len(lis):
+#     lis.append(x)
+#   else:
+#     lis[pos] = x
+
+# print(len(lis))
+
+# dp = [1]*(n+1)
+
+# for i in range(1,n+1):
+#   for j in range(1, i):
+#     if arr[j-1] < arr[i-1]:
+#       dp[i] = max(dp[i], dp[j]+1)
+
+# print(max(dp))
+
+# 1647 - MST
+# import sys
+# input = sys.stdin.readline
+
+# n,m = map(int,input().split())
+
+# arr = [list(map(int,input().split())) for _ in range(m)]
+# arr.sort(key=lambda x:x[2])
+
+# parent = [i for i in range(n+1)]
+
+# def find(s):
+#   if s != parent[s]:
+#     parent[s] = find(parent[s])
+#   return parent[s]
+
+# cnt = 0
+# total = 0
+
+# for x in arr:
+#   a,b,c = x[0], x[1], x[2]
+
+#   a=find(a)
+#   b=find(b)
+
+#   if a==b:
+#     continue
+
+#   parent[b] = a
+#   cnt +=1
+#   total +=c
+
+#   if cnt == n-1:
+#     total -=c
+#     print(total)
+#     break
+
+# #1976
+# import sys
+# input = sys.stdin.readline
+
+# n = int(input())
+# m = int(input())
+# arr = [list(map(int,input().split())) for _ in range(n)]
+# check = list(map(int,input().split()))
+
+# parent=[i for i in range(n+1)]
+
+# def find(a):
+#   if a != parent[a]:
+#     parent[a] = find(parent[a])
+#   return parent[a]
+
+# def union(a,b):
+#   a= find(a)
+#   b = find(b)
+
+#   if a==b:
+#     return
+#   parent[b] = a
+
+# for i in range(n):
+#   for j in range(n):
+#     if i==j:
+#       continue
+#     if arr[i][j] ==1:
+#       union(i+1,j+1)
+
+# for i in range(m):
+#   check[i] = find(check[i])
+
+# s = set(check)
+
+# if len(s) ==1:
+#   print('YES')
+# else:
+#   print('NO')
