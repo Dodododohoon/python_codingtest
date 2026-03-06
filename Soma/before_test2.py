@@ -627,3 +627,106 @@
 #   print('YES')
 # else:
 #   print('NO')
+
+#2696
+# import sys
+# import heapq
+# input = sys.stdin.readline
+
+# t = int(input())
+# for _ in range(t):
+#   m = int(input())
+
+#   arr=[]
+#   for _ in range(m//10+1):
+#     tmp = list(map(int,input().split()))
+#     arr+=tmp
+  
+#   right = []  #오름차순. 여기에 중앙값
+#   left = []  #내림차순
+#   out=[]
+
+#   for i in range(m):
+#     if i==0:
+#       heapq.heappush(right,arr[i])
+#       out.append(right[0])
+#       continue
+
+#     if arr[i] > right[0]:
+#       heapq.heappush(right,arr[i])
+#     else:
+#       heapq.heappush(left,-arr[i])
+    
+#     l = len(left)
+#     r = len(right)
+#     if l > r:   # left가 right보다 길거나 같으면 l->r
+#       heapq.heappush(right,-heapq.heappop(left)) 
+#     elif l+1 <r:  #right가 left 1더한거보다 크다면. r->l
+#       heapq.heappush(left,-heapq.heappop(right)) 
+
+    
+#     if i%2 ==0:
+#       out.append(right[0])
+
+#   print(len(out))
+#   for i in range(len(out)):
+#     if i !=0 and (i)%10==0:
+#       print()
+#     print(out[i],end=' ')
+
+#1654
+# import sys
+# input = sys.stdin.readline
+
+# k,n = map(int,input().split())
+
+# arr = [int(input()) for _ in range(k)]
+# arr.sort()
+
+# left = 1
+# right = arr[-1]
+# ans = 0
+
+# while left <= right:
+#   mid = (left + right)//2
+#   cnt = 0
+#   for x in arr:
+#     cnt += x // mid
+
+#   if cnt >= n :
+#     ans = mid
+#     left = mid +1
+#   else:
+#     right = mid -1
+
+# print(ans)
+
+# #2805
+# import sys
+# input = sys.stdin.readline
+
+# n,m = map(int,input().split())
+# arr = list(map(int,input().split()))
+
+# left = 0
+# right = max(arr)
+# ans = 0
+
+# while left <= right:
+#   mid = (left + right)//2
+#   total = 0
+
+#   for x in arr:
+#     if x>mid:
+#       total+=x-mid
+  
+#   if total == m:
+#     ans=mid
+#     break
+#   elif total > m:
+#     ans=mid
+#     left = mid+1
+#   else:
+#     right = mid-1
+
+# print(ans)
